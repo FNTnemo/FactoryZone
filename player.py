@@ -1,4 +1,5 @@
 import pygame.sprite
+
 from main_settings import *
 
 class Player():
@@ -8,6 +9,8 @@ class Player():
         self.velocity = 6
         self.directional = pygame.math.Vector2(0, 0)
 
+        self.selected_structure_type = "empty"
+
     def update(self):
         self.movement()
 
@@ -15,24 +18,24 @@ class Player():
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
             self.directional.y = 1
+            self.rect.y -= self.velocity
             if self.map_collide_check():
                 self.rect.y += self.velocity
-            self.rect.y -= self.velocity
         if keys[pygame.K_s]:
             self.directional.y = -1
+            self.rect.y += self.velocity
             if self.map_collide_check():
                 self.rect.y -= self.velocity
-            self.rect.y += self.velocity
         if keys[pygame.K_a]:
             self.directional.x = 1
-            if self.map_collide_check():
-                self.rect.y += self.velocity
             self.rect.x -= self.velocity
+            if self.map_collide_check():
+                self.rect.x += self.velocity
         if keys[pygame.K_d]:
             self.directional.x = -1
+            self.rect.x += self.velocity
             if self.map_collide_check():
                 self.rect.x -= self.velocity
-            self.rect.x += self.velocity
 
     def map_collide_check(self):
         from map import map_cells

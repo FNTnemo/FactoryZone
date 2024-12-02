@@ -1,6 +1,6 @@
 import pygame
 
-from player import camera
+from player import camera, player
 
 map1 = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -38,14 +38,19 @@ loaded_map = []
 cell_images = {"empty": pygame.image.load("images/cells/empty_cell.png").convert_alpha(),
           "selected": pygame.image.load("images/cells/selected_cell.png").convert_alpha(),
           "red-border": pygame.image.load("images/cells/border_cell.png").convert_alpha(),
-          "iron-drill": pygame.image.load("images/cells/iron_drill_cell.png").convert_alpha()}
-#can_select, can_build, player_collide
-cell_types = {"empty": ["empty", True, True, False],
-              "red-border": ["red-border", False, False, True],
-              "iron-drill": ["iron-drill", True, True, True]}
+          "drill": pygame.image.load("images/cells/drill_cell.png").convert_alpha()}
+#can_select, can_build, player_collide, layer
+cell_types = {"empty": ["empty", True, True, False, 1],
+              "red-border": ["red-border", False, False, True, 1],
+              "drill": ["drill", True, True, False, 2],
+              "selected": ["selected", False, False, False, 3]}
 
 map_cell_size = 64
+
 map_cells = []
+build_cells = []
+
+selected_cells = []
 
 class Cell(pygame.sprite.Sprite):
     def __init__(self, type, image, x, y):
@@ -60,23 +65,24 @@ class Cell(pygame.sprite.Sprite):
         self.can_be_selected = type[1]
         self.can_build = type[2]
         self.collide = type[3]
+        self.layer = type[4]
 
         #animation
         self.destroy_delay_start = 100
         self.destroy_delay = self.destroy_delay_start
 
     def update(self):
-        m_keys = pygame.mouse.get_pressed()
         self.check_select(pygame.Rect(self.rect.x - camera.offset.x, self.rect.y - camera.offset.y, map_cell_size, map_cell_size))
         if self.can_build and self.selected:
-            if m_keys[0]:
-                self.build("iron-drill")
-            if m_keys[2]:
-                self.destroy()
+            mouse_keys = pygame.mouse.get_pressed()
+            if mouse_keys[0] and self.layer == 1 and player.selected_structure_type != "empty":
+                self.build(player.selected_structure_type)
+            if mouse_keys[2]:
+                for cell in build_cells:
+                    if cell.rect.x == self.rect.x and cell.rect.y == self.rect.y:
+                        cell.destroy()
         if self.selected:
-            self.image = cell_images["selected"]
-        else:
-            self.image = self.image0
+            selected_cells.append(Cell(cell_types["selected"], cell_images["selected"], self.rect.x, self.rect.y))
 
     def check_select(self, rect):
         mouse_pos_x, mouse_pos_y = pygame.mouse.get_pos()
@@ -88,12 +94,12 @@ class Cell(pygame.sprite.Sprite):
             return False
 
     def build(self, typei):
-        map_cells.append(Cell(cell_types[typei], cell_images[typei], self.rect.x, self.rect.y))
-        map_cells.remove(self)
+        build_cells.append(Cell(cell_types[typei], cell_images[typei], self.rect.x, self.rect.y))
+        #map_cells.remove(self)
 
     def destroy(self):
-        map_cells.append(Cell(cell_types["empty"], cell_images["empty"], self.rect.x, self.rect.y))
-        map_cells.remove(self)
+        #map_cells.append(Cell(cell_types["empty"], cell_images["empty"], self.rect.x, self.rect.y))
+        build_cells.remove(self)
 
 def load_map(mapi):
     global loaded_map
