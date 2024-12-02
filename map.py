@@ -1,6 +1,6 @@
-import pygame
+from ctypes import c_char
 
-from player import camera, player
+import pygame
 
 map1 = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -45,12 +45,13 @@ cell_types = {"empty": ["empty", True, True, False, 1],
               "drill": ["drill", True, True, False, 2],
               "selected": ["selected", False, False, False, 3]}
 
-map_cell_size = 64
+cell_size = 64
 
 map_cells = []
 build_cells = []
 
 selected_cells = []
+
 
 class Cell(pygame.sprite.Sprite):
     def __init__(self, type, image, x, y):
@@ -68,19 +69,35 @@ class Cell(pygame.sprite.Sprite):
         self.layer = type[4]
 
         #animation
-        self.destroy_delay_start = 100
-        self.destroy_delay = self.destroy_delay_start
 
     def update(self):
-        self.check_select(pygame.Rect(self.rect.x - camera.offset.x, self.rect.y - camera.offset.y, map_cell_size, map_cell_size))
+        from player import camera, player
+        mouse_keys = pygame.mouse.get_pressed()
+        self.check_select(pygame.Rect(self.rect.x - camera.offset.x, self.rect.y - camera.offset.y, cell_size, cell_size))
         if self.can_build and self.selected:
-            mouse_keys = pygame.mouse.get_pressed()
-            if mouse_keys[0] and self.layer == 1 and player.selected_structure_type != "empty":
-                self.build(player.selected_structure_type)
+            if player.selected_structure_type != "empty":
+                if player.build_delay >= 0:
+                    player.build_delay -= 1
+                if mouse_keys[0] and self.layer == 1 and player.build_delay <= 0:
+                    self.build(player.selected_structure_type.type)
+                    player.selected_structure_type.put()
+                    player.build_delay = player.build_delay_start
+            else:
+                player.build_delay = player.build_delay_start
+
+            if player.destroy_delay >= 0:
+                player.destroy_delay -= 1
             if mouse_keys[2]:
                 for cell in build_cells:
                     if cell.rect.x == self.rect.x and cell.rect.y == self.rect.y:
-                        cell.destroy()
+                        if player.destroy_delay <= 0:
+                            cell.destroy()
+                            player.destroy_delay = player.destroy_delay_start
+                            player.can_move = True
+                        else: player.can_move = False
+            else:
+                player.can_move = True
+                player.destroy_delay = player.destroy_delay_start
         if self.selected:
             selected_cells.append(Cell(cell_types["selected"], cell_images["selected"], self.rect.x, self.rect.y))
 
@@ -101,13 +118,31 @@ class Cell(pygame.sprite.Sprite):
         #map_cells.append(Cell(cell_types["empty"], cell_images["empty"], self.rect.x, self.rect.y))
         build_cells.remove(self)
 
+def get_selected_cell():
+    for cell in map_cells:
+        if cell.selected:
+            return cell
+    return None
+
+def get_cell(x, y, layer):
+    if layer == 2:
+        for cell in build_cells:
+            if cell.rect.x == x and cell.rect.y == y:
+                return cell
+        return None
+    elif layer == 1:
+        for cell in map_cells:
+            if cell.rect.x == x and cell.rect.y == y:
+                return cell
+        return None
+
 def load_map(mapi):
     global loaded_map
     loaded_map = mapi
     write_map_sells()
 
 def get_map_size(mapi):
-    return len(mapi[0]) * map_cell_size, len(mapi) * map_cell_size
+    return len(mapi[0]) * cell_size, len(mapi) * cell_size
 
 def get_map_char(mapi, x, y):
     return mapi[y][x]
@@ -117,6 +152,6 @@ def write_map_sells():
     for y in range(len(loaded_map)):
         for x in range(len(loaded_map[y])):
             if get_map_char(loaded_map, x, y) == 0:
-                map_cells.append(Cell(cell_types["empty"], cell_images["empty"], x * map_cell_size, y * map_cell_size))
+                map_cells.append(Cell(cell_types["empty"], cell_images["empty"], x * cell_size, y * cell_size))
             elif get_map_char(loaded_map, x, y) == -1:
-                map_cells.append(Cell(cell_types["red-border"], cell_images["red-border"], x * map_cell_size, y * map_cell_size))
+                map_cells.append(Cell(cell_types["red-border"], cell_images["red-border"], x * cell_size, y * cell_size))

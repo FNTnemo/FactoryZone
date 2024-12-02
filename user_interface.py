@@ -1,12 +1,14 @@
 import pygame
 
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT
-from map import cell_images, cell_types
+from map import cell_images, cell_types, cell_size
 from player import camera, player
 
 ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_alpha()}
 
 ui_elements = []
+
+open_structures = ["drill", "drill", "drill", "drill", "drill", "drill"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
@@ -44,7 +46,7 @@ class SelectableItemUI(pygame.sprite.Sprite):
         m_keys = pygame.mouse.get_pressed()
         k_keys = pygame.key.get_pressed()
 
-        if m_keys[0]:
+        if m_keys[0] and player.selected_structure_type == "empty":
             self.take()
         if k_keys[pygame.K_ESCAPE]:
             self.put()
@@ -58,7 +60,7 @@ class SelectableItemUI(pygame.sprite.Sprite):
         mouse_x, mouse_y = pygame.mouse.get_pos()
         if self.rect.collidepoint(mouse_x, mouse_y):
             self.selected = True
-            player.selected_structure_type = self.type
+            player.selected_structure_type = self
 
     def put(self):
         self.selected = False
@@ -67,6 +69,7 @@ class SelectableItemUI(pygame.sprite.Sprite):
 
 
 def base_hud_init():
-    ui_elements.append(SelectableItemUI(cell_types["drill"], (
-    WINDOW_WIDTH // 4 + camera.offset.x, WINDOW_HEIGHT - WINDOW_HEIGHT // 9 + camera.offset.y)))
+    for i in range(len(open_structures)):
+        ui_elements.append(SelectableItemUI(cell_types[open_structures[i]],
+                                            (WINDOW_WIDTH - (i + 1) * (cell_size + cell_size // 10), WINDOW_HEIGHT - WINDOW_HEIGHT // 9)))
     ui_elements.append(UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))) #vignette

@@ -57,4 +57,4 @@ while not stop:
     clock.tick(tps)  # тики в секунду
     pygame.display.flip()
 
-# :)
+# 🙂‍↕️

@@ -1,6 +1,8 @@
 import pygame.sprite
 
 from main_settings import *
+from map import get_selected_cell, build_cells, Cell, cell_types, cell_images
+
 
 class Player():
     def __init__(self, pos):
@@ -11,31 +13,51 @@ class Player():
 
         self.selected_structure_type = "empty"
 
+        self.destroy_delay_start = 40
+        self.destroy_delay = self.destroy_delay_start
+
+        self.build_delay_start = 10
+        self.build_delay = self.build_delay_start
+
+        self.can_move = True
+        self.build_flag = True
+
     def update(self):
         self.movement()
 
+    def build(self, typei):
+        cell = get_selected_cell()
+        build_cells.append(Cell(cell_types[typei], cell_images[typei], cell.x, cell.y))
+
+    def destroy(self):
+        cell = get_selected_cell()
+        for celli in build_cells:
+            if celli.rect.x == cell.rect.x and celli.rect.y == cell.rect.y:
+                build_cells.remove(celli)
+
     def movement(self):
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
-            self.directional.y = 1
-            self.rect.y -= self.velocity
-            if self.map_collide_check():
-                self.rect.y += self.velocity
-        if keys[pygame.K_s]:
-            self.directional.y = -1
-            self.rect.y += self.velocity
-            if self.map_collide_check():
+        if self.can_move:
+            if keys[pygame.K_w]:
+                self.directional.y = 1
                 self.rect.y -= self.velocity
-        if keys[pygame.K_a]:
-            self.directional.x = 1
-            self.rect.x -= self.velocity
-            if self.map_collide_check():
-                self.rect.x += self.velocity
-        if keys[pygame.K_d]:
-            self.directional.x = -1
-            self.rect.x += self.velocity
-            if self.map_collide_check():
+                if self.map_collide_check():
+                    self.rect.y += self.velocity
+            if keys[pygame.K_s]:
+                self.directional.y = -1
+                self.rect.y += self.velocity
+                if self.map_collide_check():
+                    self.rect.y -= self.velocity
+            if keys[pygame.K_a]:
+                self.directional.x = 1
                 self.rect.x -= self.velocity
+                if self.map_collide_check():
+                    self.rect.x += self.velocity
+            if keys[pygame.K_d]:
+                self.directional.x = -1
+                self.rect.x += self.velocity
+                if self.map_collide_check():
+                    self.rect.x -= self.velocity
 
     def map_collide_check(self):
         from map import map_cells
