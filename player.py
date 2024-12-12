@@ -1,7 +1,7 @@
 import pygame.sprite
 
 from main_settings import *
-from map import get_selected_cell, build_cells, Cell, cell_types, cell_images
+from map import get_selected_cell, build_cells, Cell, cell_types, cell_images, cell_size
 
 
 class Player():
@@ -24,16 +24,6 @@ class Player():
 
     def update(self):
         self.movement()
-
-    def build(self, typei):
-        cell = get_selected_cell()
-        build_cells.append(Cell(cell_types[typei], cell_images[typei], cell.x, cell.y))
-
-    def destroy(self):
-        cell = get_selected_cell()
-        for celli in build_cells:
-            if celli.rect.x == cell.rect.x and celli.rect.y == cell.rect.y:
-                build_cells.remove(celli)
 
     def movement(self):
         keys = pygame.key.get_pressed()

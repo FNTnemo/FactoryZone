@@ -8,7 +8,7 @@ ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_al
 
 ui_elements = []
 
-open_structures = ["drill", "drill", "drill", "drill", "drill", "drill"]
+open_structures = ["drill", "smallter-base", "conveyor-up", "conveyor-rotate-right"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
@@ -71,5 +71,5 @@ class SelectableItemUI(pygame.sprite.Sprite):
 def base_hud_init():
     for i in range(len(open_structures)):
         ui_elements.append(SelectableItemUI(cell_types[open_structures[i]],
-                                            (WINDOW_WIDTH - (i + 1) * (cell_size + cell_size // 10), WINDOW_HEIGHT - WINDOW_HEIGHT // 9)))
+                                            (10 + i * (cell_size + cell_size // 10), WINDOW_HEIGHT - WINDOW_HEIGHT // 9)))
     ui_elements.append(UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))) #vignette
