@@ -7,6 +7,7 @@ pygame.display.set_caption("FactoryZone")
 scr = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
+from items import items
 from map import load_map, map1, map_cells, map2, build_cells, selected_cells
 from player import player, camera
 from user_interface import ui_elements, base_hud_init
@@ -17,8 +18,9 @@ base_hud_init()
 load_map(map1)
 
 def rendering(screen):
-    draw_queue = [map_cells] + [build_cells] + [selected_cells]
+    draw_queue = [map_cells + build_cells + items + selected_cells]
     #rendering
+
     for arrays in draw_queue:
         for obj in arrays:
             screen.blit(obj.image, (obj.rect.x - camera.offset.x, obj.rect.y - camera.offset.y))
@@ -46,12 +48,14 @@ while not stop:
         ui_element.update()
     for cell in map_cells:
         cell.update()
+    for cell in build_cells:
+        cell.update()
+    for item in items:
+        item.update()
 
     ###
-    if keys[pygame.K_q]:
-        load_map(map2)
-
     ###
+
     rendering(scr)
 
     clock.tick(tps)  # тики в секунду

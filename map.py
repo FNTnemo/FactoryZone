@@ -40,14 +40,28 @@ cell_images = {"empty": pygame.image.load("images/cells/empty_cell.png").convert
                "border-red": pygame.image.load("images/cells/border_cell.png").convert_alpha(),
                "drill": pygame.image.load("images/cells/drill_cell.png").convert_alpha(),
                "smallter-base": pygame.image.load("images/cells/builds/smallter.png").convert_alpha(),
-               "conveyor-up": pygame.image.load('images/cells/builds/conveyor_up.png').convert_alpha(),
-               "conveyor-down": pygame.transform.flip(pygame.image.load('images/cells/builds/conveyor_up.png').convert_alpha(), False, True),
-               "conveyor-right": pygame.transform.rotate(pygame.image.load("images/cells/builds/conveyor_up.png").convert_alpha(), -90),
-               "conveyor-left": pygame.transform.rotate(pygame.image.load('images/cells/builds/conveyor_up.png').convert_alpha(), 90),
-               "conveyor-rotate-right": pygame.image.load("images/cells/builds/conveyor_right.png").convert_alpha(),
-               "ore-iron": pygame.image.load("images/cells/ores/iron_ore.png").convert_alpha()}
+               "conveyor-up": pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(),
+               "conveyor-down": pygame.transform.flip(pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(), False, True),
+               "conveyor-right": pygame.transform.rotate(pygame.image.load("images/cells/builds/conveyor.png").convert_alpha(), -90),
+               "conveyor-left": pygame.transform.rotate(pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(), 90),
+               "conveyor-rotate-up-right": pygame.image.load("images/cells/builds/conveyor_rotate_up.png").convert_alpha(),
+               "conveyor-rotate-right-up": pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_down.png").convert_alpha(), True, True),
+               "conveyor-rotate-right-down": pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_down.png").convert_alpha(), True, False),
+               "conveyor-rotate-down-right": pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_up.png").convert_alpha(), False, True),
+               "conveyor-rotate-down-left": pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_up.png").convert_alpha(), True, True),
+               "conveyor-rotate-left-down": pygame.image.load("images/cells/builds/conveyor_rotate_down.png").convert_alpha(),
+               "conveyor-rotate-left-up": pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_down.png").convert_alpha(), False, True),
+               "conveyor-rotate-up-left": pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_up.png").convert_alpha(), True, False),
+               "connector-input-up": pygame.image.load("images/cells/builds/connector_input.png").convert_alpha(),
+               "connector-input-right": pygame.transform.rotate(pygame.image.load("images/cells/builds/connector_input.png").convert_alpha(), -90),
+               "connector-input-down": pygame.transform.flip(pygame.image.load("images/cells/builds/connector_input.png").convert_alpha(), False, True),
+               "connector-input-left": pygame.transform.rotate(pygame.image.load("images/cells/builds/connector_input.png").convert_alpha(), 90),
+               "connector-output-up": pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(),
+               "connector-output-right": pygame.transform.rotate(pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(), -90),
+               "connector-output-down": pygame.transform.flip(pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(), False, True),
+               "connector-output-left": pygame.transform.rotate(pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(), 90),
+               "ore-iron": pygame.image.load("images/cells/ores/iron_ore.png").convert_alpha(),}
 #can_select, can_build, player_collide, layer
-conveyor_speed = 4
 cell_types = {"empty": ["empty", True, True, False, 1],
               "border-red": ["border-red", False, False, True, 1],
               "drill": ["drill", True, True, False, 2],
@@ -56,13 +70,27 @@ cell_types = {"empty": ["empty", True, True, False, 1],
               "conveyor-up": ["conveyor-up", False, False, False, 2],
               "conveyor-down": ["conveyor-down", False, False, False, 2],
               "conveyor-right": ["conveyor-right", False, False, False, 2],
-              "conveyor-rotate-right": ["conveyor-rotate-right", False, False, False, 2],
-              "conveyor-rotate-left": ["conveyor-rotate-left", False, False, False, 2],
+              "conveyor-left": ["conveyor-left", False, False, False, 2],
+              "conveyor-rotate-up-right": ["conveyor-rotate-up-right", False, False, False, 2],
+              "conveyor-rotate-right-up": ["conveyor-rotate-right-up", False, False, False, 2],
               "conveyor-rotate-right-down": ["conveyor-rotate-right-down", False, False, False, 2],
+              "conveyor-rotate-down-right": ["conveyor-rotate-down-right", False, False, False, 2],
+              "conveyor-rotate-down-left": ["conveyor-rotate-down-left", False, False, False, 2],
               "conveyor-rotate-left-down": ["conveyor-rotate-left-down", False, False, False, 2],
+              "conveyor-rotate-left-up": ["conveyor-rotate-left-up", False, False, False, 2],
+              "conveyor-rotate-up-left": ["conveyor-rotate-up-left", False, False, False, 2],
+              "connector-input-up": ["connector-input-up", True, False, False, 2],
+              "connector-input-right": ["connector-input-right", True, False, False, 2],
+              "connector-input-down": ["connector-input-down", True, False, False, 2],
+              "connector-input-left": ["connector-input-left", True, False, False, 2],
+              "connector-output-up": ["connector-output-up", True, False, False, 2],
+              "connector-output-right": ["connector-output-right", True, False, False, 2],
+              "connector-output-down": ["connector-output-down", True, False, False, 2],
+              "connector-output-left": ["connector-output-left", True, False, False, 2],
               "ore-iron": ["ore-iron", True, True, False, 1]}
 
 cell_size = 64
+conveyor_speed = 2
 
 map_cells = []
 build_cells = []
@@ -132,18 +160,23 @@ class Cell(pygame.sprite.Sprite):
                 player.can_move = True
                 player.destroy_delay = player.destroy_delay_start
 
-        #conveyor update
-        #if self.type.split("-")[0] == "conveyor" and self.type.split("-")[1] != "rotate":
-        #    right_conv = get_cell(self.rect.x + cell_size, self.rect.y, 2)
-        #    left_conv = get_cell(self.rect.x + cell_size, self.rect.y, 2)
-        #    up_conv = get_cell(self.rect.x + cell_size, self.rect.y, 2)
-        #    down_conv = get_cell(self.rect.x + cell_size, self.rect.y, 2)
-        #    if
-
         #drill update
-        if self.type == "drill":
+        if self.type == "drill" and self.layer == 2:
             if get_cell(self.rect.x, self.rect.y, 1).type.split("-")[0] == "ore":
-                pass
+                from items import spawn
+                ore_type = get_cell(self.rect.x, self.rect.y, 1).type.split("-")[1]
+                cell_yp = get_cell(self.rect.x, self.rect.y - cell_size, 2)
+                cell_ym = get_cell(self.rect.x, self.rect.y + cell_size, 2)
+                cell_xp = get_cell(self.rect.x + cell_size, self.rect.y, 2)
+                cell_xm = get_cell(self.rect.x - cell_size, self.rect.y - cell_size, 2)
+                if cell_yp is not None and cell_yp.type.split("-")[0] + "-" + cell_yp.type.split("-")[1] == "connector-output":
+                    spawn("ore-" + ore_type, (self.rect.center[0], self.rect.center[1] - cell_size))
+                if cell_ym is not None and cell_ym.type.split("-")[0] + "-" + cell_ym.type.split("-")[1] == "connector-output":
+                    spawn("ore-" + ore_type, (self.rect.center[0], self.rect.center[1] + cell_size))
+                if cell_xp is not None and cell_xp.type.split("-")[0] + "-" + cell_xp.type.split("-")[1] == "connector-output":
+                    spawn("ore-" + ore_type, (self.rect.center[0] + cell_size, self.rect.center[1]))
+                if cell_xm is not None and cell_xm.type.split("-")[0] + "-" + cell_xm.type.split("-")[1] == "connector-output":
+                    spawn("ore-" + ore_type, (self.rect.center[0] - cell_size, self.rect.center[1]))
 
         if self.selected:
             selected_cells.append(Cell(cell_types["selected"], cell_images["selected"], self.rect.x, self.rect.y))
