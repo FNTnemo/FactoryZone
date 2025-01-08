@@ -1,7 +1,6 @@
 import pygame.sprite
 
 from main_settings import *
-from map import get_selected_cell, build_cells, Cell, cell_types, cell_images, cell_size
 
 
 class Player():

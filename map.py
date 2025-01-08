@@ -1,4 +1,5 @@
 from ctypes import c_char
+from enum import Enum
 
 import pygame
 
@@ -61,34 +62,6 @@ cell_images = {"empty": pygame.image.load("images/cells/empty_cell.png").convert
                "connector-output-down": pygame.transform.flip(pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(), False, True),
                "connector-output-left": pygame.transform.rotate(pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(), 90),
                "ore-iron": pygame.image.load("images/cells/ores/iron_ore.png").convert_alpha(),}
-#can_select, can_build, player_collide, layer
-cell_types = {"empty": ["empty", True, True, False, 1],
-              "border-red": ["border-red", False, False, True, 1],
-              "drill": ["drill", True, True, False, 2],
-              "selected": ["selected", False, False, False, 3],
-              "smallter-base": ["smallter-base", True, False, False, 2],
-              "conveyor-up": ["conveyor-up", False, False, False, 2],
-              "conveyor-down": ["conveyor-down", False, False, False, 2],
-              "conveyor-right": ["conveyor-right", False, False, False, 2],
-              "conveyor-left": ["conveyor-left", False, False, False, 2],
-              "conveyor-rotate-up-right": ["conveyor-rotate-up-right", False, False, False, 2],
-              "conveyor-rotate-right-up": ["conveyor-rotate-right-up", False, False, False, 2],
-              "conveyor-rotate-right-down": ["conveyor-rotate-right-down", False, False, False, 2],
-              "conveyor-rotate-down-right": ["conveyor-rotate-down-right", False, False, False, 2],
-              "conveyor-rotate-down-left": ["conveyor-rotate-down-left", False, False, False, 2],
-              "conveyor-rotate-left-down": ["conveyor-rotate-left-down", False, False, False, 2],
-              "conveyor-rotate-left-up": ["conveyor-rotate-left-up", False, False, False, 2],
-              "conveyor-rotate-up-left": ["conveyor-rotate-up-left", False, False, False, 2],
-              "connector-input-up": ["connector-input-up", True, False, False, 2],
-              "connector-input-right": ["connector-input-right", True, False, False, 2],
-              "connector-input-down": ["connector-input-down", True, False, False, 2],
-              "connector-input-left": ["connector-input-left", True, False, False, 2],
-              "connector-output-up": ["connector-output-up", True, False, False, 2],
-              "connector-output-right": ["connector-output-right", True, False, False, 2],
-              "connector-output-down": ["connector-output-down", True, False, False, 2],
-              "connector-output-left": ["connector-output-left", True, False, False, 2],
-              "ore-iron": ["ore-iron", True, True, False, 1]}
-
 cell_size = 64
 conveyor_speed = 2
 
@@ -98,21 +71,36 @@ build_cells = []
 selected_cells = []
 
 
-class Cell(pygame.sprite.Sprite):
-    def __init__(self, type, image, x, y):
+class Cell(pygame.sprite.Sprite, Enum):
+    # can_select, can_build_here, player_collide, layer
+    #map cells
+    empty = cell_images["empty"], "empty", True, True, False, 1
+    selected_cell = cell_images["selected"], "selected", False, False, False, 3
+    border_red = cell_images["border-red"], "border-red", False, False, True, 1
+    #buildings
+    drill = cell_images["drill"], "drill", True, False, False, 2
+    smallter_base = cell_images["smallter-base"], "smallter_base", True, False, False, 2
+    conveyor_up = cell_images["conveyor-up"], "conveyor-up", True, False, False, 2
+    conveyor_down = cell_images["conveyor-down"], "conveyor-down", True, False, False, 2
+    conveyor_left = cell_images["conveyor-left"], "conveyor-left", True, False, False, 2
+    conveyor_right = cell_images["conveyor-right"], "conveyor-right", True, False, False, 2
+    #ores
+    iron_ore = cell_images["ore-iron"], "ore_iron", True, False, False, 2
+
+    def __init__(self, image, type, *args):
         super().__init__()
         self.image0 = image #начальное изобржение
         self.image = self.image0
-        self.rect = self.image.get_rect(topleft=(x, y))
+        self.rect = self.image.get_rect(topleft=(0, 0))
         self.selected = False
         self.cell_exist = False
 
         #type
-        self.type = type[0]
-        self.can_be_selected = type[1]
-        self.can_build = type[2]
-        self.collide = type[3]
-        self.layer = type[4]
+        self.type = type
+        self.can_be_selected = args[0]
+        self.can_build = args[1]
+        self.collide = args[2]
+        self.layer = args[3]
 
         if self.type.split("-")[0] == "conveyor":
             typec = self.type.split("-")
@@ -121,6 +109,9 @@ class Cell(pygame.sprite.Sprite):
             else: self.conveyor_directional = typec[1]
 
         #animation
+
+    def set_position(self, x, y):
+        self.rect.x, self.rect.y = x, y
 
     def update(self):
         from player import camera, player
@@ -179,7 +170,9 @@ class Cell(pygame.sprite.Sprite):
                     spawn("ore-" + ore_type, (self.rect.center[0] - cell_size, self.rect.center[1]))
 
         if self.selected:
-            selected_cells.append(Cell(cell_types["selected"], cell_images["selected"], self.rect.x, self.rect.y))
+            cell = Cell.selected_cell
+            cell.set_position(self.rect.x, self.rect.y)
+            selected_cells.append(Cell.selected_cell)
 
     def check_select(self, rect):
         mouse_pos_x, mouse_pos_y = pygame.mouse.get_pos()
@@ -190,13 +183,14 @@ class Cell(pygame.sprite.Sprite):
             self.selected = False
             return False
 
-    def build(self, typei):
-        build_cells.append(Cell(cell_types[typei], cell_images[typei], self.rect.x, self.rect.y))
+    def build(self, cell):
+        cell.set_position(self.rect.x, self.rect.y)
+        build_cells.append(cell)
         #map_cells.remove(self)
 
     def destroy(self):
-        #map_cells.append(Cell(cell_types["empty"], cell_images["empty"], self.rect.x, self.rect.y))
         build_cells.remove(self)
+
 
 def get_selected_cell():
     for cell in map_cells:
@@ -209,12 +203,11 @@ def get_cell(x, y, layer):
         for cell in build_cells:
             if cell.rect.x == x and cell.rect.y == y:
                 return cell
-        return None
     elif layer == 1:
         for cell in map_cells:
             if cell.rect.x == x and cell.rect.y == y:
                 return cell
-        return None
+    return None
 
 def load_map(mapi):
     global loaded_map
@@ -231,9 +224,10 @@ def write_map_sells():
     map_cells.clear()
     for y in range(len(loaded_map)):
         for x in range(len(loaded_map[y])):
-            if get_map_char(loaded_map, x, y) == 0:
-                map_cells.append(Cell(cell_types["empty"], cell_images["empty"], x * cell_size, y * cell_size))
-            elif get_map_char(loaded_map, x, y) == 1:
-                map_cells.append(Cell(cell_types["ore-iron"], cell_images["ore-iron"], x * cell_size, y * cell_size))
-            elif get_map_char(loaded_map, x, y) == -1:
-                map_cells.append(Cell(cell_types["border-red"], cell_images["border-red"], x * cell_size, y * cell_size))
+            #cell = Cell.empty
+            #if get_map_char(loaded_map, x, y) == 1:
+            #    cell = Cell.iron_ore
+            #elif get_map_char(loaded_map, x, y) == -1:
+            #    cell = Cell.border_red
+            #cell.set_position(x * cell_size, y * cell_size)
+            map_cells.append(Cell.empty)

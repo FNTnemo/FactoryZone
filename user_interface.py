@@ -1,14 +1,14 @@
 import pygame
 
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT
-from map import cell_images, cell_types, cell_size
+from map import cell_images, cell_size
 from player import camera, player
 
 ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_alpha()}
 
 ui_elements = []
 
-open_structures = ["drill", "smallter-base", "conveyor-up", "conveyor-rotate-up-right", "connector-input-up", "connector-output-up"]
+open_structures = ["drill", "smallter-base", "conveyor", "connector-input-up", "connector-output-up"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):

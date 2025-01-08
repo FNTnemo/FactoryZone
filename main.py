@@ -4,6 +4,7 @@ from main_settings import *
 
 pygame.init()
 pygame.display.set_caption("FactoryZone")
+pygame.display.set_icon(pygame.image.load("images/smallter.ico"))
 scr = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
@@ -14,7 +15,7 @@ from user_interface import ui_elements, base_hud_init
 
 stop = False
 
-base_hud_init()
+#base_hud_init()
 load_map(map1)
 
 def rendering(screen):
