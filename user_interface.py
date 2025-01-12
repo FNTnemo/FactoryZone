@@ -8,7 +8,7 @@ ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_al
 
 ui_elements = []
 
-open_structures = ["drill", "smallter-base", "conveyor-up", "conveyor-rotate-up-right", "connector-input-up", "connector-output-up"]
+open_structures = ["drill-electric", "smallter-base", "conveyor", "conveyor-angular", "connector-input", "connector-output"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
@@ -31,16 +31,16 @@ class UI_element(pygame.sprite.Sprite):
         self.rect.y = self.pos.y
 
 class SelectableItemUI(pygame.sprite.Sprite):
-    def __init__(self, type, pos):
+    def __init__(self, typei, pos):
         super().__init__()
-        self.type0 = type[0]
+        self.type0 = typei[0]
         self.type = self.type0
-        self.last_type = self.type0
+        self.building_type = self.type0.split("-")[0]
 
-        self.building_type = self.type.split("-")[0]
-        if self.building_type == "conveyor" or self.building_type == "connector":
-            self.directional = 1
-        self.image0 = cell_images[self.type]
+        self.direction = 0
+        self.last_direction = self.direction
+
+        self.image0 = cell_types[self.type0][1][0]
         self.image = self.image0
 
         self.rect = self.image.get_rect(topleft=pos)
@@ -55,8 +55,11 @@ class SelectableItemUI(pygame.sprite.Sprite):
         m_keys = pygame.mouse.get_pressed()
         k_keys = pygame.key.get_pressed()
 
-        if m_keys[0] and player.selected_structure_type == "empty":
-            self.take()
+        if m_keys[0] and player.selected_structure == "empty":
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            if self.rect.collidepoint(mouse_x, mouse_y):
+                player.build_flag = False
+                self.take()
         if k_keys[pygame.K_ESCAPE]:
             self.put()
 
@@ -66,91 +69,41 @@ class SelectableItemUI(pygame.sprite.Sprite):
                 self.r_pressed = False
             if k_keys[pygame.K_r] and not self.r_pressed:
                 self.r_pressed = True
-                if self.type.split("-")[0] == "conveyor" and self.type.split("-")[1] != "rotate":
-                    self.directional += 1
-                    if self.directional > 4:
-                        self.directional = 1
 
-                    if self.directional == 1:
-                        self.change_type("conveyor-up")
-                    elif self.directional == 2:
-                        self.change_type("conveyor-right")
-                    elif self.directional == 3:
-                        self.change_type("conveyor-down")
-                    elif self.directional == 4:
-                        self.change_type("conveyor-left")
+                if self.type == "conveyor" or self.building_type == "connector" or self.building_type == "drill": # 4 states
+                    self.direction += 1
+                    if self.direction > 3:
+                        self.direction = 0
 
-                if self.type.split("-")[0] == "conveyor" and self.type.split("-")[1] == "rotate":
-                    self.directional += 1
-                    if self.directional > 8:
-                        self.directional = 1
+                    self.rotate_building(self.direction)
 
-                    if self.directional == 1:
-                        self.change_type("conveyor-rotate-up-right")
-                    elif self.directional == 2:
-                        self.change_type("conveyor-rotate-right-up")
-                    elif self.directional == 3:
-                        self.change_type("conveyor-rotate-right-down")
-                    elif self.directional == 4:
-                        self.change_type("conveyor-rotate-down-right")
-                    elif self.directional == 5:
-                        self.change_type("conveyor-rotate-down-left")
-                    elif self.directional == 6:
-                        self.change_type("conveyor-rotate-left-down")
-                    elif self.directional == 7:
-                        self.change_type("conveyor-rotate-left-up")
-                    elif self.directional == 8:
-                        self.change_type("conveyor-rotate-up-left")
+                elif self.building_type == "conveyor" and self.type.split("-")[1] == "angular": # angular conveyor
+                    self.direction += 1
+                    if self.direction > 7:
+                        self.direction = 0
 
-                if self.type.split("-")[0] == "connector" and self.type.split("-")[1] == "input":
-                    self.directional += 1
-                    if self.directional > 4:
-                        self.directional = 1
+                    self.rotate_building(self.direction)
 
-                    if self.directional == 1:
-                        self.change_type("connector-input-up")
-                    elif self.directional == 2:
-                        self.change_type("connector-input-right")
-                    elif self.directional == 3:
-                        self.change_type("connector-input-down")
-                    elif self.directional == 4:
-                        self.change_type("connector-input-left")
-
-                if self.type.split("-")[0] == "connector" and self.type.split("-")[1] == "output":
-                    self.directional += 1
-                    if self.directional > 4:
-                        self.directional = 1
-
-                    if self.directional == 1:
-                        self.change_type("connector-output-up")
-                    elif self.directional == 2:
-                        self.change_type("connector-output-right")
-                    elif self.directional == 3:
-                        self.change_type("connector-output-down")
-                    elif self.directional == 4:
-                        self.change_type("connector-output-left")
+            self.last_direction = self.direction
 
         if self.selected:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             self.rect.center = mouse_x, mouse_y
 
     def take(self):
-        mouse_x, mouse_y = pygame.mouse.get_pos()
-        if self.rect.collidepoint(mouse_x, mouse_y):
-            self.selected = True
-            self.change_type(self.last_type)
-            player.selected_structure_type = self
+        self.selected = True
+        self.rotate_building(self.last_direction)
+        player.selected_structure = self
 
     def put(self):
         self.selected = False
-        player.selected_structure_type = "empty"
+        player.selected_structure = "empty"
         self.rect.x, self.rect.y = self.x0, self.y0
-        self.last_type = self.type
-        self.change_type(self.type0)
+        self.rotate_building(0)
 
-    def change_type(self, type_str):
-        self.image = cell_images[type_str]
-        self.type = type_str
+    def rotate_building(self, direction):
+        self.image = cell_images[self.type][direction]
+        self.direction = direction
 
 
 def base_hud_init():

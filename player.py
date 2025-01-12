@@ -1,7 +1,7 @@
 import pygame.sprite
 
 from main_settings import *
-from map import get_selected_cell, build_cells, Cell, cell_types, cell_images, cell_size
+from map import get_selected_cell, get_cell
 
 
 class Player():
@@ -11,12 +11,12 @@ class Player():
         self.velocity = 6
         self.directional = pygame.math.Vector2(0, 0)
 
-        self.selected_structure_type = "empty"
+        self.selected_structure = "empty"
 
         self.destroy_delay_start = 40
         self.destroy_delay = self.destroy_delay_start
 
-        self.build_delay_start = 10
+        self.build_delay_start = 1
         self.build_delay = self.build_delay_start
 
         self.can_move = True
@@ -24,6 +24,7 @@ class Player():
 
     def update(self):
         self.movement()
+        self.pipette()
 
     def movement(self):
         keys = pygame.key.get_pressed()
@@ -48,6 +49,18 @@ class Player():
                 self.rect.x += self.velocity
                 if self.map_collide_check():
                     self.rect.x -= self.velocity
+
+    def pipette(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_q]:
+            from user_interface import open_structures, ui_elements
+            for ui_el in ui_elements:
+                if (get_selected_cell() is not None and get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 2) is not None
+                        and ui_el.type == get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 2).type):
+                    if self.selected_structure != "empty":
+                        self.selected_structure.put()
+                    ui_el.take()
+
 
     def map_collide_check(self):
         from map import map_cells
