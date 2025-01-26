@@ -1,6 +1,6 @@
 import pygame.sprite
 
-from map import conveyor_speed, build_map_layer
+from map import conveyor_speed, build_map_layer, cell_size, get_cell
 
 items = []
 #type, image
@@ -18,6 +18,7 @@ class Item(pygame.sprite.Sprite):
     def update(self):
         #if not self.collide_check(items):
         self.movement()
+        pass
 
     def movement(self):
         on_conveyor, conveyor = self.on_conveyor()
@@ -34,10 +35,14 @@ class Item(pygame.sprite.Sprite):
                     self.rect.x += -conveyor_speed
 
     def on_conveyor(self):
-        for cell in build_map_layer:
-            typec = cell.type.split("-")
-            if (typec[0] == "conveyor" or typec[0] == "connector") and cell.rect.collidepoint(self.rect.center):
-                return True, cell
+        x = self.rect.x // cell_size
+        y = self.rect.y // cell_size
+        cell = get_cell(x * cell_size, y * cell_size, 2)
+        print(x, y, cell.type, (self.rect.topleft))
+        typec = cell.type.split("-")
+        if (typec[0] == "conveyor" or typec[0] == "connector") and cell.rect.colliderect(self.rect):
+            print("collide")
+            return True, cell
         return False, None
 
     def collide_check(self, group):

@@ -187,19 +187,19 @@ class Cell(pygame.sprite.Sprite):
                     if self.direction == 0:
                         test_cell = get_cell(self.rect.x, self.rect.y - cell_size, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, self.rect.midtop)
+                            spawn(ore_type, (self.rect.midtop[0], self.rect.midtop[1] - cell_size))
                     if self.direction == 1:
                         test_cell = get_cell(self.rect.x + cell_size, self.rect.y, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, self.rect.midright)
+                            spawn(ore_type, (self.rect.midright[0] + cell_size, self.rect.midright[1]))
                     if self.direction == 2:
                         test_cell = get_cell(self.rect.x, self.rect.y + cell_size,2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, self.rect.midbottom)
+                            spawn(ore_type, (self.rect.midbottom[0], self.rect.midbottom[1] + cell_size))
                     if self.direction == 3:
                         test_cell = get_cell(self.rect.x - cell_size, self.rect.y, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, self.rect.midleft)
+                            spawn(ore_type, (self.rect.midleft[0] - cell_size, self.rect.midleft[1]))
                     self.drill_delay = self.drill_delay_start
                 else:
                     self.drill_delay -= 1

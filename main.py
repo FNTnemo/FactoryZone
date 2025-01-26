@@ -70,7 +70,8 @@ def update():
     for cell in build_map_layer:
         cell.update()
     for cell in auxiliary_map_layer:
-        cell.update()
+        #cell.update()
+        pass
     for item in items:
         item.update()
 
