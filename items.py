@@ -1,6 +1,6 @@
 import pygame.sprite
 
-from map import build_cells, conveyor_speed
+from map import conveyor_speed
 
 items = []
 #type, image

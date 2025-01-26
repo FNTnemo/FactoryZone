@@ -88,18 +88,16 @@ cell_size = 64
 conveyor_speed = 5
 
 map_cells = []
-build_cells = []
-conveyor_cells = []
 
 selected_cells = []
 
 
 class Cell(pygame.sprite.Sprite):
-    def __init__(self, typei, directional, pos):
+    def __init__(self, typei, direction, pos):
         super().__init__()
         # argument init
         self.type = typei[0]
-        self.direction = directional
+        self.direction = direction
         self.image0 = typei[1][self.direction] #начальное изобржение
         self.cell_arguments = typei[2]
         self.subjective_arguments = typei[3]
@@ -123,7 +121,7 @@ class Cell(pygame.sprite.Sprite):
 
         # drill
         if stype[0] == "drill":
-            self.drill_delay_start = 2
+            self.drill_delay_start = 15
             self.drill_delay = self.drill_delay_start
 
         #animation
@@ -140,12 +138,12 @@ class Cell(pygame.sprite.Sprite):
             if player.selected_structure != "empty":
                 if player.build_delay >= 0:
                     player.build_delay -= 1
-
                 cell_under = None
                 if mouse_keys[0] and self.layer == 1 and player.build_delay <= 0 and player.build_flag:
-                    if get_cell(self.rect.x, self.rect.y, 2) is not None:
+                    self.build(player.selected_structure.type, player.selected_structure.direction)
+                    if get_cell(self.rect.x, self.rect.y) is not None:
                         self.cell_exist = True
-                        cell_under = get_cell(self.rect.x, self.rect.y, 2)
+                        cell_under = get_cell(self.rect.x, self.rect.y)
                     else: self.cell_exist = False
 
                     if not self.cell_exist:
@@ -163,37 +161,36 @@ class Cell(pygame.sprite.Sprite):
             if player.destroy_delay >= 0:
                 player.destroy_delay -= 1
             if mouse_keys[2]:
-                for cell in build_cells:
-                    if cell.rect.x == self.rect.x and cell.rect.y == self.rect.y:
-                        if player.destroy_delay <= 0:
-                            cell.destroy()
-                            player.destroy_delay = player.destroy_delay_start
-                            player.can_move = True
-                        else: player.can_move = False
+                cell = get_cell(self.rect.x, self.rect.y)
+                if player.destroy_delay <= 0:
+                    cell.destroy()
+                    player.destroy_delay = player.destroy_delay_start
+                    player.can_move = True
+                else: player.can_move = False
             else:
                 player.can_move = True
                 player.destroy_delay = player.destroy_delay_start
 
         #drill update
         if self.type == "drill-electric" and self.layer == 2:
-            if get_cell(self.rect.x, self.rect.y, 1).type.split("-")[0] == "ore":
+            if get_cell(self.rect.x, self.rect.y).type.split("-")[0] == "ore":
                 if self.drill_delay < 0:
                     from items import spawn
-                    ore_type = get_cell(self.rect.x, self.rect.y, 1).type
+                    ore_type = get_cell(self.rect.x, self.rect.y).type
                     if self.direction == 0:
-                        test_cell = get_cell(self.rect.x, self.rect.y - cell_size, 2)
+                        test_cell = get_cell(self.rect.x, self.rect.y - cell_size)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midtop)
                     if self.direction == 1:
-                        test_cell = get_cell(self.rect.x + cell_size, self.rect.y, 2)
+                        test_cell = get_cell(self.rect.x + cell_size, self.rect.y)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midright)
                     if self.direction == 2:
-                        test_cell = get_cell(self.rect.x, self.rect.y + cell_size, 2)
+                        test_cell = get_cell(self.rect.x, self.rect.y + cell_size)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midbottom)
                     if self.direction == 3:
-                        test_cell = get_cell(self.rect.x - cell_size, self.rect.y, 2)
+                        test_cell = get_cell(self.rect.x - cell_size, self.rect.y)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midleft)
                     self.drill_delay = self.drill_delay_start
@@ -223,39 +220,31 @@ class Cell(pygame.sprite.Sprite):
             self.selected = False
             return False
 
-    def build(self, typei, directional):
-        build_cells.append(Cell(cell_types[typei], directional, (self.rect.x, self.rect.y)))
-        if typei.split("-")[0] == "conveyor":
-            conveyor_cells.append(Cell(cell_types[typei], directional, (self.rect.x, self.rect.y)))
-        #map_cells.remove(self)
+    def build(self, typei, direction):
+        map_cells[calc_map_line(self.rect.x, self.rect.y)] = Cell(cell_types[typei], direction, (self.rect.x, self.rect.y))
 
     def destroy(self):
-        #map_cells.append(Cell(cell_types["empty"], cell_images["empty"], self.rect.x, self.rect.y))
-        build_cells.remove(self)
-        #if self.type.split("-")[0] == "conveyor":
-        #    conveyor_cells.remove(self)
+        map_cells[calc_map_line(self.rect.x, self.rect.y)] = Cell(cell_types["empty"], 0, (self.rect.x, self.rect.y))
+        print("dstr")
 
 def get_selected_cell():
     if len(selected_cells) != 0:
         return selected_cells[0]
     return None
 
-def get_cell(x, y, layer):
-    if layer == 2:
-        for cell in build_cells:
-            if cell.rect.x == x and cell.rect.y == y:
-                return cell
-        return None
-    elif layer == 1:
-        for cell in map_cells:
-            if cell.rect.x == x and cell.rect.y == y:
-                return cell
-        return None
+def get_cell(x, y):
+    return map_cells[calc_map_line(x, y)]
 
 def load_map(mapi):
     global loaded_map
     loaded_map = mapi
     write_map_sells()
+
+def calc_map_line(x, y):
+    ms = get_map_size(loaded_map)
+    x //= cell_size
+    y //= cell_size
+    return x + y * ms[0] // cell_size
 
 def get_map_size(mapi):
     return len(mapi[0]) * cell_size, len(mapi) * cell_size
