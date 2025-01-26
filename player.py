@@ -63,8 +63,8 @@ class Player():
 
 
     def map_collide_check(self):
-        from map import map_cells
-        for cell in map_cells:
+        from map import ground_map_layer
+        for cell in ground_map_layer:
             if self.rect.colliderect(cell.rect) and cell.collide:
                 return True
         return False

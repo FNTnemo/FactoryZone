@@ -36,6 +36,7 @@ map2 = [[-1, -1, -1, -1, -1, -1, -1, -1, -1],
 loaded_map = []
 
 cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").convert_alpha()],
+               "air": [pygame.image.load("images/cells/air_cell.png").convert_alpha()],
                "selected": [pygame.image.load("images/cells/selected_cell.png").convert_alpha()],
                "border-red": [pygame.image.load("images/cells/border_cell.png").convert_alpha()],
                "drill-electric": [pygame.transform.flip(pygame.image.load("images/cells/drill_cell.png").convert_alpha(), False, True),
@@ -70,6 +71,7 @@ cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").conver
                "iron-ore": [pygame.image.load("images/cells/ores/iron_ore.png").convert_alpha()]}
 # type, image [can_select, can_build, player_collide, layer], [args]
 cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1], []],
+              "air": ["air", cell_images["air"], [True, True, False, 2], []],
               "selected": ["selected", cell_images["selected"], [False, False, False, 3], []],
               "border-red": ["border-red", cell_images["border-red"], [False, False, True, 1], []],
               # buildings
@@ -87,7 +89,11 @@ cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1], [
 cell_size = 64
 conveyor_speed = 5
 
-map_cells = []
+ground_map_layer = []
+build_map_layer = []
+auxiliary_map_layer = []
+
+
 
 selected_cells = []
 
@@ -121,7 +127,7 @@ class Cell(pygame.sprite.Sprite):
 
         # drill
         if stype[0] == "drill":
-            self.drill_delay_start = 15
+            self.drill_delay_start = 1
             self.drill_delay = self.drill_delay_start
 
         #animation
@@ -141,9 +147,9 @@ class Cell(pygame.sprite.Sprite):
                 cell_under = None
                 if mouse_keys[0] and self.layer == 1 and player.build_delay <= 0 and player.build_flag:
                     self.build(player.selected_structure.type, player.selected_structure.direction)
-                    if get_cell(self.rect.x, self.rect.y) is not None:
+                    if get_cell(self.rect.x, self.rect.y, 2) is not None:
                         self.cell_exist = True
-                        cell_under = get_cell(self.rect.x, self.rect.y)
+                        cell_under = get_cell(self.rect.x, self.rect.y, 1)
                     else: self.cell_exist = False
 
                     if not self.cell_exist:
@@ -161,36 +167,37 @@ class Cell(pygame.sprite.Sprite):
             if player.destroy_delay >= 0:
                 player.destroy_delay -= 1
             if mouse_keys[2]:
-                cell = get_cell(self.rect.x, self.rect.y)
-                if player.destroy_delay <= 0:
-                    cell.destroy()
-                    player.destroy_delay = player.destroy_delay_start
-                    player.can_move = True
-                else: player.can_move = False
+                cell = get_cell(self.rect.x, self.rect.y, 2)
+                if cell.type != "air":
+                    if player.destroy_delay <= 0:
+                        cell.destroy()
+                        player.destroy_delay = player.destroy_delay_start
+                        player.can_move = True
+                    else: player.can_move = False
             else:
                 player.can_move = True
                 player.destroy_delay = player.destroy_delay_start
 
         #drill update
-        if self.type == "drill-electric" and self.layer == 2:
-            if get_cell(self.rect.x, self.rect.y).type.split("-")[0] == "ore":
+        if self.type == "drill-electric":
+            if get_cell(self.rect.x, self.rect.y, 1).type.split("-")[0] == "ore":
                 if self.drill_delay < 0:
                     from items import spawn
-                    ore_type = get_cell(self.rect.x, self.rect.y).type
+                    ore_type = get_cell(self.rect.x, self.rect.y, 1).type
                     if self.direction == 0:
-                        test_cell = get_cell(self.rect.x, self.rect.y - cell_size)
+                        test_cell = get_cell(self.rect.x, self.rect.y - cell_size, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midtop)
                     if self.direction == 1:
-                        test_cell = get_cell(self.rect.x + cell_size, self.rect.y)
+                        test_cell = get_cell(self.rect.x + cell_size, self.rect.y, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midright)
                     if self.direction == 2:
-                        test_cell = get_cell(self.rect.x, self.rect.y + cell_size)
+                        test_cell = get_cell(self.rect.x, self.rect.y + cell_size,2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midbottom)
                     if self.direction == 3:
-                        test_cell = get_cell(self.rect.x - cell_size, self.rect.y)
+                        test_cell = get_cell(self.rect.x - cell_size, self.rect.y, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
                             spawn(ore_type, self.rect.midleft)
                     self.drill_delay = self.drill_delay_start
@@ -209,6 +216,7 @@ class Cell(pygame.sprite.Sprite):
                                 item.despawn()
 
         if self.selected:
+            #print(calc_map_line(self.rect.x, self.rect.y))
             selected_cells.append(Cell(cell_types["selected"], 0,  (self.rect.x, self.rect.y)))
 
     def check_select(self, rect):
@@ -221,19 +229,23 @@ class Cell(pygame.sprite.Sprite):
             return False
 
     def build(self, typei, direction):
-        map_cells[calc_map_line(self.rect.x, self.rect.y)] = Cell(cell_types[typei], direction, (self.rect.x, self.rect.y))
+        build_map_layer[calc_map_line(self.rect.x, self.rect.y)] = Cell(cell_types[typei], direction, (self.rect.x, self.rect.y))
 
     def destroy(self):
-        map_cells[calc_map_line(self.rect.x, self.rect.y)] = Cell(cell_types["empty"], 0, (self.rect.x, self.rect.y))
+        build_map_layer[calc_map_line(self.rect.x, self.rect.y)] = Cell(cell_types["air"], 0, (self.rect.x, self.rect.y))
         print("dstr")
 
 def get_selected_cell():
     if len(selected_cells) != 0:
-        return selected_cells[0]
+        for selected_cell in selected_cells:
+            if selected_cell.layer == 2:
+                return selected_cell
     return None
 
-def get_cell(x, y):
-    return map_cells[calc_map_line(x, y)]
+def get_cell(x, y, layer):
+    if layer == 1: return ground_map_layer[calc_map_line(x, y)]
+    if layer == 2: return build_map_layer[calc_map_line(x, y)]
+    if layer == 3: return auxiliary_map_layer[calc_map_line(x, y)]
 
 def load_map(mapi):
     global loaded_map
@@ -253,12 +265,14 @@ def get_map_char(mapi, x, y):
     return mapi[y][x]
 
 def write_map_sells():
-    map_cells.clear()
+    ground_map_layer.clear()
     for y in range(len(loaded_map)):
         for x in range(len(loaded_map[y])):
             if get_map_char(loaded_map, x, y) == 0:
-                map_cells.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
+                ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
             elif get_map_char(loaded_map, x, y) == 1:
-                map_cells.append(Cell(cell_types["ore-iron"], 0,  (x * cell_size, y * cell_size)))
+                ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
             elif get_map_char(loaded_map, x, y) == -1:
-                map_cells.append(Cell(cell_types["border-red"], 0,  (x * cell_size, y * cell_size)))
+                ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
+            build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+            auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))

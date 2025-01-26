@@ -1,6 +1,6 @@
 import pygame.sprite
 
-from map import conveyor_speed
+from map import conveyor_speed, build_map_layer
 
 items = []
 #type, image
@@ -34,7 +34,7 @@ class Item(pygame.sprite.Sprite):
                     self.rect.x += -conveyor_speed
 
     def on_conveyor(self):
-        for cell in build_cells:
+        for cell in build_map_layer:
             typec = cell.type.split("-")
             if (typec[0] == "conveyor" or typec[0] == "connector") and cell.rect.collidepoint(self.rect.center):
                 return True, cell

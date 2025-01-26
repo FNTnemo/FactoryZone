@@ -11,7 +11,7 @@ scr = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
 from items import items
-from map import load_map, map1, map_cells, selected_cells
+from map import load_map, map1, ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer
 from player import player, camera
 from user_interface import ui_elements, base_hud_init
 
@@ -39,7 +39,7 @@ debug_font = pygame.font.Font(None, 20)
 def rendering(screen):
     global start_render_dt, end_render_dt, render_delta_time
     start_render_dt = time.time()
-    draw_queue = [map_cells + items + selected_cells]
+    draw_queue = [ground_map_layer + build_map_layer + items + auxiliary_map_layer + selected_cells]
     for arrays in draw_queue:
         for obj in arrays:
             if obj.rect.midright[0] - camera.offset.x >= 0 and obj.rect.midbottom[1] - camera.offset.y >= 0 and obj.rect.midtop[1] - camera.offset.y <= WINDOW_HEIGHT and obj.rect.midleft[0] - camera.offset.x <= WINDOW_WIDTH:
@@ -48,7 +48,7 @@ def rendering(screen):
     for el in ui_elements:
         screen.blit(el.image, (el.rect.x, el.rect.y))
 
-    screen.blit(debug_font.render(f"fps: {fps}, items: {len(items)}, map_cells: {len(map_cells)}, building_cells: \"Err\", draw_queue: {len(draw_queue[0])}", True, black), (10, 10))
+    screen.blit(debug_font.render(f"fps: {fps}, items: {len(items)}, map_cells: {len(ground_map_layer)}, building_cells: \"Err\", draw_queue: {len(draw_queue[0])}", True, black), (10, 10))
     screen.blit(debug_font.render(f"delta_time: all: {delta_time}",True, black), (10, 30))
     screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (10, 50))
     screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (10, 70))
@@ -60,14 +60,20 @@ def rendering(screen):
 def update():
     global start_update_dt, end_update_dt, update_delta_time
     start_update_dt = time.time()
+
     player.update()
     camera.center_camera(player)
     for ui_element in ui_elements:
         ui_element.update()
-    for cell in map_cells:
+    for cell in ground_map_layer:
+        cell.update()
+    for cell in build_map_layer:
+        cell.update()
+    for cell in auxiliary_map_layer:
         cell.update()
     for item in items:
         item.update()
+
     end_update_dt = time.time()
     update_delta_time = end_update_dt - start_update_dt
 
