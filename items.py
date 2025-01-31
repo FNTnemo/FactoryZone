@@ -35,20 +35,18 @@ class Item(pygame.sprite.Sprite):
                     self.rect.x += -conveyor_speed
 
     def on_conveyor(self):
-        x = self.rect.x // cell_size
-        y = self.rect.y // cell_size
-        cell = get_cell(x * cell_size, y * cell_size, 2)
-        print(x, y, cell.type, (self.rect.topleft))
+        x = (self.rect.x // cell_size) * cell_size
+        y = (self.rect.y // cell_size) * cell_size
+        cell = get_cell(x, y, 2)
+        #print(x, y, cell.type, (self.rect.topleft))
         typec = cell.type.split("-")
-        if (typec[0] == "conveyor" or typec[0] == "connector") and cell.rect.colliderect(self.rect):
-            print("collide")
+        if (typec[0] == "conveyor" or typec[0] == "connector"):
             return True, cell
         return False, None
 
     def collide_check(self, group):
         for i in items:
             if self.rect.colliderect(i.rect):
-                print("collide")
                 return True
         return False
 

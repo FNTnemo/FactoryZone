@@ -2,6 +2,8 @@ from ctypes import c_char
 
 import pygame
 
+from windows import opened_windows
+
 map1 = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -43,7 +45,7 @@ cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").conver
                                     pygame.transform.rotate(pygame.image.load("images/cells/drill_cell.png").convert_alpha(), 90),
                                     pygame.image.load("images/cells/drill_cell.png").convert_alpha(),
                                     pygame.transform.rotate(pygame.image.load("images/cells/drill_cell.png").convert_alpha(), -90)],
-               "smallter-base": [pygame.image.load("images/cells/builds/smallter.png").convert_alpha()],
+               "smelter-base": [pygame.image.load("images/cells/builds/smallter.png").convert_alpha()],
                "conveyor": [pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(),
                                     pygame.transform.rotate(pygame.image.load("images/cells/builds/conveyor.png").convert_alpha(), -90),
                                     pygame.transform.flip(pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(),False, True),
@@ -76,7 +78,7 @@ cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1], [
               "border-red": ["border-red", cell_images["border-red"], [False, False, True, 1], []],
               # buildings
               "drill-electric": ["drill-electric", cell_images["drill-electric"], [True, True, False, 2], [1]],
-              "smallter-base": ["smallter-base", cell_images["smallter-base"], [True, False, False, 2], []],
+              "smelter-base": ["smelter-base", cell_images["smelter-base"], [True, False, False, 2], []],
               # conveyors args[type, direction]
               "conveyor": ["conveyor", cell_images["conveyor"], [False, False, False, 2], []],
               "conveyor-angular": ["conveyor-angular", cell_images["conveyor-angular"], [False, False, False, 2], []],
@@ -85,6 +87,8 @@ cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1], [
               "connector-output": ["connector-output", cell_images["connector-output"], [True, False, False, 2], []],
               # ores
               "ore-iron": ["ore-iron", cell_images["iron-ore"], [True, True, False, 1], []]}
+
+smallter_recipe = {"plate-iron": ()}
 
 cell_size = 64
 conveyor_speed = 5
@@ -133,50 +137,60 @@ class Cell(pygame.sprite.Sprite):
         #animation
 
     def update(self):
-        #self.update_environment()
         from player import camera, player
         mouse_keys = pygame.mouse.get_pressed()
-        if not mouse_keys[0]:
-            player.build_flag = True
-        self.check_select(pygame.Rect(self.rect.x - camera.offset.x, self.rect.y - camera.offset.y, cell_size, cell_size))
-        if self.can_build and self.selected:
-            #build
-            if player.selected_structure != "empty":
-                if player.build_delay >= 0:
-                    player.build_delay -= 1
-                cell_under = None
-                if mouse_keys[0] and self.layer == 1 and player.build_delay <= 0 and player.build_flag:
-                    self.build(player.selected_structure.type, player.selected_structure.direction)
-                    if get_cell(self.rect.x, self.rect.y, 2) is not None:
-                        self.cell_exist = True
-                        cell_under = get_cell(self.rect.x, self.rect.y, 1)
-                    else: self.cell_exist = False
-
-                    if not self.cell_exist:
+        keyboard_keys = pygame.key.get_pressed()
+        # build/destroy
+        if len(opened_windows) == 0:
+            if not mouse_keys[0]:
+                player.build_flag = True
+            self.check_select(pygame.Rect(self.rect.x - camera.offset.x, self.rect.y - camera.offset.y, cell_size, cell_size))
+            if self.can_build and self.selected:
+                #build
+                if player.selected_structure != "empty":
+                    if player.build_delay >= 0:
+                        player.build_delay -= 1
+                    cell_under = None
+                    if mouse_keys[0] and self.layer == 1 and player.build_delay <= 0 and player.build_flag:
                         self.build(player.selected_structure.type, player.selected_structure.direction)
-                        player.build_delay = player.build_delay_start
+                        if get_cell(self.rect.x, self.rect.y, 2) is not None:
+                            self.cell_exist = True
+                            cell_under = get_cell(self.rect.x, self.rect.y, 1)
+                        else: self.cell_exist = False
 
-                    elif self.cell_exist and (player.selected_structure.type.split("-")[0] == "conveyor" or player.selected_structure.type.split("-")[0] == "connector") and (cell_under.type.split("-")[0] == "conveyor" or cell_under.type.split("-")[0] == "connector"):
-                        cell_under.destroy()
-                        self.build(player.selected_structure.type, player.selected_structure.direction)
-                        player.build_delay = player.build_delay_start
-            else:
-                player.build_delay = player.build_delay_start
+                        if not self.cell_exist:
+                            self.build(player.selected_structure.type, player.selected_structure.direction)
+                            player.build_delay = player.build_delay_start
 
-            #destroy
-            if player.destroy_delay >= 0:
-                player.destroy_delay -= 1
-            if mouse_keys[2]:
-                cell = get_cell(self.rect.x, self.rect.y, 2)
-                if cell.type != "air":
-                    if player.destroy_delay <= 0:
-                        cell.destroy()
-                        player.destroy_delay = player.destroy_delay_start
-                        player.can_move = True
-                    else: player.can_move = False
-            else:
-                player.can_move = True
-                player.destroy_delay = player.destroy_delay_start
+                        elif self.cell_exist and (player.selected_structure.type.split("-")[0] == "conveyor" or player.selected_structure.type.split("-")[0] == "connector") and (cell_under.type.split("-")[0] == "conveyor" or cell_under.type.split("-")[0] == "connector"):
+                            cell_under.destroy()
+                            self.build(player.selected_structure.type, player.selected_structure.direction)
+                            player.build_delay = player.build_delay_start
+                else:
+                    player.build_delay = player.build_delay_start
+
+                #destroy
+                if player.destroy_delay >= 0:
+                    player.destroy_delay -= 1
+                if mouse_keys[2]:
+                    cell = get_cell(self.rect.x, self.rect.y, 2)
+                    if cell.type != "air":
+                        if player.destroy_delay <= 0:
+                            cell.destroy()
+                            player.destroy_delay = player.destroy_delay_start
+                            player.can_move = True
+                        else: player.can_move = False
+                else:
+                    player.can_move = True
+                    player.destroy_delay = player.destroy_delay_start
+
+        #window
+        if mouse_keys[0] and self.selected and self.layer == 2 and self.type != "air" and player.selected_structure == "empty":
+            from windows import create_window
+            create_window(self)
+        if keyboard_keys[pygame.K_ESCAPE]:
+            from windows import close_window
+            close_window()
 
         #drill update
         if self.type == "drill-electric":
@@ -187,36 +201,35 @@ class Cell(pygame.sprite.Sprite):
                     if self.direction == 0:
                         test_cell = get_cell(self.rect.x, self.rect.y - cell_size, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, (self.rect.midtop[0], self.rect.midtop[1] - cell_size))
+                            spawn(ore_type, (self.rect.midtop[0], self.rect.midtop[1] - cell_size/2))
                     if self.direction == 1:
                         test_cell = get_cell(self.rect.x + cell_size, self.rect.y, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, (self.rect.midright[0] + cell_size, self.rect.midright[1]))
+                            spawn(ore_type, (self.rect.midright[0] + cell_size/2, self.rect.midright[1]))
                     if self.direction == 2:
                         test_cell = get_cell(self.rect.x, self.rect.y + cell_size,2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, (self.rect.midbottom[0], self.rect.midbottom[1] + cell_size))
+                            spawn(ore_type, (self.rect.midbottom[0], self.rect.midbottom[1] + cell_size/2))
                     if self.direction == 3:
                         test_cell = get_cell(self.rect.x - cell_size, self.rect.y, 2)
                         if test_cell is not None and test_cell.type == "connector-output" and test_cell.direction == self.direction:
-                            spawn(ore_type, (self.rect.midleft[0] - cell_size, self.rect.midleft[1]))
+                            spawn(ore_type, (self.rect.midleft[0] - cell_size/2, self.rect.midleft[1]))
                     self.drill_delay = self.drill_delay_start
                 else:
                     self.drill_delay -= 1
 
         #connector update
-        if self.type == "connector-input" and self.layer == 2:
+        if self.type == "connector-input":
             from items import items
             if self.direction == 2:
                 test_cell = get_cell(self.rect.x, self.rect.y + cell_size, 2)
                 if test_cell is not None:
-                    if test_cell.type == "smallter-base":
+                    if test_cell.type == "smelter-base":
                         for item in items:
                             if item.rect.colliderect(test_cell.rect):
                                 item.despawn()
 
         if self.selected:
-            #print(calc_map_line(self.rect.x, self.rect.y))
             selected_cells.append(Cell(cell_types["selected"], 0,  (self.rect.x, self.rect.y)))
 
     def check_select(self, rect):
@@ -233,7 +246,6 @@ class Cell(pygame.sprite.Sprite):
 
     def destroy(self):
         build_map_layer[calc_map_line(self.rect.x, self.rect.y)] = Cell(cell_types["air"], 0, (self.rect.x, self.rect.y))
-        print("dstr")
 
 def get_selected_cell():
     if len(selected_cells) != 0:

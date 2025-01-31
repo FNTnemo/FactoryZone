@@ -10,12 +10,14 @@ pygame.display.set_icon(pygame.image.load("images/cells/builds/smallter.png"))
 scr = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
+from windows import opened_windows
 from items import items
 from map import load_map, map1, ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer
 from player import player, camera
-from user_interface import ui_elements, base_hud_init
+from user_interface import ui_elements, base_hud_init, ui_images, UI_element
 
 stop = False
+version = "e1.0"
 
 #time calc
 start_dt = 0
@@ -39,19 +41,33 @@ debug_font = pygame.font.Font(None, 20)
 def rendering(screen):
     global start_render_dt, end_render_dt, render_delta_time
     start_render_dt = time.time()
-    draw_queue = [ground_map_layer + build_map_layer + items + auxiliary_map_layer + selected_cells]
-    for arrays in draw_queue:
-        for obj in arrays:
-            if obj.rect.midright[0] - camera.offset.x >= 0 and obj.rect.midbottom[1] - camera.offset.y >= 0 and obj.rect.midtop[1] - camera.offset.y <= WINDOW_HEIGHT and obj.rect.midleft[0] - camera.offset.x <= WINDOW_WIDTH:
-                screen.blit(obj.image, (obj.rect.x - camera.offset.x, obj.rect.y - camera.offset.y))
+    draw_queue = ground_map_layer + build_map_layer + items + auxiliary_map_layer + selected_cells
+    for obj in draw_queue:
+        if obj.rect.midright[0] - camera.offset.x >= 0 and obj.rect.midbottom[1] - camera.offset.y >= 0 and obj.rect.midtop[1] - camera.offset.y <= WINDOW_HEIGHT and obj.rect.midleft[0] - camera.offset.x <= WINDOW_WIDTH:
+            screen.blit(obj.image, (obj.rect.x - camera.offset.x, obj.rect.y - camera.offset.y))
 
     for el in ui_elements:
         screen.blit(el.image, (el.rect.x, el.rect.y))
 
-    screen.blit(debug_font.render(f"fps: {fps}, items: {len(items)}, map_cells: {len(ground_map_layer)}, building_cells: \"Err\", draw_queue: {len(draw_queue[0])}", True, black), (10, 10))
-    screen.blit(debug_font.render(f"delta_time: all: {delta_time}",True, black), (10, 30))
-    screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (10, 50))
-    screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (10, 70))
+    for wind in opened_windows:
+        screen.blit(wind.image, (wind.rect.x, wind.rect.y))
+        for wind_el in wind.window_elements:
+            if wind_el.type != "text":
+                screen.blit(wind_el.image, (wind_el.rect.x, wind_el.rect.y))
+            else: screen.blit(wind_el.font.render(wind_el.text, True, black), wind_el.rect)
+
+    screen.blit(ui_images["vignette"], (0, 0)) # UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))
+
+    if player.debug_mode:
+        if fps >= 59: screen.blit(debug_font.render(f"fps: {fps}", True, green), (10, 10))
+        if 50 < fps < 59: screen.blit(debug_font.render(f"fps: {fps}", True, yellow), (10, 10))
+        elif fps <= 50: screen.blit(debug_font.render(f"fps: {fps}", True, red), (10, 10))
+        screen.blit(debug_font.render(f"items: {len(items)}, map_cells: {len(ground_map_layer + build_map_layer + auxiliary_map_layer)}, draw_queue: {len(draw_queue + ui_elements + opened_windows)}", True, black), (10, 30))
+        screen.blit(debug_font.render(f"delta_time: all: {delta_time}",True, black), (10, 50))
+        screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (10, 70))
+        screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (10, 90))
+
+    screen.blit(debug_font.render(f"Experimental build: {version}",True, yellow), (WINDOW_WIDTH - 256, WINDOW_HEIGHT-15))
 
     selected_cells.clear()
     end_render_dt = time.time()
@@ -70,10 +86,13 @@ def update():
     for cell in build_map_layer:
         cell.update()
     for cell in auxiliary_map_layer:
-        #cell.update()
         pass
     for item in items:
         item.update()
+    for window in opened_windows:
+        window.update()
+        for brick in window.window_elements:
+            brick.update()
 
     end_update_dt = time.time()
     update_delta_time = end_update_dt - start_update_dt

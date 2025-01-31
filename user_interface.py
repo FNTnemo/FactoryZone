@@ -3,17 +3,19 @@ import pygame
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT
 from map import cell_images, cell_types, cell_size
 from player import camera, player
+from windows import Window, window_types
 
 ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_alpha()}
 
 ui_elements = []
 
-open_structures = ["drill-electric", "smallter-base", "conveyor", "conveyor-angular", "connector-input", "connector-output"]
+open_structures = ["drill-electric", "smelter-base", "conveyor", "conveyor-angular", "connector-input", "connector-output"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
         super().__init__()
         self.image = image
+        self.elt = "ui"
 
         self.rect = self.image.get_rect(topleft=pos)
         self.type = "UI"
@@ -33,6 +35,7 @@ class UI_element(pygame.sprite.Sprite):
 class SelectableItemUI(pygame.sprite.Sprite):
     def __init__(self, typei, pos):
         super().__init__()
+        self.elt = "item"
         self.type0 = typei[0]
         self.type = self.type0
         self.building_type = self.type0.split("-")[0]
@@ -110,4 +113,3 @@ def base_hud_init():
     for i in range(len(open_structures)):
         ui_elements.append(SelectableItemUI(cell_types[open_structures[i]],
                                             (10 + i * (cell_size + cell_size // 10), WINDOW_HEIGHT - WINDOW_HEIGHT // 9)))
-    ui_elements.append(UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))) #vignette

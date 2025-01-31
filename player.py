@@ -21,8 +21,13 @@ class Player():
 
         self.can_move = True
         self.build_flag = True
+        self.debug_mode = False
 
     def update(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_F3]:
+            self.debug_mode = True
+        else: self.debug_mode = False
         self.movement()
         self.pipette()
 
