@@ -2,8 +2,6 @@ from ctypes import c_char
 
 import pygame
 
-from windows import opened_windows
-
 map1 = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -87,7 +85,7 @@ cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1], [
               "connector-output": ["connector-output", cell_images["connector-output"], [True, False, False, 2], []],
               # ores
               "ore-iron": ["ore-iron", cell_images["iron-ore"], [True, True, False, 1], []]}
-
+intaractive_cells = ()
 smallter_recipe = {"plate-iron": ()}
 
 cell_size = 64
@@ -128,6 +126,11 @@ class Cell(pygame.sprite.Sprite):
 
         # subjective parameters
         stype = self.type.split("-")
+        self.cell_inventory = []
+        if self.layer == 2 and (self.type == "smelter"):
+            from items import recipes
+            self.recipes = recipes[stype[0]]
+        else: self.recipes = None
 
         # drill
         if stype[0] == "drill":
@@ -138,6 +141,7 @@ class Cell(pygame.sprite.Sprite):
 
     def update(self):
         from player import camera, player
+        from windows import opened_windows
         mouse_keys = pygame.mouse.get_pressed()
         keyboard_keys = pygame.key.get_pressed()
         # build/destroy

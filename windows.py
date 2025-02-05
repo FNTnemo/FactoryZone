@@ -1,6 +1,7 @@
 # type, image
 import pygame.image
 
+from items import recipes
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT
 
 window_types = {"smelter-window": ("smelter-window", pygame.image.load("images/hud/windows/smelter_window.png").convert_alpha()),
@@ -9,7 +10,8 @@ opened_windows = []
 
 def create_window(cell):
     if len(opened_windows) == 0:
-        img = window_types["smelter-window"][1]
+        typec = cell.type.split("-")[0]
+        img = window_types[f"{typec}-window"][1]
         window = Window(window_types["smelter-window"], (WINDOW_WIDTH//2 - img.get_width()//2, WINDOW_HEIGHT//2 - img.get_height()//2), cell)
         opened_windows.append(window)
 
@@ -31,6 +33,7 @@ class Window:
         self.window_elements = []
 
         self.window_elements.append(WindowBrick(window_types["close-icon"], (WINDOW_WIDTH - self.rect.x, WINDOW_HEIGHT - self.rect.y - self.image.get_height()), self))
+        self.typec = cell.type.split("-")[0]
 
     def update(self):
         pass

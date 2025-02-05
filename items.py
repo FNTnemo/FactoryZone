@@ -6,6 +6,11 @@ items = []
 #type, image
 item_types = {"ore-iron": ["ore-iron", pygame.image.load("images/items/ores/iron-ore.png").convert_alpha()]}
 
+# (item, count), time
+recipes = {"smelter":
+               {"plate-iron": (("ore-iron", 1), 20)}
+           }
+
 class Item(pygame.sprite.Sprite):
     def __init__(self, type, pos):
         super().__init__()
