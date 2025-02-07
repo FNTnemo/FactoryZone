@@ -69,6 +69,7 @@ cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").conver
 
 
                "iron-ore": [pygame.image.load("images/cells/ores/iron_ore.png").convert_alpha()]}
+
 # type, image [can_select, can_build, player_collide, layer], [args]
 cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1], []],
               "air": ["air", cell_images["air"], [True, True, False, 2], []],
@@ -85,17 +86,13 @@ cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1], [
               "connector-output": ["connector-output", cell_images["connector-output"], [True, False, False, 2], []],
               # ores
               "ore-iron": ["ore-iron", cell_images["iron-ore"], [True, True, False, 1], []]}
-intaractive_cells = ()
-smallter_recipe = {"plate-iron": ()}
+intaractive_cells = ("smelter")
 
 cell_size = 64
-conveyor_speed = 5
 
 ground_map_layer = []
 build_map_layer = []
 auxiliary_map_layer = []
-
-
 
 selected_cells = []
 
@@ -125,16 +122,19 @@ class Cell(pygame.sprite.Sprite):
         self.cell_exist = False
 
         # subjective parameters
-        stype = self.type.split("-")
-        self.cell_inventory = []
-        if self.layer == 2 and (self.type == "smelter"):
+        self.selected_recipe = None
+        typec = self.type.split("-")
+        if self.layer == 2 and (typec[0] == "smelter"):
             from items import recipes
-            self.recipes = recipes[stype[0]]
-        else: self.recipes = None
+            self.recipes = recipes[typec[0]]
+            self.cell_inventory = [self.recipes[2]]
+        else:
+            self.recipes = None
+            self.cell_inventory = None
 
         # drill
-        if stype[0] == "drill":
-            self.drill_delay_start = 1
+        if typec[0] == "drill":
+            self.drill_delay_start = 45
             self.drill_delay = self.drill_delay_start
 
         #animation

@@ -1,7 +1,7 @@
 # type, image
 import pygame.image
 
-from items import recipes
+from items import recipes, item_types
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT
 
 window_types = {"smelter-window": ("smelter-window", pygame.image.load("images/hud/windows/smelter_window.png").convert_alpha()),
@@ -35,12 +35,27 @@ class Window:
         self.window_elements.append(WindowBrick(window_types["close-icon"], (WINDOW_WIDTH - self.rect.x, WINDOW_HEIGHT - self.rect.y - self.image.get_height()), self))
         self.typec = cell.type.split("-")[0]
 
+        # recipe cell
+        if self.typec == "smelter":
+            font = pygame.font.Font(None, 20)
+            for i in range(len(cell.recipes)):
+                #typei = (type, image, recipe_type)
+                self.window_elements.append(WindowBrick(("recipe", item_types[cell.recipes[i][0]][1], cell.recipes[i][0]), (100, 100 + i * 64), self))
+                self.window_elements.append(WindowText())
+
+        # items in inventory
+
+
     def update(self):
-        pass
+        for brick in self.window_elements:
+            brick.update()
+
+
 
 
 class WindowBrick:
     def __init__(self, typei, pos, window):
+        self.typei = typei
         self.type = typei[0]
         self.image = typei[1]
         self.rect = self.image.get_rect(topleft=pos)
@@ -53,6 +68,9 @@ class WindowBrick:
                 close_window()
         if self.type == "item-cell":
             pass
+        if self.type == "recipe":
+            if self.rect.collidepoint(pygame.mouse.get_pos()) and mouse_keys[0]:
+                self.window.cell.selected_recipe = self.typei[2]
 
 class WindowText:
     def __init__(self, text, font, pos, window):
@@ -63,4 +81,4 @@ class WindowText:
         self.window = window
 
     def update(self):
-        pass
+        self.window.cell.cell_inventory

@@ -1,14 +1,17 @@
 import pygame.sprite
 
-from map import conveyor_speed, build_map_layer, cell_size, get_cell
+from map import build_map_layer, cell_size, get_cell
+from main_settings import conveyor_speed
 
 items = []
 #type, image
-item_types = {"ore-iron": ["ore-iron", pygame.image.load("images/items/ores/iron-ore.png").convert_alpha()]}
+item_types = {"ore-iron": ["ore-iron", pygame.image.load("images/items/ores/iron-ore.png").convert_alpha()],
+              "plate-iron": ["plate-iron", pygame.image.load("images/items/iron-plate.png").convert_alpha()]}
 
 # (item, count), time
 recipes = {"smelter":
-               {"plate-iron": (("ore-iron", 1), 20)}
+                [("plate-iron", 20, (("ore-iron", 1))),
+                ("plate-iron", 25, ("ore-iron", 1))]
            }
 
 class Item(pygame.sprite.Sprite):
@@ -23,7 +26,6 @@ class Item(pygame.sprite.Sprite):
     def update(self):
         #if not self.collide_check(items):
         self.movement()
-        pass
 
     def movement(self):
         on_conveyor, conveyor = self.on_conveyor()
@@ -43,9 +45,17 @@ class Item(pygame.sprite.Sprite):
         x = (self.rect.x // cell_size) * cell_size
         y = (self.rect.y // cell_size) * cell_size
         cell = get_cell(x, y, 2)
-        #print(x, y, cell.type, (self.rect.topleft))
         typec = cell.type.split("-")
-        if (typec[0] == "conveyor" or typec[0] == "connector"):
+        if typec[0] == "conveyor" or typec[0] == "connector":
+            return True, cell
+        return False, None
+
+    def on_connector(self):
+        x = (self.rect.x // cell_size) * cell_size
+        y = (self.rect.y // cell_size) * cell_size
+        cell = get_cell(x, y, 2)
+        typec = cell.type.split("-")
+        if typec[0] == "connector":
             return True, cell
         return False, None
 

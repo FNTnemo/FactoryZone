@@ -91,8 +91,6 @@ def update():
         item.update()
     for window in opened_windows:
         window.update()
-        for brick in window.window_elements:
-            brick.update()
 
     end_update_dt = time.time()
     update_delta_time = end_update_dt - start_update_dt
