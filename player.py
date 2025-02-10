@@ -58,7 +58,7 @@ class Player():
     def pipette(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_q]:
-            from user_interface import open_structures, ui_elements
+            from user_interface import ui_elements
             for ui_el in ui_elements:
                 if (get_selected_cell() is not None and get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 2) is not None
                         and ui_el.type == get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 2).type):

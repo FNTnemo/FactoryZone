@@ -1,7 +1,7 @@
 import pygame
 
-from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT
-from map import cell_images, cell_types, cell_size
+from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, cellular_interaction
+from map import cell_images, cell_types, cell_size, get_cell, auxiliary_map_layer, get_cell_id, Cell, get_selected_cell
 from player import camera, player
 from windows import Window, window_types
 
@@ -73,7 +73,7 @@ class SelectableItemUI(pygame.sprite.Sprite):
             if k_keys[pygame.K_r] and not self.r_pressed:
                 self.r_pressed = True
 
-                if self.type == "conveyor" or self.building_type == "connector" or self.building_type == "drill": # 4 states
+                if self.type == "conveyor" or self.building_type == "connector" or self.building_type == "drill" or self.building_type == "smelter": # 4 states
                     self.direction += 1
                     if self.direction > 3:
                         self.direction = 0
@@ -89,9 +89,37 @@ class SelectableItemUI(pygame.sprite.Sprite):
 
             self.last_direction = self.direction
 
-        if self.selected:
+            # mouse follow
             mouse_x, mouse_y = pygame.mouse.get_pos()
             self.rect.center = mouse_x, mouse_y
+
+            # pointers
+            under_cell = get_selected_cell()
+            if under_cell is not None and self.building_type in cellular_interaction["interactive"]:
+                if self.building_type == "smelter":
+                    print(get_cell_id(under_cell.rect.x, under_cell.rect.y))
+                    if self.direction == 0:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y - cell_size)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y - cell_size))
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y + cell_size)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x, under_cell.rect.y + cell_size))
+                    elif self.direction == 1:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x + cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x + cell_size, under_cell.rect.y))
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x - cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x - cell_size, under_cell.rect.y))
+                    elif self.direction == 2:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y + cell_size)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y + cell_size))
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y - cell_size)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x, under_cell.rect.y - cell_size))
+                    elif self.direction == 3:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x - cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x - cell_size, under_cell.rect.y))
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x + cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x + cell_size, under_cell.rect.y))
+
+                if self.building_type == "drill":
+                    if self.direction == 0:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y - cell_size))
+                    elif self.direction == 1:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x + cell_size, under_cell.rect.y))
+                    elif self.direction == 2:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y + cell_size))
+                    elif self.direction == 3:
+                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x - cell_size, under_cell.rect.y))
 
     def take(self):
         self.selected = True
@@ -108,6 +136,10 @@ class SelectableItemUI(pygame.sprite.Sprite):
         self.image = cell_images[self.type][direction]
         self.direction = direction
 
+def clear_pointers():
+    for cell in auxiliary_map_layer:
+        if cell.typec == "pointer":
+            auxiliary_map_layer.remove(cell)
 
 def base_hud_init():
     for i in range(len(open_structures)):

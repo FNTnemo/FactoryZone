@@ -1,6 +1,6 @@
 from ctypes import c_char
 
-from main_settings import cell_size
+from main_settings import cell_size, cellular_interaction
 
 import pygame
 
@@ -45,7 +45,10 @@ cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").conver
                                     pygame.transform.rotate(pygame.image.load("images/cells/drill_cell.png").convert_alpha(), 90),
                                     pygame.image.load("images/cells/drill_cell.png").convert_alpha(),
                                     pygame.transform.rotate(pygame.image.load("images/cells/drill_cell.png").convert_alpha(), -90)],
-               "smelter-base": [pygame.image.load("images/cells/builds/smallter.png").convert_alpha()],
+               "smelter-base": [pygame.image.load("images/cells/builds/smallter.png").convert_alpha(),
+                                pygame.image.load("images/cells/builds/smallter.png").convert_alpha(),
+                                pygame.image.load("images/cells/builds/smallter.png").convert_alpha(),
+                                pygame.image.load("images/cells/builds/smallter.png").convert_alpha()],
                "conveyor": [pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(),
                                     pygame.transform.rotate(pygame.image.load("images/cells/builds/conveyor.png").convert_alpha(), -90),
                                     pygame.transform.flip(pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(),False, True),
@@ -66,12 +69,16 @@ cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").conver
                                     pygame.transform.rotate(pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(),90),
                                     pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(),
                                     pygame.transform.rotate(pygame.image.load("images/cells/builds/connector_output.png").convert_alpha(), -90)],
-
-
-
-
                "iron-ore": [pygame.image.load("images/cells/ores/iron_ore.png").convert_alpha()],
-               "copper-ore": [pygame.image.load("images/cells/ores/copper-ore.png").convert_alpha()]}
+               "copper-ore": [pygame.image.load("images/cells/ores/copper-ore.png").convert_alpha()],
+               "green-pointer": [pygame.image.load("images/hud/auxiliary/green-pointer.png").convert_alpha(),
+                                 pygame.transform.rotate(pygame.image.load("images/hud/auxiliary/green-pointer.png"), -90),
+                                 pygame.transform.flip(pygame.image.load("images/hud/auxiliary/green-pointer.png").convert_alpha(), False, True),
+                                 pygame.transform.rotate(pygame.image.load("images/hud/auxiliary/green-pointer.png").convert_alpha(), 90)],
+               "orange-pointer": [pygame.image.load("images/hud/auxiliary/orange-pointer.png").convert_alpha(),
+                                 pygame.transform.rotate(pygame.image.load("images/hud/auxiliary/orange-pointer.png").convert_alpha(), -90),
+                                 pygame.transform.flip(pygame.image.load("images/hud/auxiliary/orange-pointer.png").convert_alpha(), False,True),
+                                 pygame.transform.rotate(pygame.image.load("images/hud/auxiliary/orange-pointer.png").convert_alpha(), 90)]}
 
 # type, image [can_select, can_build, player_collide, layer, interactive], [args]
 cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1, False], []],
@@ -79,17 +86,19 @@ cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1, Fa
               "selected": ["selected", cell_images["selected"], [False, False, False, 3, False], []],
               "border-red": ["border-red", cell_images["border-red"], [False, False, True, 1, False], []],
               # buildings
-              "drill-electric": ["drill-electric", cell_images["drill-electric"], [True, True, False, 2, True], [1]],
-              "smelter-base": ["smelter-base", cell_images["smelter-base"], [True, False, False, 2, True], []],
+              "drill-electric": ["drill-electric", cell_images["drill-electric"], [True, True, False, 2, True], [(0, 1)]],
+              "smelter-base": ["smelter-base", cell_images["smelter-base"], [True, False, False, 2, True], [(1, 1)]],
               # conveyors args[type, direction]
               "conveyor": ["conveyor", cell_images["conveyor"], [False, False, False, 2, False], []],
               "conveyor-angular": ["conveyor-angular", cell_images["conveyor-angular"], [False, False, False, 2, False], []],
               # connectors
               "connector-input": ["connector-input", cell_images["connector-input"], [True, False, False, 2, False], []],
-              "connector-output": ["connector-output", cell_images["connector-output"], [True, False, False, 2], False, []],
+              "connector-output": ["connector-output", cell_images["connector-output"], [True, False, False, 2, False], []],
               # ores
               "ore-iron": ["ore-iron", cell_images["iron-ore"], [True, True, False, 1, False], []],
-              "ore-copper": ["ore-copper", cell_images["copper-ore"], [True, True, False, 1, False], []]}
+              "ore-copper": ["ore-copper", cell_images["copper-ore"], [True, True, False, 1, False], []],
+              "pointer-green": ["pointer-green", cell_images["green-pointer"], [False, False, False, 3, False], []],
+              "pointer-orange": ["pointer-orange", cell_images["orange-pointer"], [False, False, False, 3, False], []]}
 
 
 
@@ -128,10 +137,10 @@ class Cell(pygame.sprite.Sprite):
         # subjective parameters
         self.selected_recipe = None
         self.cell_inventory = []
-        typec = self.type.split("-")
-        if self.layer == 2 and (typec[0] == "smelter"):
+        if self.layer == 2 and self.typec in cellular_interaction["crafting"]:
             from items import all_recipes
-            self.recipes = all_recipes[typec[0]] # all recipes for this building
+            self.recipes = all_recipes[self.typec] # all recipes for this building
+            self.inputs_outputs_count = self.subjective_arguments[0]
         else:
             self.recipes = None
         self.connectors_input = []
@@ -139,7 +148,7 @@ class Cell(pygame.sprite.Sprite):
 
 
         # drill
-        if typec[0] == "drill":
+        if self.typec == "drill":
             self.drill_delay_start = 45
             self.drill_delay = self.drill_delay_start
 
@@ -233,7 +242,7 @@ class Cell(pygame.sprite.Sprite):
             from items import items
             if self.direction == 2:
                 test_cell = get_cell(self.rect.x, self.rect.y + cell_size, 2)
-                if test_cell is not None and test_cell.typec == "smelter":
+                if test_cell is not None and test_cell.can_interactive:
                     for item in items:
                         if item.rect.colliderect(test_cell.rect):
                             add_item(test_cell, item)
@@ -241,11 +250,19 @@ class Cell(pygame.sprite.Sprite):
 
         # crafting
         if self.can_interactive:
-            pass
+            # for item in range(len(self.cell_inventory)):
+            #     if self.cell_inventory[item][1] >= self.selected_recipe[2][item][1]:
+            sumi = [1 if self.cell_inventory[item][1] >= self.selected_recipe[2][item][1] else 0 for item in range(len(self.cell_inventory))]
+            if sumi == len(self.cell_inventory):
+                pass
+
 
         # selection update
         if self.selected:
             selected_cells.append(Cell(cell_types["selected"], 0,  (self.rect.x, self.rect.y)))
+
+    def craft(self, item_str):
+        pass
 
     def check_select(self, rect):
         mouse_pos_x, mouse_pos_y = pygame.mouse.get_pos()
@@ -269,16 +286,17 @@ def add_item(building, item): #add item in this cell
     print(building.cell_inventory)
 
 def get_selected_cell():
-    if len(selected_cells) != 0:
-        for selected_cell in selected_cells:
-            if selected_cell.layer == 2:
-                return selected_cell
+    for cell in build_map_layer:
+        if cell.selected: return cell
     return None
 
 def get_cell(x, y, layer):
     if layer == 1: return ground_map_layer[calc_map_line(x, y)]
     if layer == 2: return build_map_layer[calc_map_line(x, y)]
     if layer == 3: return auxiliary_map_layer[calc_map_line(x, y)]
+
+def get_cell_id(x, y):
+    return calc_map_line(x, y)
 
 def load_map(mapi):
     global loaded_map

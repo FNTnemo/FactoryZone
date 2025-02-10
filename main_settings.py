@@ -19,3 +19,7 @@ black = (0, 0, 0)
 
 # conveyors
 conveyor_speed = 2
+
+# cell
+cellular_interaction = {"interactive": ["drill", "smelter", "assembler"],
+                        "crafting": ["smelter"]}

@@ -14,7 +14,7 @@ from windows import opened_windows
 from items import items
 from map import load_map, map1, ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer
 from player import player, camera
-from user_interface import ui_elements, base_hud_init, ui_images, UI_element
+from user_interface import ui_elements, base_hud_init, ui_images, UI_element, clear_pointers
 
 stop = False
 version = "exp1.2"
@@ -70,6 +70,7 @@ def rendering(screen):
     screen.blit(debug_font.render(f"Experimental build: {version}",True, yellow), (WINDOW_WIDTH - 256, WINDOW_HEIGHT-15))
 
     selected_cells.clear()
+    clear_pointers()
     end_render_dt = time.time()
     render_delta_time = end_render_dt - start_render_dt
 
