@@ -17,7 +17,7 @@ from player import player, camera
 from user_interface import ui_elements, base_hud_init, ui_images, UI_element
 
 stop = False
-version = "e1.0"
+version = "exp1.2"
 
 #time calc
 start_dt = 0
@@ -52,9 +52,9 @@ def rendering(screen):
     for wind in opened_windows:
         screen.blit(wind.image, (wind.rect.x, wind.rect.y))
         for wind_el in wind.window_elements:
-            if wind_el.type != "text":
-                screen.blit(wind_el.image, (wind_el.rect.x, wind_el.rect.y))
-            else: screen.blit(wind_el.font.render(wind_el.text, True, black), wind_el.rect)
+            screen.blit(wind_el.image, (wind_el.rect.x, wind_el.rect.y))
+        for wind_el in wind.text_window_elements:
+            screen.blit(wind_el.render(), wind_el.rect)
 
     screen.blit(ui_images["vignette"], (0, 0)) # UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))
 

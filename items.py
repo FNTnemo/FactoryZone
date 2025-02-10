@@ -6,13 +6,21 @@ from main_settings import conveyor_speed
 items = []
 #type, image
 item_types = {"ore-iron": ["ore-iron", pygame.image.load("images/items/ores/iron-ore.png").convert_alpha()],
-              "plate-iron": ["plate-iron", pygame.image.load("images/items/iron-plate.png").convert_alpha()]}
+              "ore-copper": ["ore-copper", pygame.image.load("images/items/ores/copper-ore.png").convert_alpha()],
+              "plate-iron": ["plate-iron", pygame.image.load("images/items/plates/iron-plate.png").convert_alpha()],
+              "plate-copper": ["plate-copper", pygame.image.load("images/items/plates/copper-plate.png").convert_alpha()]}
 
-# (item, count), time
-recipes = {"smelter":
-                [("plate-iron", 20, (("ore-iron", 1))),
-                ("plate-iron", 25, ("ore-iron", 1))]
+# (item, count)
+# recipes["building"][recipe id][0] <- 0 - typy str; 1 - crafting time; 2 - ingredients
+all_recipes = {
+    "smelter": (["plate-iron", 20, [("ore-iron", 1), ("ore-copper", 2)]],
+                ["plate-copper", 20, [("ore-copper", 1)]])
+
            }
+
+def get_recipe(building, recipei):
+    for recipe in all_recipes[building]:
+        if recipe[0] == recipei: return recipe
 
 class Item(pygame.sprite.Sprite):
     def __init__(self, type, pos):
@@ -32,7 +40,7 @@ class Item(pygame.sprite.Sprite):
         if on_conveyor:
             direction = conveyor.direction
             if conveyor.type == "conveyor" or conveyor.type.split("-")[0] == "connector":
-                if direction == 0: #conveyor
+                if direction == 0:  #conveyor
                     self.rect.y += -conveyor_speed
                 if direction == 1:
                     self.rect.x += conveyor_speed
@@ -67,6 +75,7 @@ class Item(pygame.sprite.Sprite):
 
     def despawn(self):
         items.remove(self)
+
 
 def spawn(type_str, pos):
     items.append(Item(item_types[type_str], pos))
