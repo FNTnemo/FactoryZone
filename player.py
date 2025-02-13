@@ -76,9 +76,9 @@ class Player():
 
     def map_border_check(self):
         from map import get_map_size, loaded_map
-        if self.rect.x >= HALF_WINDOW_HEIGHT and self.rect.x <= get_map_size(loaded_map)[0] - HALF_WINDOW_HEIGHT:
+        if HALF_WINDOW_HEIGHT <= self.rect.x <= get_map_size(loaded_map)[0] - HALF_WINDOW_HEIGHT:
             return True
-        if self.rect.y >= HALF_WINDOW_HEIGHT and self.rect.y <= get_map_size(loaded_map)[1] - HALF_WINDOW_HEIGHT:
+        if HALF_WINDOW_HEIGHT <= self.rect.y <= get_map_size(loaded_map)[1] - HALF_WINDOW_HEIGHT:
             return True
         return False
 

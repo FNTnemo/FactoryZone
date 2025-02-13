@@ -22,4 +22,5 @@ conveyor_speed = 2
 
 # cell
 cellular_interaction = {"interactive": ["drill", "smelter", "assembler"],
-                        "crafting": ["smelter"]}
+                        "crafting": ["smelter", "assembler"],
+                        "conveyor": ["conveyor", "connector"]}

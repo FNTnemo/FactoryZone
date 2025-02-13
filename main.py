@@ -17,7 +17,7 @@ from player import player, camera
 from user_interface import ui_elements, base_hud_init, ui_images, UI_element, clear_pointers
 
 stop = False
-version = "exp1.2"
+version = "pr 1.0"
 
 #time calc
 start_dt = 0
@@ -67,7 +67,7 @@ def rendering(screen):
         screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (10, 70))
         screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (10, 90))
 
-    screen.blit(debug_font.render(f"Experimental build: {version}",True, yellow), (WINDOW_WIDTH - 256, WINDOW_HEIGHT-15))
+    screen.blit(debug_font.render(f"Pre-release build: {version}",True, red), (WINDOW_WIDTH - 256, WINDOW_HEIGHT-15))
 
     selected_cells.clear()
     clear_pointers()
@@ -98,7 +98,7 @@ def update():
 
 while not stop:
     start_dt = time.time()
-    scr.fill((0,0,0))
+    scr.fill((65,105,225))
     keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

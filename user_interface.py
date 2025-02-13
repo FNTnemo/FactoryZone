@@ -1,7 +1,8 @@
 import pygame
 
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, cellular_interaction
-from map import cell_images, cell_types, cell_size, get_cell, auxiliary_map_layer, get_cell_id, Cell, get_selected_cell
+from map import cell_images, cell_types, cell_size, get_cell, auxiliary_map_layer, get_cell_id, Cell, get_selected_cell, \
+    get_map_size, loaded_map, get_loaded_map
 from player import camera, player
 from windows import Window, window_types
 
@@ -9,7 +10,7 @@ ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_al
 
 ui_elements = []
 
-open_structures = ["drill-electric", "smelter-base", "conveyor", "conveyor-angular", "connector-input", "connector-output"]
+open_structures = ["drill-electric", "smelter-base", "assembler", "conveyor", "connector-input", "connector-output"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
@@ -73,7 +74,7 @@ class SelectableItemUI(pygame.sprite.Sprite):
             if k_keys[pygame.K_r] and not self.r_pressed:
                 self.r_pressed = True
 
-                if self.type == "conveyor" or self.building_type == "connector" or self.building_type == "drill" or self.building_type == "smelter": # 4 states
+                if self.type == "conveyor" or self.building_type == "connector" or self.building_type == "drill" or self.building_type == "smelter" or self.building_type == "assembler": # 4 states
                     self.direction += 1
                     if self.direction > 3:
                         self.direction = 0
@@ -96,29 +97,48 @@ class SelectableItemUI(pygame.sprite.Sprite):
             # pointers
             under_cell = get_selected_cell()
             if under_cell is not None and self.building_type in cellular_interaction["interactive"]:
-                if self.building_type == "smelter":
+                ms = get_map_size(get_loaded_map())
+                if self.building_type == "smelter" or self.building_type == "assembler":
+                    green_pos, orange_pos, orange_pos2, orange_pos3 = (), (), (), ()
                     if self.direction == 0:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y - cell_size)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y - cell_size))
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y + cell_size)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x, under_cell.rect.y + cell_size))
+                        green_pos = (under_cell.rect.x, under_cell.rect.y - cell_size)
+                        orange_pos = (under_cell.rect.x, under_cell.rect.y + cell_size)
+                        orange_pos2 = (under_cell.rect.x + cell_size, under_cell.rect.y)
+                        orange_pos3 = (under_cell.rect.x - cell_size, under_cell.rect.y)
                     elif self.direction == 1:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x + cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x + cell_size, under_cell.rect.y))
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x - cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x - cell_size, under_cell.rect.y))
+                        green_pos = (under_cell.rect.x + cell_size, under_cell.rect.y)
+                        orange_pos = (under_cell.rect.x - cell_size, under_cell.rect.y)
+                        orange_pos2 = (under_cell.rect.x, under_cell.rect.y + cell_size)
+                        orange_pos3 = (under_cell.rect.x, under_cell.rect.y - cell_size)
                     elif self.direction == 2:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y + cell_size)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y + cell_size))
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y - cell_size)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x, under_cell.rect.y - cell_size))
+                        green_pos = (under_cell.rect.x, under_cell.rect.y +cell_size)
+                        orange_pos = (under_cell.rect.x, under_cell.rect.y - cell_size)
+                        orange_pos2 = (under_cell.rect.x - cell_size, under_cell.rect.y)
+                        orange_pos3 = (under_cell.rect.x + cell_size, under_cell.rect.y)
                     elif self.direction == 3:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x - cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x - cell_size, under_cell.rect.y))
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x + cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-orange"], self.direction, (under_cell.rect.x + cell_size, under_cell.rect.y))
+                        green_pos = (under_cell.rect.x - cell_size, under_cell.rect.y)
+                        orange_pos = (under_cell.rect.x + cell_size, under_cell.rect.y)
+                        orange_pos2 = (under_cell.rect.x, under_cell.rect.y - cell_size)
+                        orange_pos3 = (under_cell.rect.x, under_cell.rect.y + cell_size)
+                    if ms[0] > green_pos[0] >= 0 and ms[1] > green_pos[1] >= 0:
+                        auxiliary_map_layer[get_cell_id(green_pos[0], green_pos[1])] = Cell(cell_types["pointer-green"], self.direction, green_pos)
+                    if ms[0] > orange_pos[0] >= 0 and ms[1] > orange_pos[1] >= 0:
+                        auxiliary_map_layer[get_cell_id(orange_pos[0], orange_pos[1])] = Cell(cell_types["pointer-orange"], self.direction,orange_pos)
+                        auxiliary_map_layer[get_cell_id(orange_pos2[0], orange_pos2[1])] = Cell(cell_types["pointer-orange"], self.direction - 1, orange_pos2)
+                        auxiliary_map_layer[get_cell_id(orange_pos3[0], orange_pos3[1])] = Cell(cell_types["pointer-orange"], self.direction + 1, orange_pos3)
 
                 if self.building_type == "drill":
+                    green_pos = ()
                     if self.direction == 0:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y - cell_size)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y - cell_size))
+                        green_pos = (under_cell.rect.x, under_cell.rect.y - cell_size)
                     elif self.direction == 1:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x + cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x + cell_size, under_cell.rect.y))
+                        green_pos = (under_cell.rect.x + cell_size, under_cell.rect.y)
                     elif self.direction == 2:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x, under_cell.rect.y + cell_size)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x, under_cell.rect.y + cell_size))
+                        green_pos = (under_cell.rect.x, under_cell.rect.y + cell_size)
                     elif self.direction == 3:
-                        auxiliary_map_layer[get_cell_id(under_cell.rect.x - cell_size, under_cell.rect.y)] = Cell(cell_types["pointer-green"], self.direction, (under_cell.rect.x - cell_size, under_cell.rect.y))
+                        green_pos = (under_cell.rect.x - cell_size, under_cell.rect.y)
+                    if ms[0] > green_pos[0] >= 0 and ms[1] > green_pos[1] >= 0:
+                        auxiliary_map_layer[get_cell_id(green_pos[0], green_pos[1])] = Cell(cell_types["pointer-green"], self.direction, green_pos)
 
     def take(self):
         self.selected = True
