@@ -1,15 +1,17 @@
 import time
 
 import pygame
+from distlib.wheel import cache
 
 from main_settings import *
 
-pygame.init()
+pygame.init() # init and import
 pygame.display.set_caption("FactoryZone")
 pygame.display.set_icon(pygame.image.load("images/cells/builds/smallter.png"))
 scr = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
+from saves import save_game, load_game
 from windows import opened_windows
 from items import items
 from map import load_map, map1, ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer
@@ -32,9 +34,13 @@ start_update_dt = 0
 end_update_dt = 0
 update_delta_time = 0
 
+#try:
+#    load_game()
+#except ValueError:
+#    print("load map error")
 
-base_hud_init()
 load_map(map1)
+base_hud_init()
 
 debug_font = pygame.font.Font(None, 20)
 
@@ -96,7 +102,7 @@ def update():
     end_update_dt = time.time()
     update_delta_time = end_update_dt - start_update_dt
 
-while not stop:
+while not stop: # main
     start_dt = time.time()
     scr.fill((65,105,225))
     keys = pygame.key.get_pressed()
@@ -107,6 +113,9 @@ while not stop:
     fps = clock.get_fps()
 
     update()
+    if keys[pygame.K_p]:
+        save_game()
+        print("game saved")
 
     ###
     ###

@@ -320,8 +320,8 @@ class Cell(pygame.sprite.Sprite):
             self.cell_inventory[id][1] -= self.selected_recipe[2][id][1]
         item_pos = ()
         if self.direction == 0: item_pos = self.rect.midtop
-        if self.direction == 1: item_pos = self.rect.midright
-        if self.direction == 2: item_pos = self.rect.midbottom
+        if self.direction == 1: item_pos = (self.rect.midright[0] + 32, self.rect.midright[1])
+        if self.direction == 2: item_pos = (self.rect.midbottom[0], self.rect.midbottom[1] + 32)
         if self.direction == 3: item_pos = self.rect.midleft
         spawn(item_str, item_pos)
 
