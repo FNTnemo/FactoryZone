@@ -20,7 +20,11 @@ black = (0, 0, 0)
 # conveyors
 conveyor_speed = 2
 
+#buildings
+max_item_stack = 512
+storage_item_stack = 2048
+
 # cell
-cellular_interaction = {"interactive": ["drill", "smelter", "assembler"],
+cellular_interaction = {"interactive": ["drill", "smelter", "assembler", "storage"],
                         "crafting": ["smelter", "assembler"],
                         "conveyor": ["conveyor", "connector"]}

@@ -2,14 +2,16 @@
 import pygame.image
 
 from items import all_recipes, item_types
-from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, black, cellular_interaction
+from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, black, cellular_interaction, cell_size, storage_item_stack
+from map import storage_inventory
 
 window_types = {
     "smelter-window": ("smelter-window", pygame.image.load("images/hud/windows/smelter_window.png").convert_alpha()),
     "close-icon": ("close-icon", pygame.image.load("images/hud/windows/close_icon.png").convert_alpha()),
-    "assembler-window": ("assembler-window", pygame.image.load("images/hud/windows/assembler_window.png").convert_alpha())}
+    "assembler-window": ("assembler-window", pygame.image.load("images/hud/windows/assembler_window.png").convert_alpha()),
+    "storage-window": ("storage-window", pygame.image.load("images/hud/windows/storage.png").convert_alpha())}
 
-window_font = pygame.font.Font(None, 20)
+window_font = pygame.font.Font(None, 24)
 opened_windows = []
 
 
@@ -54,6 +56,10 @@ class Window: # main window class
             if self.cell.selected_recipe is not None:
                 self.load_recipe()
 
+        if self.typec == "storage":
+            for i in range(len(storage_inventory)):
+                self.window_elements.append(WindowBrick(("item", item_types[storage_inventory[i][0]][1]), (self.rect.x + 50, self.rect.y + i * 35 + 50), self))
+                self.text_window_elements.append((WindowTextBrick(["items-in-storage", storage_inventory[i]], "update Err IIS", window_font, (self.rect.x + 150, self.rect.y + i * 35 + 50), self)))
         # items in inventory
 
     def update(self):
@@ -144,6 +150,9 @@ class WindowTextBrick:
         if self.type == "crafting-progress-status":
             if self.window.cell.is_process_of_craft: self.text = "Is active"
             else: self.text = "Is not active"
+        if self.type == "items-in-storage":
+            if self.info[1][1] >= storage_item_stack: self.text = str(self.info[1][0]) + " -> " + str(self.info[1][1]) + " (Max.)"
+            else: self.text = self.text = str(self.info[1][0]) + " -> " + str(self.info[1][1])
 
     def render(self):
         return self.font.render(self.text, True, black)

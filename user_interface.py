@@ -10,7 +10,7 @@ ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_al
 
 ui_elements = []
 
-open_structures = ["drill-electric", "smelter-base", "assembler", "conveyor", "connector-input", "connector-output"]
+open_structures = ["drill-electric", "smelter-base", "assembler", "storage", "conveyor", "connector-input", "connector-output"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
@@ -139,6 +139,17 @@ class SelectableItemUI(pygame.sprite.Sprite):
                         green_pos = (under_cell.rect.x - cell_size, under_cell.rect.y)
                     if ms[0] > green_pos[0] >= 0 and ms[1] > green_pos[1] >= 0:
                         auxiliary_map_layer[get_cell_id(green_pos[0], green_pos[1])] = Cell(cell_types["pointer-green"], self.direction, green_pos)
+
+                if self.building_type == "storage":
+                    orange_pos1 = (under_cell.rect.x, under_cell.rect.y - cell_size)
+                    orange_pos2 = (under_cell.rect.x, under_cell.rect.y + cell_size)
+                    orange_pos3 = (under_cell.rect.x + cell_size, under_cell.rect.y)
+                    orange_pos4 = (under_cell.rect.x - cell_size, under_cell.rect.y)
+
+                    auxiliary_map_layer[get_cell_id(orange_pos1[0], orange_pos1[1])] = Cell(cell_types["pointer-orange"], 2, orange_pos1)
+                    auxiliary_map_layer[get_cell_id(orange_pos2[0], orange_pos2[1])] = Cell(cell_types["pointer-orange"], 0, orange_pos2)
+                    auxiliary_map_layer[get_cell_id(orange_pos3[0], orange_pos3[1])] = Cell(cell_types["pointer-orange"], 3, orange_pos3)
+                    auxiliary_map_layer[get_cell_id(orange_pos4[0], orange_pos4[1])] = Cell(cell_types["pointer-orange"], 1, orange_pos4)
 
     def take(self):
         self.selected = True

@@ -12,16 +12,18 @@ item_types = {"ore-iron": ["ore-iron", pygame.image.load("images/items/ores/iron
               "plate-copper": ["plate-copper", pygame.image.load("images/items/plates/copper-plate.png").convert_alpha()],
               "steel": ["steel", pygame.image.load("images/items/plates/steel-plate.png").convert_alpha()],
               "road-copper": ["road-copper", pygame.image.load("images/items/roads/copper-road.png").convert_alpha()],
-              "road-iron": ["road-iron", pygame.image.load("images/items/roads/iron-road.png").convert_alpha()]}
+              "road-iron": ["road-iron", pygame.image.load("images/items/roads/iron-road.png").convert_alpha()],
+              "chip": ["chip", pygame.image.load("images/items/chip.png").convert_alpha()]}
 
 # (item, count)
 # recipes["building"][recipe id][0] <- 0 - type str; 1 - crafting time; 2 - ingredients
 all_recipes = {
     "smelter": (["plate-iron", 64, [("ore-iron", 1)]],
                 ["plate-copper", 64, [("ore-copper", 1)]],
-                ["steel", 81, [("ore-iron", 3), ("ore-copper", 2)]]),
+                ["steel", 81, [("ore-iron", 3), ("ore-coal", 2)]]),
     "assembler": (["road-copper", 64, [("plate-copper", 1)]],
-                  ["road-iron", 42, [("plate-iron", 1)]])
+                  ["road-iron", 42, [("plate-iron", 1)]],
+                  ["chip", 256, [("plate-iron", 1), ("plate-copper", 1), ("road-copper", 3)]])
            }
 
 def get_recipe(building, recipei):
@@ -47,7 +49,6 @@ class Item(pygame.sprite.Sprite):
 
     def movement(self):
         self.on_conveyor, self.conveyor = self.on_conveyor_check()
-        print(self.conveyor_queue)
         if self.on_conveyor:
             self.direction = self.conveyor.direction
             if self.conveyor not in self.conveyor_queue and self.conveyor is not None:
