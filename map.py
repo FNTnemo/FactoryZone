@@ -1,6 +1,7 @@
 from main_settings import cell_size, cellular_interaction, storage_item_stack, max_item_stack
 
 import pygame
+
 # 0 - nothing 1 - iron 2 - copper 3 - coal
 map1 = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -121,11 +122,6 @@ build_map_layer = []
 auxiliary_map_layer = []
 
 selected_cells = []
-
-storage_inventory = [] # main inventory
-
-storage_inventory.append(["chip", 512])
-storage_inventory.append(["ore-iron", 2048])
 
 class Cell(pygame.sprite.Sprite):
     def __init__(self, typei, direction, pos):
@@ -346,11 +342,20 @@ def add_item(building, item): #add item in this cell
             inv[1] += 1
 
 def add_item_into_storage(item):
-    for inv in storage_inventory:
+    from player import player
+    for inv in player.storage_inventory:
         if inv[0] == item.type:
             if inv[1] < storage_item_stack: inv[1] += 1
             return
-    storage_inventory.append([item.type, 1])
+    player.storage_inventory.append([item.type, 1])
+
+def get_storage_inventory():
+    from player import player
+    return player.storage_inventory
+
+def set_storage_inventory(value):
+    from player import player
+    player.storage_inventory = value
 
 def get_selected_cell():
     for cell in build_map_layer:
@@ -403,3 +408,4 @@ def write_map_sells():
                 ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
             build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
             auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+    print("map environment loaded")

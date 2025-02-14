@@ -19,8 +19,11 @@ class Player():
         self.build_delay_start = 1
         self.build_delay = self.build_delay_start
 
+        self.storage_inventory = []
+
         self.can_move = True
         self.build_flag = True
+        self.P_flag = False
         self.debug_mode = False
 
     def update(self):

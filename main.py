@@ -19,7 +19,7 @@ from player import player, camera
 from user_interface import ui_elements, base_hud_init, ui_images, UI_element, clear_pointers
 
 stop = False
-version = "pr 1.0"
+version = "Release 1.0"
 
 #time calc
 start_dt = 0
@@ -34,12 +34,7 @@ start_update_dt = 0
 end_update_dt = 0
 update_delta_time = 0
 
-#try:
-#    load_game()
-#except ValueError:
-#    print("load map error")
-
-load_map(map1)
+load_game()
 base_hud_init()
 
 debug_font = pygame.font.Font(None, 20)
@@ -73,7 +68,7 @@ def rendering(screen):
         screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (10, 70))
         screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (10, 90))
 
-    screen.blit(debug_font.render(f"Pre-release build: {version}",True, red), (WINDOW_WIDTH - 256, WINDOW_HEIGHT-15))
+    screen.blit(debug_font.render(f"Build: {version}",True, green), (WINDOW_WIDTH - 160, WINDOW_HEIGHT-15))
 
     selected_cells.clear()
     clear_pointers()
@@ -108,14 +103,17 @@ while not stop: # main
     keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            save_game()
             stop = True
 
     fps = clock.get_fps()
 
     update()
-    if keys[pygame.K_p]:
+    if keys[pygame.K_p] and not player.P_flag:
         save_game()
         print("game saved")
+        player.P_flag = True
+    if not keys[pygame.K_p]: player.P_flag = False
 
     ###
     ###

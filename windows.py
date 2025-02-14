@@ -3,7 +3,7 @@ import pygame.image
 
 from items import all_recipes, item_types
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, black, cellular_interaction, cell_size, storage_item_stack
-from map import storage_inventory
+
 
 window_types = {
     "smelter-window": ("smelter-window", pygame.image.load("images/hud/windows/smelter_window.png").convert_alpha()),
@@ -57,9 +57,10 @@ class Window: # main window class
                 self.load_recipe()
 
         if self.typec == "storage":
-            for i in range(len(storage_inventory)):
-                self.window_elements.append(WindowBrick(("item", item_types[storage_inventory[i][0]][1]), (self.rect.x + 50, self.rect.y + i * 35 + 50), self))
-                self.text_window_elements.append((WindowTextBrick(["items-in-storage", storage_inventory[i]], "update Err IIS", window_font, (self.rect.x + 150, self.rect.y + i * 35 + 50), self)))
+            from player import player
+            for i in range(len(player.storage_inventory)):
+                self.window_elements.append(WindowBrick(("item", item_types[player.storage_inventory[i][0]][1]), (self.rect.x + 50, self.rect.y + i * 35 + 50), self))
+                self.text_window_elements.append((WindowTextBrick(["items-in-storage", player.storage_inventory[i]], "update Err IIS", window_font, (self.rect.x + 150, self.rect.y + i * 35 + 50), self)))
         # items in inventory
 
     def update(self):

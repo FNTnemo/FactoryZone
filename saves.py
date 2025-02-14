@@ -1,104 +1,72 @@
-import csv
+import yaml
 import os
-import json
 
-from items import items
-from map import ground_map_layer, build_map_layer, auxiliary_map_layer, storage_inventory, calc_map_line, Cell, \
-    cell_types
-from player import player
+from items import items, Item, item_types
+from map import ground_map_layer, build_map_layer, calc_map_line, Cell, cell_types, \
+    load_map, get_loaded_map, auxiliary_map_layer, map1, set_storage_inventory
+from player import player, camera
 
 saves_path = "saves"
-save1_path = "saves/save1.csv"
+save1_path = "saves/save.fz"
 
 def save_game():
     if not os.path.isdir(saves_path):
         os.mkdir(saves_path)
 
     with open(save1_path, "w+", newline="") as save:
-        writer = csv.writer(save, delimiter=";", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(["cell-type", "direction", "selected-recipe-type", "position_x", "position_y", "inventory"])
-        writer.writerow(["ground-cells"])
-
-        for cell in ground_map_layer:
-            writer.writerow(json.dumps([cell.type, cell.direction, "None", cell.rect.x, cell.rect.y, "None"]) )
-
-        writer.writerow(["build-cells"])
-        for cell in build_map_layer:
-            if cell.selected_recipe is not None:
-                writer.writerow([cell.type, cell.direction, cell.selected_recipe[0], cell.rect.x, cell.rect.y, cell.cell_inventory])
-            else: writer.writerow([cell.type, cell.direction, "None", cell.rect.x, cell.rect.y, cell.cell_inventory])
-
-        writer.writerow(["auxiliary-cells"])
-        for cell in auxiliary_map_layer:
-            writer.writerow([cell.type, cell.direction, "None", cell.rect.x, cell.rect.y, "None"])
-
-        writer.writerow(["item-type", "direction", "position_x", "position_y", "cell-queue"])
-        for item in items:
-            writer.writerow([item.type, item.direction, item.rect.x, item.rect.y, *item.conveyor_queue])
-
-        writer.writerow(["player", "position", "storage-inventory"])
-        writer.writerow(["player", player.rect.topleft, storage_inventory])
+        # cell-type; direction; position; inventory; selected-recipe
+        data2save = []
+        data2save.append(["map-info", get_loaded_map()])
+        for gc in ground_map_layer:
+            data2save.append(["ground", gc.type, gc.direction, gc.rect.topleft])
+        for bc in build_map_layer:
+            data2save.append(["build", bc.type, bc.direction, bc.rect.topleft, bc.cell_inventory, bc.selected_recipe])
+        for ac in auxiliary_map_layer:
+            data2save.append(["aux", ac.type, ac.direction, ac.rect.topleft])
+        #for item in items:
+            #data2save.append(["item", item.type, item.rect.topleft, item.direction, item.conveyor_queue])
+        data2save.append(["player", player.rect.topleft, (camera.offset.x, camera.offset.y) , player.storage_inventory])
+        yaml.dump(data2save, save)
 
 def load_game():
     if os.path.isfile(save1_path):
         with open(save1_path) as save:
-            reader = csv.reader(save, delimiter=';', quotechar='"')
-            data = [x for x in reader]
-            id = 0
-            while data[id][0] != "build-cells":
-                id += 1
-                if len(data[id]) > 1:
-                    load_ground_cell(data, id)
-            id += 1
-            while data[id][0] != "auxiliary-cells":
-                id += 1
-                if len(data[id]) > 1:
-                    #load_building_cell(data, id)
-                    pass
-            id += 1
+            data = yaml.full_load(save)
+            if data is not None:
+                try:
+                    load_map(data[0][1])
+                    for id in range(len(data)):
+                       # typei type direction position | inventory recipe
+                       typei = data[id][0]
+                       if typei == "ground":
+                           ground_map_layer[calc_map_line(data[id][3][0], data[id][3][1])] = Cell(cell_types[data[id][1]], data[id][2], data[id][3])
+                       if typei == "build":
+                           cell = Cell(cell_types[data[id][1]], data[id][2], data[id][3])
+                           cell.cell_inventory = data[id][4]
+                           cell.selected_recipe = data[id][5]
+                           if cell.selected_recipe is not None:
+                               cell.crafting_delay_start = cell.selected_recipe[1]  # crafting delay set
+                               cell.crafting_delay = cell.crafting_delay_start
+                           build_map_layer[calc_map_line(data[id][3][0], data[id][3][1])] = cell
+                       if typei == "aux":
+                           auxiliary_map_layer[calc_map_line(data[id][3][0], data[id][3][1])] = Cell(cell_types[data[id][1]], data[id][2], data[id][3])
+                       # typei type position direction conveyor_queue
+                       #if typei == "item":
+                       #    item = Item(item_types[data[id][1]], data[id][2])
+                       #    item.direction = data[id][3]
+                       #    item.conveyor_queue = data[id][4]
+                       #    items.append(item)
 
-            #while data[id][0] != "item-type":
-            #    id += 1
-            #    if len(data[id]) > 1:
-            #        load_auxiliary_cell(data, id)
-            #while data[id][0] != "player":
-            #    id += 1
-            #    if len(data[id]) > 1:
-            #        pass
-
-def clear_save():
-    pass
-
-def load_ground_cell(data, id):
-    typec = str(data[id][0])
-    direction = int(data[id][1])
-    pos = (int(data[id][3]), int(data[id][4]))
-    ground_map_layer[calc_map_line(pos[0], pos[1])] = Cell(cell_types[typec], direction, pos)
-
-def load_building_cell(data, id):
-    typec = str(data[id][0])
-    direction = int(data[id][1])
-    pos = (int(data[id][3]), int(data[id][4]))
-    cell_inventory = json.loads(data[id][4])
-
-    if data[id][2] != "None":
-        selected_recipe = json.loads(data[id][2])
-        cell = Cell(cell_types[typec], direction, pos)
-        cell.selected_recipe = selected_recipe
-        cell.crafting_delay_start = cell.selected_recipe[1]
-        cell.crafting_delay = cell.crafting_delay_start
-        for id in range(len(cell.selected_recipe[2])):
-            cell.cell_inventory.append([cell.selected_recipe[2][id][0], 0])
-
+                       if typei == "player":
+                           player.rect.topleft = data[id][1]
+                           set_storage_inventory(data[id][3])
+                           camera.offset.x, camera.offset.y = data[id][2][0], data[id][2][1]
+                except Exception:
+                    print("Invalid save file")
+                    load_map(map1)
+            else:
+                print("Save file is empty")
+                load_map(map1)
     else:
-        selected_recipe = None
-        cell = Cell(cell_types[typec], direction, pos)
-        cell.selected_recipe = selected_recipe
-
-    build_map_layer[calc_map_line(pos[0], pos[1])] = cell
-
-def load_auxiliary_cell(data, id):
-    typec = str(data[id][0])
-    direction = int(data[id][1])
-    pos = (int(data[id][3]), int(data[id][4]))
-    ground_map_layer[calc_map_line(pos[0], pos[1])] = Cell(cell_types[typec], direction, pos)
+        print("New map created")
+        load_map(map1)
