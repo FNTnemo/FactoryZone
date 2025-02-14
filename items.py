@@ -1,6 +1,6 @@
 import pygame.sprite
 
-from map import build_map_layer, cell_size, get_cell
+from map import cell_size, get_cell
 from main_settings import conveyor_speed
 
 items = []

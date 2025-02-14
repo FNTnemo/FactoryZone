@@ -1,7 +1,5 @@
 import time
-
 import pygame
-from distlib.wheel import cache
 
 from main_settings import *
 

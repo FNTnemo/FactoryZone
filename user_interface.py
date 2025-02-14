@@ -2,9 +2,8 @@ import pygame
 
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, cellular_interaction
 from map import cell_images, cell_types, cell_size, get_cell, auxiliary_map_layer, get_cell_id, Cell, get_selected_cell, \
-    get_map_size, loaded_map, get_loaded_map
-from player import camera, player
-from windows import Window, window_types
+    get_map_size, get_loaded_map
+from player import player
 
 ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_alpha()}
 
