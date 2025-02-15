@@ -25,6 +25,7 @@ max_item_stack = 512
 storage_item_stack = 2048
 
 # cell
-cellular_interaction = {"interactive": ["smelter", "assembler", "storage"],
+cellular_interaction = {"interactive": ["smelter", "assembler", "storage", "drill"],
                         "crafting": ["smelter", "assembler"],
-                        "conveyor": ["conveyor", "connector"]}
+                        "conveyor": ["conveyor", "connector"],
+                        "with-window": ["smelter", "assembler", "storage"]}

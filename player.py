@@ -24,6 +24,9 @@ class Player():
         self.can_move = True
         self.build_flag = True
         self.P_flag = False
+        self.O_flag = False
+        self.remove_file_delay_start = 512
+        self.remove_file_delay = self.remove_file_delay_start
         self.debug_mode = False
 
     def update(self):

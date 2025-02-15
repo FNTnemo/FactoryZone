@@ -1,7 +1,6 @@
 import yaml
 import os
 
-from items import items, Item, item_types
 from map import ground_map_layer, build_map_layer, calc_map_line, Cell, cell_types, \
     load_map, get_loaded_map, auxiliary_map_layer, map1, set_storage_inventory
 from player import player, camera
@@ -70,3 +69,7 @@ def load_game():
     else:
         print("New map created")
         load_map(map1)
+
+def del_save_file(path, file):
+    if os.path.exists(path) and os.path.isfile(path + "/" + file):
+        os.remove(path + "/" + file)

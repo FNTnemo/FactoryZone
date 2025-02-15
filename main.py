@@ -9,12 +9,12 @@ pygame.display.set_icon(pygame.image.load("images/cells/builds/smallter.png"))
 scr = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
 
-from saves import save_game, load_game
+from saves import save_game, load_game, del_save_file, saves_path
 from windows import opened_windows
 from items import items
-from map import load_map, map1, ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer
+from map import ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer
 from player import player, camera
-from user_interface import ui_elements, base_hud_init, ui_images, UI_element, clear_pointers
+from user_interface import ui_elements, base_hud_init, ui_images, clear_pointers
 
 stop = False
 version = "Release 1.0"
@@ -66,6 +66,8 @@ def rendering(screen):
         screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (10, 70))
         screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (10, 90))
 
+    if player.remove_file_delay < player.remove_file_delay_start:
+        screen.blit(debug_font.render(f"There are {player.remove_file_delay * 100 // player.remove_file_delay_start}% left before the save is deleted",True, red), (WINDOW_WIDTH - 512, WINDOW_HEIGHT - 15))
     screen.blit(debug_font.render(f"Build: {version}",True, green), (WINDOW_WIDTH - 160, WINDOW_HEIGHT-15))
 
     selected_cells.clear()
@@ -101,23 +103,33 @@ while not stop: # main
     keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            save_game()
+            #save_game() # autosave
             stop = True
 
     fps = clock.get_fps()
-
     update()
-    if keys[pygame.K_p] and not player.P_flag:
+
+    if keys[pygame.K_p] and not player.P_flag: # save button
         save_game()
         print("game saved")
         player.P_flag = True
     if not keys[pygame.K_p]: player.P_flag = False
+    if keys[pygame.K_o] and not player.O_flag: # remove save file button
+        if player.remove_file_delay <= 0:
+            del_save_file(saves_path, "save.fz")
+            print("save file removed")
+            player.O_flag = True
+            player.remove_file_delay = player.remove_file_delay_start
+        else:
+            player.remove_file_delay -= 1
+    if not keys[pygame.K_o]:
+        player.O_flag = False
+        player.remove_file_delay = player.remove_file_delay_start
 
     ###
     ###
 
     rendering(scr)
-
     clock.tick(tps)  # тики в секунду
     pygame.display.flip()
 

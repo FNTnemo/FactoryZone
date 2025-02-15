@@ -2,7 +2,7 @@
 import pygame.image
 
 from items import all_recipes, item_types
-from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, black, cellular_interaction, cell_size, storage_item_stack
+from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, black, cellular_interaction, storage_item_stack
 
 
 window_types = {

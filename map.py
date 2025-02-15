@@ -227,7 +227,7 @@ class Cell(pygame.sprite.Sprite):
                     player.destroy_delay = player.destroy_delay_start
 
         #window
-        if mouse_keys[0] and self.selected and self.layer == 2 and self.type != "air" and player.selected_structure == "empty" and self.typec in cellular_interaction["interactive"]:
+        if mouse_keys[0] and self.selected and self.layer == 2 and self.type != "air" and player.selected_structure == "empty" and self.typec in cellular_interaction["with-window"]:
             from windows import create_window
             create_window(self)
         if keyboard_keys[pygame.K_ESCAPE]:
@@ -408,4 +408,4 @@ def write_map_sells():
                 ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
             build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
             auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-    print("map environment loaded")
+    print("Map environment loaded")

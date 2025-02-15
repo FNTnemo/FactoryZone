@@ -1,7 +1,7 @@
 import pygame
 
 from main_settings import WINDOW_WIDTH, WINDOW_HEIGHT, cellular_interaction
-from map import cell_images, cell_types, cell_size, get_cell, auxiliary_map_layer, get_cell_id, Cell, get_selected_cell, \
+from map import cell_images, cell_types, cell_size, auxiliary_map_layer, get_cell_id, Cell, get_selected_cell, \
     get_map_size, get_loaded_map
 from player import player
 
@@ -123,7 +123,9 @@ class SelectableItemUI(pygame.sprite.Sprite):
                         auxiliary_map_layer[get_cell_id(green_pos[0], green_pos[1])] = Cell(cell_types["pointer-green"], self.direction, green_pos)
                     if ms[0] > orange_pos[0] >= 0 and ms[1] > orange_pos[1] >= 0:
                         auxiliary_map_layer[get_cell_id(orange_pos[0], orange_pos[1])] = Cell(cell_types["pointer-orange"], self.direction,orange_pos)
+                    if ms[0] > orange_pos2[0] >= 0 and ms[1] > orange_pos2[1] >= 0:
                         auxiliary_map_layer[get_cell_id(orange_pos2[0], orange_pos2[1])] = Cell(cell_types["pointer-orange"], self.direction - 1, orange_pos2)
+                    if ms[0] > orange_pos3[0] >= 0 and ms[1] > orange_pos3[1] >= 0:
                         auxiliary_map_layer[get_cell_id(orange_pos3[0], orange_pos3[1])] = Cell(cell_types["pointer-orange"], self.direction + 1, orange_pos3)
 
                 if self.building_type == "drill":
@@ -144,11 +146,15 @@ class SelectableItemUI(pygame.sprite.Sprite):
                     orange_pos2 = (under_cell.rect.x, under_cell.rect.y + cell_size)
                     orange_pos3 = (under_cell.rect.x + cell_size, under_cell.rect.y)
                     orange_pos4 = (under_cell.rect.x - cell_size, under_cell.rect.y)
-
-                    auxiliary_map_layer[get_cell_id(orange_pos1[0], orange_pos1[1])] = Cell(cell_types["pointer-orange"], 2, orange_pos1)
-                    auxiliary_map_layer[get_cell_id(orange_pos2[0], orange_pos2[1])] = Cell(cell_types["pointer-orange"], 0, orange_pos2)
-                    auxiliary_map_layer[get_cell_id(orange_pos3[0], orange_pos3[1])] = Cell(cell_types["pointer-orange"], 3, orange_pos3)
-                    auxiliary_map_layer[get_cell_id(orange_pos4[0], orange_pos4[1])] = Cell(cell_types["pointer-orange"], 1, orange_pos4)
+                    if ms[0] > orange_pos1[0] >= 0 and ms[1] > orange_pos1[1] >= 0:
+                        auxiliary_map_layer[get_cell_id(orange_pos1[0], orange_pos1[1])] = Cell(cell_types["pointer-orange"], 2, orange_pos1)
+                    if ms[0] > orange_pos2[0] >= 0 and ms[1] > orange_pos2[1] >= 0:
+                        auxiliary_map_layer[get_cell_id(orange_pos2[0], orange_pos2[1])] = Cell(cell_types["pointer-orange"], 0, orange_pos2)
+                    if ms[0] > orange_pos3[0] >= 0 and ms[1] > orange_pos3[1] >= 0:
+                        auxiliary_map_layer[get_cell_id(orange_pos3[0], orange_pos3[1])] = Cell(cell_types["pointer-orange"], 3, orange_pos3)
+                    if ms[0] > orange_pos4[0] >= 0 and ms[1] > orange_pos4[1] >= 0:
+                        auxiliary_map_layer[get_cell_id(orange_pos4[0], orange_pos4[1])] = Cell(cell_types["pointer-orange"], 1, orange_pos4)
+                print(self.building_type)
 
     def take(self):
         self.selected = True
