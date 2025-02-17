@@ -42,7 +42,9 @@ def rendering(screen):
     start_render_dt = time.time()
     draw_queue = ground_map_layer + build_map_layer + items + auxiliary_map_layer + selected_cells
     for obj in draw_queue:
-        if obj.rect.midright[0] - camera.offset.x >= 0 and obj.rect.midbottom[1] - camera.offset.y >= 0 and obj.rect.midtop[1] - camera.offset.y <= WINDOW_HEIGHT and obj.rect.midleft[0] - camera.offset.x <= WINDOW_WIDTH:
+        if ((obj.rect.midright[0] - camera.offset.x >= 0 and obj.rect.midbottom[1] - camera.offset.y >= 0 and
+            obj.rect.midtop[1] - camera.offset.y <= WINDOW_HEIGHT and obj.rect.midleft[0] - camera.offset.x <= WINDOW_WIDTH)
+                and obj.type != "air"):
             screen.blit(obj.image, (obj.rect.x - camera.offset.x, obj.rect.y - camera.offset.y))
 
     for el in ui_elements:
@@ -127,6 +129,7 @@ while not stop: # main
         player.remove_file_delay = player.remove_file_delay_start
 
     ###
+    print(player.storage_inventory)
     ###
 
     rendering(scr)

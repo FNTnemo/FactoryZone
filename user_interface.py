@@ -9,7 +9,7 @@ ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_al
 
 ui_elements = []
 
-open_structures = ["drill-electric", "smelter-base", "assembler", "storage", "conveyor", "connector-input", "connector-output"]
+open_structures = ["drill-electric", "smelter-base", "assembler", "storage", "conveyor", "connector-output",  "connector-input"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
