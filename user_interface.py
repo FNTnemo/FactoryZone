@@ -9,7 +9,7 @@ ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_al
 
 ui_elements = []
 
-open_structures = ["drill-electric", "smelter-base", "assembler", "storage", "conveyor", "connector-output",  "connector-input"]
+open_structures = ["drill-electric", "smelter-base", "assembler", "storage", "conveyor", "connector-output",  "connector-input", "spliter"]
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):
@@ -73,7 +73,9 @@ class SelectableItemUI(pygame.sprite.Sprite):
             if k_keys[pygame.K_r] and not self.r_pressed:
                 self.r_pressed = True
 
-                if self.type == "conveyor" or self.building_type == "connector" or self.building_type == "drill" or self.building_type == "smelter" or self.building_type == "assembler": # 4 states
+                if (self.type == "conveyor" or self.building_type == "connector" or self.building_type == "drill" or
+                        self.building_type == "smelter" or self.building_type == "assembler" or self.building_type == "spliter"): # 4 states
+
                     self.direction += 1
                     if self.direction > 3:
                         self.direction = 0
@@ -95,7 +97,7 @@ class SelectableItemUI(pygame.sprite.Sprite):
 
             # pointers
             under_cell = get_selected_cell()
-            if under_cell is not None and self.building_type in cellular_interaction["interactive"]:
+            if under_cell is not None and (self.building_type in cellular_interaction["interactive"]):
                 ms = get_map_size(get_loaded_map())
                 if self.building_type == "smelter" or self.building_type == "assembler":
                     green_pos, orange_pos, orange_pos2, orange_pos3 = (), (), (), ()
@@ -154,7 +156,6 @@ class SelectableItemUI(pygame.sprite.Sprite):
                         auxiliary_map_layer[get_cell_id(orange_pos3[0], orange_pos3[1])] = Cell(cell_types["pointer-orange"], 3, orange_pos3)
                     if ms[0] > orange_pos4[0] >= 0 and ms[1] > orange_pos4[1] >= 0:
                         auxiliary_map_layer[get_cell_id(orange_pos4[0], orange_pos4[1])] = Cell(cell_types["pointer-orange"], 1, orange_pos4)
-                print(self.building_type)
 
     def take(self):
         self.selected = True

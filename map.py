@@ -1,4 +1,4 @@
-from main_settings import cell_size, cellular_interaction, storage_item_stack, max_item_stack
+from main_settings import cell_size, cellular_interaction, storage_item_stack, max_item_stack, window_k
 
 import pygame
 
@@ -63,6 +63,10 @@ cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").conver
                                     pygame.transform.rotate(pygame.image.load("images/cells/builds/conveyor.png").convert_alpha(), -90),
                                     pygame.transform.flip(pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(),False, True),
                                     pygame.transform.rotate(pygame.image.load('images/cells/builds/conveyor.png').convert_alpha(), 90)],
+               "spliter": [pygame.image.load("images/cells/builds/spliter.png").convert_alpha(),
+                           pygame.transform.rotate(pygame.image.load("images/cells/builds/spliter.png").convert_alpha(), -90),
+                           pygame.transform.flip(pygame.image.load('images/cells/builds/spliter.png').convert_alpha(),False, True),
+                           pygame.transform.rotate(pygame.image.load('images/cells/builds/spliter.png').convert_alpha(), 90)],
                "conveyor-angular": [pygame.image.load("images/cells/builds/conveyor_rotate_up.png").convert_alpha(),
                                     pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_down.png").convert_alpha(), True, True),
                                     pygame.transform.flip(pygame.image.load("images/cells/builds/conveyor_rotate_down.png").convert_alpha(), True, False),
@@ -104,6 +108,7 @@ cell_types = {"empty": ["empty", cell_images["empty"], [True, True, False, 1, Fa
               # conveyors args[type, direction]
               "conveyor": ["conveyor", cell_images["conveyor"], [True, False, False, 2, False], []],
               "conveyor-angular": ["conveyor-angular", cell_images["conveyor-angular"], [True, False, False, 2, False], []],
+              "spliter": ["spliter", cell_images["spliter"], [True, False, False, 2, False], []],
               # connectors
               "connector-input": ["connector-input", cell_images["connector-input"], [True, False, False, 2, False], []],
               "connector-output": ["connector-output", cell_images["connector-output"], [True, False, False, 2, False], []],
@@ -130,6 +135,8 @@ class Cell(pygame.sprite.Sprite):
         self.type = typei[0] # type string
         self.typec = self.type.split("-")[0]
         self.direction = direction # direction
+        if self.typec in cellular_interaction["conveyor"]: self.conveyor_direction = self.direction
+        self.conveyor_direction = self.direction
         if self.direction >= len(typei[1]):
             self.direction = 0
         self.image0 = typei[1][self.direction] #origin image
@@ -166,6 +173,8 @@ class Cell(pygame.sprite.Sprite):
             self.items_in_conveyor = []
         if self.layer == 2 and self.typec == "storage":
             pass
+        if self.layer == 2 and self.typec == "spliter":
+            self.spliter_direction = self.direction
 
 
         # drill
@@ -281,6 +290,8 @@ class Cell(pygame.sprite.Sprite):
                 else: self.is_process_of_craft = False
             else: self.is_process_of_craft = False
 
+
+        #item oriented cells
         #connector update
         if self.type == "connector-input":
             test_cell = None
@@ -305,7 +316,32 @@ class Cell(pygame.sprite.Sprite):
                                 add_item(test_cell, item)
                                 item.despawn()
 
+        #spliter
+        if self.typec == "spliter":
+            from items import items
+            for item in items:
+                if item.rect.colliderect(self.rect):
 
+                    item.conveyor_queue.clear()
+                    if self.spliter_direction == (2 + self.direction):
+                        self.spliter_direction += 1
+                    if self.spliter_direction >= 4:
+                        self.spliter_direction -= 4
+
+                    if self.spliter_direction == 0:
+                        item.rect.x = self.rect.topleft[0]
+                        item.rect.y = self.rect.topleft[1] - cell_size // 2
+                    if self.spliter_direction == 1:
+                        item.rect.x = self.rect.topleft[0] + cell_size
+                        item.rect.y = self.rect.topleft[1]
+                    if self.spliter_direction == 2:
+                        item.rect.x = self.rect.topleft[0]
+                        item.rect.y = self.rect.topleft[1] + cell_size
+                    if self.spliter_direction == 3:
+                        item.rect.x = self.rect.topleft[0] - cell_size // 2
+                        item.rect.y = self.rect.topleft[1]
+
+                    self.spliter_direction += 1
         # selection update
         if self.selected:
             selected_cells.append(Cell(cell_types["selected"], 0,  (self.rect.x, self.rect.y)))

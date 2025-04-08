@@ -1,7 +1,9 @@
+from random import random
+
 import pygame.sprite
 
 from map import cell_size, get_cell
-from main_settings import conveyor_speed
+from main_settings import conveyor_speed, cellular_interaction
 
 items = []
 #type, image
@@ -50,7 +52,7 @@ class Item(pygame.sprite.Sprite):
     def movement(self):
         self.on_conveyor, self.conveyor = self.on_conveyor_check()
         if self.on_conveyor:
-            self.direction = self.conveyor.direction
+            self.direction = self.conveyor.conveyor_direction
             if self.conveyor not in self.conveyor_queue and self.conveyor is not None:
                 self.conveyor_queue = self.conveyor_queue + [self.conveyor]
 
@@ -80,7 +82,7 @@ class Item(pygame.sprite.Sprite):
         x = (self.rect.x // cell_size) * cell_size
         y = (self.rect.y // cell_size) * cell_size
         cell = get_cell(x, y, 2)
-        if cell.typec == "conveyor" or cell.typec == "connector":
+        if cell.typec in cellular_interaction["conveyor"]:
             cell.items_in_conveyor.append(self)
             return True, cell
         return False, None

@@ -1,11 +1,12 @@
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
-#WINDOW_WIDTH = 1920
-#WINDOW_HEIGHT = 1080
+current_window_size = (WINDOW_WIDTH, WINDOW_HEIGHT)
+window_k = current_window_size[0] / WINDOW_WIDTH
 
 HALF_WINDOW_WIDTH = WINDOW_WIDTH // 2
 HALF_WINDOW_HEIGHT = WINDOW_HEIGHT // 2
 cell_size = 64
+chunk_size = 4
 
 tps = 60
 
@@ -27,5 +28,5 @@ storage_item_stack = 2048
 # cell
 cellular_interaction = {"interactive": ["smelter", "assembler", "storage", "drill"],
                         "crafting": ["smelter", "assembler"],
-                        "conveyor": ["conveyor", "connector"],
+                        "conveyor": ["conveyor", "connector", "spliter"],
                         "with-window": ["smelter", "assembler", "storage"]}
