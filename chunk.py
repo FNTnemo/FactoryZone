@@ -4,7 +4,7 @@ from main_settings import cell_size, chunk_size
 
 
 class Chunk:
-    def __init__(self, cells):
+    def __init__(self, pos, cells):
         self.position = pygame.math.Vector2
         self.cells = cells
 

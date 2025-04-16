@@ -19,7 +19,7 @@ from player import player, camera
 from user_interface import ui_elements, base_hud_init, ui_images, clear_pointers
 
 stop = False
-version = "Release 1.2"
+version = "Release 1.2: chunk update"
 
 #time calc
 start_dt = 0
@@ -89,7 +89,7 @@ def rendering(virtual_screen, screen):
 
     if player.remove_file_delay < player.remove_file_delay_start:
         virtual_screen.blit(debug_font.render(f"There are {player.remove_file_delay * 100 // player.remove_file_delay_start}% left before the save is deleted",True, red), (WINDOW_WIDTH - 512, WINDOW_HEIGHT - 15))
-    virtual_screen.blit(debug_font.render(f"Build: {version}",True, green), (WINDOW_WIDTH - 160, WINDOW_HEIGHT-15))
+    virtual_screen.blit(debug_font.render(f"Build: {version}",True, green), (WINDOW_WIDTH - 230, WINDOW_HEIGHT-15))
 
     screen.blit(pygame.transform.scale(virtual_screen, current_window_size) , (0, 0))
     selected_cells.clear()
