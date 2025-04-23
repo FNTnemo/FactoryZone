@@ -7,6 +7,7 @@ HALF_WINDOW_WIDTH = WINDOW_WIDTH // 2
 HALF_WINDOW_HEIGHT = WINDOW_HEIGHT // 2
 cell_size = 64
 chunk_size = 4
+chunk_size_global = chunk_size * cell_size
 
 tps = 60
 

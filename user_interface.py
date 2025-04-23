@@ -5,11 +5,37 @@ from map import cell_images, cell_types, cell_size, auxiliary_map_layer, get_cel
     get_map_size, get_loaded_map
 from player import player
 
+gui_images = {"cursor": pygame.image.load("images/hud/cursor/cursor.png").convert_alpha()}
+
 ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_alpha()}
 
 ui_elements = []
 
 open_structures = ["drill-electric", "smelter-base", "assembler", "storage", "conveyor", "connector-output",  "connector-input", "spliter"]
+
+class Button(pygame.sprite.Sprite):
+    def __init__(self, position, image, scale):
+        super().__init__()
+        if scale == 1: self.image = image
+        else: self.image = pygame.transform.scale(image, (scale, scale))
+        self.rect = self.image.get_rect(topleft=position)
+        self.press_flag = 0
+        self.pressed = 0
+
+    def draw(self, screen):
+        screen.blit(self.image, self.rect.topleft)
+
+    def update(self):
+        mpos = pygame.mouse.get_pos()
+        if pygame.mouse.get_pressed()[0] and self.press_flag:
+            if self.rect.collidepoint(mpos):
+                self. press_flag = 1
+                self.pressed = 1
+
+        if not pygame.mouse.get_pressed()[0]:
+            self.press_flag = 0
+            self.pressed = 0
+
 
 class UI_element(pygame.sprite.Sprite):
     def __init__(self, image, pos):

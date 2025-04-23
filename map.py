@@ -1,5 +1,6 @@
 from chunk import Chunk
-from main_settings import cell_size, cellular_interaction, storage_item_stack, max_item_stack, window_k, chunk_size
+from main_settings import cell_size, cellular_interaction, storage_item_stack, max_item_stack, window_k, chunk_size, \
+    chunk_size_global
 
 import pygame
 
@@ -434,44 +435,22 @@ def get_map_char(mapi, x, y):
 
 def write_map_sells():
     ground_map_layer.clear()
-    for y in range(len(loaded_map)//4):
-        for x in range(len(loaded_map[y])//4):
+    for y in range(len(loaded_map)):
+        for x in range(len(loaded_map[y])):
+            if get_map_char(loaded_map, x, y) == 0:
+                ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == 1:
+                ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == 2:
+                ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == 3:
+                ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == -1:
+                ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
+            build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+            auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
 
-            for cy in range(y*4, y*4 + chunk_size):
-                for cx in range(x*4, x*4 + chunk_size):
+            if y * cell_size % chunk_size_global == 0 and x * cell_size % chunk_size_global == 0:
+                chunks.append(Chunk((x * cell_size, y * cell_size), None))
 
-                    
-
-                    #if get_map_char(loaded_map, x, y) == 0:
-                    #   ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
-                    #elif get_map_char(loaded_map, x, y) == 1:
-                    #   ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
-                    #elif get_map_char(loaded_map, x, y) == 2:
-                    #   ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
-                    #elif get_map_char(loaded_map, x, y) == 3:
-                    #   ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
-                    #elif get_map_char(loaded_map, x, y) == -1:
-                    #   ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
-                    #build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-                    #auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-
-                    chunks.append(Chunk((x*4, y*4), [[], [], []]))
-
-
-
-
-
-
-            #if get_map_char(loaded_map, x, y) == 0:
-            #    ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == 1:
-            #    ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == 2:
-            #    ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == 3:
-            #    ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == -1:
-            #    ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
-            #build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-            #auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
     print("Map environment loaded")

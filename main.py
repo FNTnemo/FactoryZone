@@ -1,11 +1,13 @@
 import time
 import pygame
+from pygame import Rect
 
 from main_settings import *
 
 pygame.init() # init and import
 pygame.display.set_caption("FactoryZone")
 pygame.display.set_icon(pygame.image.load("images/cells/builds/smallter.png"))
+pygame.mouse.set_visible(False)
 scr = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), pygame.RESIZABLE)
 clock = pygame.time.Clock()
 
@@ -14,12 +16,12 @@ virtual_screen_surface = pygame.Surface((WINDOW_WIDTH, WINDOW_HEIGHT))
 from saves import save_game, load_game, del_save_file, saves_path
 from windows import opened_windows
 from items import items
-from map import ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer, load_map, map1
+from map import ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer, chunks
 from player import player, camera
-from user_interface import ui_elements, base_hud_init, ui_images, clear_pointers
+from user_interface import ui_elements, base_hud_init, ui_images, clear_pointers, gui_images
 
 stop = False
-version = "Release 1.2: chunk update"
+version = "Release 1.2: optimization update"
 
 #time calc
 start_dt = 0
@@ -60,6 +62,7 @@ def rendering(virtual_screen, screen):
         for wind_el in wind.text_window_elements:
             virtual_screen.blit(wind_el.render(), wind_el.rect)
 
+    virtual_screen.blit(gui_images["cursor"], pygame.mouse.get_pos())
     virtual_screen.blit(ui_images["vignette"], (0, 0)) # UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))
 
     if player.debug_mode:
@@ -84,12 +87,18 @@ def rendering(virtual_screen, screen):
         dt_bar.set_alpha(128)
         virtual_screen.blit(dt_bar, (10, 110))
 
+        for c in chunks:
+            pygame.draw.rect(virtual_screen, (0, 0, 255),
+                             Rect(c.rect.x - camera.offset.x, c.rect.y - camera.offset.y, chunk_size_global, chunk_size_global), 1)
+
         virtual_screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (render_delta_time / delta_time * 100 + 15, 70))
         virtual_screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (update_delta_time / delta_time * 100 + 15, 90))
 
     if player.remove_file_delay < player.remove_file_delay_start:
         virtual_screen.blit(debug_font.render(f"There are {player.remove_file_delay * 100 // player.remove_file_delay_start}% left before the save is deleted",True, red), (WINDOW_WIDTH - 512, WINDOW_HEIGHT - 15))
     virtual_screen.blit(debug_font.render(f"Build: {version}",True, green), (WINDOW_WIDTH - 230, WINDOW_HEIGHT-15))
+
+    #coursor
 
     screen.blit(pygame.transform.scale(virtual_screen, current_window_size) , (0, 0))
     selected_cells.clear()
@@ -146,8 +155,7 @@ while not stop: # main
             #save_game() # autosave
             stop = True
         if event.type == pygame.VIDEORESIZE:
-            #current_window_size = event.size
-            window_k = current_window_size[0] / WINDOW_WIDTH
+            current_window_size = event.size
 
     fps = clock.get_fps()
     update(keys)
