@@ -99,7 +99,6 @@ def rendering(virtual_screen, screen):
     virtual_screen.blit(debug_font.render(f"Build: {version}",True, green), (WINDOW_WIDTH - 230, WINDOW_HEIGHT-15))
 
     #coursor
-
     screen.blit(pygame.transform.scale(virtual_screen, current_window_size) , (0, 0))
     selected_cells.clear()
 

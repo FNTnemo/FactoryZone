@@ -166,6 +166,7 @@ class Cell(pygame.sprite.Sprite):
         # subjective parameters
         self.selected_recipe = None
         self.cell_inventory = []
+        self.items_in_cell = []
         if self.layer == 2 and self.typec in cellular_interaction["crafting"]:
             from items import all_recipes
             self.recipes = all_recipes[self.typec] # all recipes for this building
@@ -434,23 +435,66 @@ def get_map_char(mapi, x, y):
     return mapi[y][x]
 
 def write_map_sells():
-    ground_map_layer.clear()
-    for y in range(len(loaded_map)):
-        for x in range(len(loaded_map[y])):
-            if get_map_char(loaded_map, x, y) == 0:
-                ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
-            elif get_map_char(loaded_map, x, y) == 1:
-                ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
-            elif get_map_char(loaded_map, x, y) == 2:
-                ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
-            elif get_map_char(loaded_map, x, y) == 3:
-                ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
-            elif get_map_char(loaded_map, x, y) == -1:
-                ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
-            build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-            auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+    #ground_map_layer.clear()
+    #for y in range(len(loaded_map)):
+    #    for x in range(len(loaded_map[y])):
+    #
+    #        if get_map_char(loaded_map, x, y) == 0:
+    #            ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
+    #        elif get_map_char(loaded_map, x, y) == 1:
+    #            ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
+    #        elif get_map_char(loaded_map, x, y) == 2:
+    #            ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
+    #        elif get_map_char(loaded_map, x, y) == 3:
+    #            ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
+    #        elif get_map_char(loaded_map, x, y) == -1:
+    #            ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
+    #        build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+    #        auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+    #
+    #        if y * cell_size % chunk_size_global == 0 and x * cell_size % chunk_size_global == 0:
+    #            chunks.append(Chunk((x * cell_size, y * cell_size), None))
+    #
 
-            if y * cell_size % chunk_size_global == 0 and x * cell_size % chunk_size_global == 0:
-                chunks.append(Chunk((x * cell_size, y * cell_size), None))
+    ground_map_layer.clear()
+    for chunk_y in range(len(loaded_map) // chunk_size):
+        for chunk_x in range(len(loaded_map[chunk_y]) // chunk_size):
+
+            ground_cells_in_chunk = []
+            build_cells_in_chunk = []
+            aux_cells_in_chunk = []
+
+            for y in range(chunk_y * chunk_size_global, chunk_y * chunk_size_global + chunk_size_global, cell_size):
+                for x in range(chunk_x * chunk_size_global, chunk_x * chunk_size_global + chunk_size_global, cell_size):
+                    if get_map_char(loaded_map, x // cell_size, y // cell_size) == 0:
+                       ground_cells_in_chunk.append(Cell(cell_types["empty"], 0, (x, y)))
+                    #elif get_map_char(loaded_map, x, y) == 1:
+                    #   ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
+                    #elif get_map_char(loaded_map, x, y) == 2:
+                    #   ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
+                    #elif get_map_char(loaded_map, x, y) == 3:
+                    #   ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
+                    #elif get_map_char(loaded_map, x, y) == -1:
+                    #   ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
+                    #build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+                    #auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+            chunks.append(Chunk((chunk_x * chunk_size_global, chunk_y * chunk_size_global), ground_cells_in_chunk, build_cells_in_chunk, aux_cells_in_chunk))
+
+            #if get_map_char(loaded_map, x, y) == 0:
+            #    ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
+            #elif get_map_char(loaded_map, x, y) == 1:
+            #    ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
+            #elif get_map_char(loaded_map, x, y) == 2:
+            #    ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
+            #elif get_map_char(loaded_map, x, y) == 3:
+            #    ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
+            #elif get_map_char(loaded_map, x, y) == -1:
+            #    ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
+            #build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+            #auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+
+
+
+
 
     print("Map environment loaded")
