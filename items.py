@@ -46,8 +46,21 @@ class Item(pygame.sprite.Sprite):
         self.on_conveyor = self.on_conveyor_check()[0]
         self.is_move = False
 
+        self.owner_cell = get_cell(self.rect.x, self.rect.y, 1)
+
     def update(self):
         self.movement()
+        cell = get_cell(self.rect.center[0], self.rect.center[1], 1)
+
+        if self.owner_cell != cell:
+            if self in self.owner_cell.items:
+                self.owner_cell.items.remove(self)
+            self.owner_cell = cell
+
+        if self not in cell.items:
+            cell.items.append(self)
+
+
 
     def movement(self):
         self.on_conveyor, self.conveyor = self.on_conveyor_check()
@@ -88,8 +101,10 @@ class Item(pygame.sprite.Sprite):
         return False, None
 
     def despawn(self):
-        items.remove(self)
-
+        if self in items:
+            items.remove(self)
+        if self in get_cell(self.rect.center[0], self.rect.center[1], 1).items:
+            get_cell(self.rect.center[0], self.rect.center[1], 1).items.remove(self)
 
 def spawn(type_str, pos):
     item = Item(item_types[type_str], pos)

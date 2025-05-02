@@ -1,6 +1,6 @@
 from chunk import Chunk
 from main_settings import cell_size, cellular_interaction, storage_item_stack, max_item_stack, window_k, chunk_size, \
-    chunk_size_global
+    chunk_size_global, input_surface
 
 import pygame
 
@@ -144,6 +144,7 @@ class Cell(pygame.sprite.Sprite):
         self.conveyor_direction = self.direction
         if self.direction >= len(typei[1]):
             self.direction = 0
+        self.map_id = 0
         self.image0 = typei[1][self.direction] #origin image
         self.cell_arguments = typei[2] # constants arguments
         self.subjective_arguments = typei[3] # subjective arguments
@@ -166,7 +167,7 @@ class Cell(pygame.sprite.Sprite):
         # subjective parameters
         self.selected_recipe = None
         self.cell_inventory = []
-        self.items_in_cell = []
+        self.items = []
         if self.layer == 2 and self.typec in cellular_interaction["crafting"]:
             from items import all_recipes
             self.recipes = all_recipes[self.typec] # all recipes for this building
@@ -192,8 +193,7 @@ class Cell(pygame.sprite.Sprite):
         self.connected_cell = None
         #animation
 
-    def update(self):
-        from player import camera, player
+    def update(self, player, camera):
         from windows import opened_windows
         mouse_keys = pygame.mouse.get_pressed()
         keyboard_keys = pygame.key.get_pressed()
@@ -307,15 +307,13 @@ class Cell(pygame.sprite.Sprite):
             elif self.direction == 3: test_cell = get_cell(self.rect.x - cell_size, self.rect.y, 2)
 
             if test_cell is not None and test_cell.typec == "storage":
-                from items import items
-                for item in items:
+                for item in get_cell(self.rect.x, self.rect.y, 1).items:
                     if item.rect.colliderect(test_cell.rect):
                         add_item_into_storage(item)
                         item.despawn()
 
             if test_cell is not None and test_cell.can_interactive and test_cell.selected_recipe is not None:
-                from items import items
-                for item in items:
+                for item in get_cell(self.rect.x, self.rect.y, 1).items:
                     if item.rect.colliderect(test_cell.rect):
                         for id in range(len(test_cell.selected_recipe[2])):
                             if test_cell.selected_recipe[2][id][0] == item.type:
@@ -324,10 +322,17 @@ class Cell(pygame.sprite.Sprite):
 
         #spliter
         if self.typec == "spliter":
-            from items import items
-            for item in items:
-                if item.rect.colliderect(self.rect):
+            input_cell = None
+            if self.direction == 0: input_cell = get_bottom_cell(get_cell(self.rect.x, self.rect.y, 1), 1)
+            elif self.direction == 1: input_cell = get_left_cell(get_cell(self.rect.x, self.rect.y, 1), 1)
+            elif self.direction == 2: input_cell = get_top_cell(get_cell(self.rect.x, self.rect.y, 1), 1)
+            elif self.direction == 3: input_cell = get_right_cell(get_cell(self.rect.x, self.rect.y, 1), 1)
+            citems = input_cell.items
 
+            for item in citems:
+                print("item", item.type)
+                if item.rect.colliderect(self.rect):
+                    print("collide")
                     item.conveyor_queue.clear()
                     if self.spliter_direction == (2 + self.direction):
                         self.spliter_direction += 1
@@ -337,16 +342,15 @@ class Cell(pygame.sprite.Sprite):
                     if self.spliter_direction == 0:
                         item.rect.x = self.rect.topleft[0]
                         item.rect.y = self.rect.topleft[1] - cell_size // 2
-                    if self.spliter_direction == 1:
+                    elif self.spliter_direction == 1:
                         item.rect.x = self.rect.topleft[0] + cell_size
                         item.rect.y = self.rect.topleft[1]
-                    if self.spliter_direction == 2:
+                    elif self.spliter_direction == 2:
                         item.rect.x = self.rect.topleft[0]
                         item.rect.y = self.rect.topleft[1] + cell_size
-                    if self.spliter_direction == 3:
+                    elif self.spliter_direction == 3:
                         item.rect.x = self.rect.topleft[0] - cell_size // 2
                         item.rect.y = self.rect.topleft[1]
-
                     self.spliter_direction += 1
         # selection update
         if self.selected:
@@ -405,9 +409,9 @@ def get_selected_cell():
     return None
 
 def get_cell(x, y, layer):
-    if layer == 1: return ground_map_layer[calc_map_line(x, y)]
-    if layer == 2: return build_map_layer[calc_map_line(x, y)]
-    if layer == 3: return auxiliary_map_layer[calc_map_line(x, y)]
+    if layer == 1: return ground_map_layer[get_cell_id(x, y)]
+    if layer == 2: return build_map_layer[get_cell_id(x, y)]
+    if layer == 3: return auxiliary_map_layer[get_cell_id(x, y)]
 
 def get_cell_id(x, y):
     return calc_map_line(x, y)
@@ -419,10 +423,10 @@ def load_map(mapi):
 
 def calc_map_line(x, y):
     mc = get_map_size(loaded_map)
-    x //= cell_size
-    y //= cell_size
-    id = x + y * mc[0] // cell_size
-    if x < mc[0] // cell_size and y < mc[1] // cell_size: return id
+    ix = (x // cell_size)
+    iy = (y // cell_size)
+    id = ix + iy * mc[0] // cell_size
+    if ix < mc[0] // cell_size and iy < mc[1] // cell_size: return id
     else: return 0
 
 def get_map_size(mapi):
@@ -434,67 +438,33 @@ def get_loaded_map():
 def get_map_char(mapi, x, y):
     return mapi[y][x]
 
+def get_left_cell(current_cell, layer):
+    return get_cell(current_cell.rect.x - cell_size, current_cell.rect.y, layer)
+def get_right_cell(current_cell, layer):
+    return get_cell(current_cell.rect.x + cell_size, current_cell.rect.y, layer)
+def get_top_cell(current_cell, layer):
+    return get_cell(current_cell.rect.x, current_cell.rect.y - cell_size, layer)
+def get_bottom_cell(current_cell, layer):
+    return get_cell(current_cell.rect.x, current_cell.rect.y + cell_size, layer)
+
 def write_map_sells():
-    #ground_map_layer.clear()
-    #for y in range(len(loaded_map)):
-    #    for x in range(len(loaded_map[y])):
-    #
-    #        if get_map_char(loaded_map, x, y) == 0:
-    #            ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
-    #        elif get_map_char(loaded_map, x, y) == 1:
-    #            ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
-    #        elif get_map_char(loaded_map, x, y) == 2:
-    #            ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
-    #        elif get_map_char(loaded_map, x, y) == 3:
-    #            ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
-    #        elif get_map_char(loaded_map, x, y) == -1:
-    #            ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
-    #        build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-    #        auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-    #
-    #        if y * cell_size % chunk_size_global == 0 and x * cell_size % chunk_size_global == 0:
-    #            chunks.append(Chunk((x * cell_size, y * cell_size), None))
-    #
-
     ground_map_layer.clear()
-    for chunk_y in range(len(loaded_map) // chunk_size):
-        for chunk_x in range(len(loaded_map[chunk_y]) // chunk_size):
+    for y in range(len(loaded_map)):
+        for x in range(len(loaded_map[y])):
+            if get_map_char(loaded_map, x, y) == 0:
+                ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == 1:
+                ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == 2:
+                ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == 3:
+                ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
+            elif get_map_char(loaded_map, x, y) == -1:
+                ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
+            build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
+            auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
 
-            ground_cells_in_chunk = []
-            build_cells_in_chunk = []
-            aux_cells_in_chunk = []
-
-            for y in range(chunk_y * chunk_size_global, chunk_y * chunk_size_global + chunk_size_global, cell_size):
-                for x in range(chunk_x * chunk_size_global, chunk_x * chunk_size_global + chunk_size_global, cell_size):
-                    if get_map_char(loaded_map, x // cell_size, y // cell_size) == 0:
-                       ground_cells_in_chunk.append(Cell(cell_types["empty"], 0, (x, y)))
-                    #elif get_map_char(loaded_map, x, y) == 1:
-                    #   ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
-                    #elif get_map_char(loaded_map, x, y) == 2:
-                    #   ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
-                    #elif get_map_char(loaded_map, x, y) == 3:
-                    #   ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
-                    #elif get_map_char(loaded_map, x, y) == -1:
-                    #   ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
-                    #build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-                    #auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-            chunks.append(Chunk((chunk_x * chunk_size_global, chunk_y * chunk_size_global), ground_cells_in_chunk, build_cells_in_chunk, aux_cells_in_chunk))
-
-            #if get_map_char(loaded_map, x, y) == 0:
-            #    ground_map_layer.append(Cell(cell_types["empty"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == 1:
-            #    ground_map_layer.append(Cell(cell_types["ore-iron"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == 2:
-            #    ground_map_layer.append(Cell(cell_types["ore-copper"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == 3:
-            #    ground_map_layer.append(Cell(cell_types["ore-coal"], 0, (x * cell_size, y * cell_size)))
-            #elif get_map_char(loaded_map, x, y) == -1:
-            #    ground_map_layer.append(Cell(cell_types["border-red"], 0, (x * cell_size, y * cell_size)))
-            #build_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-            #auxiliary_map_layer.append(Cell(cell_types["air"], 0, (x * cell_size, y * cell_size)))
-
-
-
-
+            if y * cell_size % chunk_size_global == 0 and x * cell_size % chunk_size_global == 0:
+                chunks.append(Chunk((x * cell_size, y * cell_size), None))
 
     print("Map environment loaded")

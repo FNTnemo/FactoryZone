@@ -5,9 +5,8 @@ from map import cell_images, cell_types, cell_size, auxiliary_map_layer, get_cel
     get_map_size, get_loaded_map
 from player import player
 
-gui_images = {"cursor": pygame.image.load("images/hud/cursor/cursor.png").convert_alpha()}
-
-ui_images = {"vignette": pygame.image.load("images/hud/vignette.png").convert_alpha()}
+gui_images = {"cursor": pygame.image.load("images/hud/cursor/cursor.png").convert_alpha(),
+              "vignette": pygame.image.load("images/hud/vignette.png").convert_alpha()}
 
 ui_elements = []
 

@@ -16,9 +16,10 @@ virtual_screen_surface = pygame.Surface((WINDOW_WIDTH, WINDOW_HEIGHT))
 from saves import save_game, load_game, del_save_file, saves_path
 from windows import opened_windows
 from items import items
-from map import ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer, chunks
+from map import ground_map_layer, selected_cells, build_map_layer, auxiliary_map_layer, chunks, get_selected_cell, \
+    get_cell, get_cell_id
 from player import player, camera
-from user_interface import ui_elements, base_hud_init, ui_images, clear_pointers, gui_images
+from user_interface import ui_elements, base_hud_init, clear_pointers, gui_images
 
 stop = False
 version = "Release 1.2: optimization update"
@@ -63,9 +64,21 @@ def rendering(virtual_screen, screen):
             virtual_screen.blit(wind_el.render(), wind_el.rect)
 
     virtual_screen.blit(gui_images["cursor"], pygame.mouse.get_pos())
-    virtual_screen.blit(ui_images["vignette"], (0, 0)) # UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))
+    virtual_screen.blit(gui_images["vignette"], (0, 0)) # UI_element(ui_images["vignette"], (0 + camera.offset.x, 0 + camera.offset.y))
 
     if player.debug_mode:
+
+        for c in chunks:
+            pygame.draw.rect(virtual_screen, (0, 0, 255),
+                             Rect(c.rect.x - camera.offset.x, c.rect.y - camera.offset.y, chunk_size_global, chunk_size_global), 1)
+
+        for cell in ground_map_layer:
+            id = get_cell_id(cell.rect.x, cell.rect.y)
+            virtual_screen.blit(debug_font.render(str(id), True, black), (cell.rect.x - camera.offset.x, cell.rect.y - camera.offset.y))
+
+        #data
+        virtual_screen.blit(debug_background_surface, (0, 0))
+
         if fps >= 59: virtual_screen.blit(debug_font.render(f"fps: {fps}", True, green), (10, 10))
         if 50 < fps < 59: virtual_screen.blit(debug_font.render(f"fps: {fps}", True, yellow), (10, 10))
         elif fps <= 50: virtual_screen.blit(debug_font.render(f"fps: {fps}", True, red), (10, 10))
@@ -82,15 +95,6 @@ def rendering(virtual_screen, screen):
         dtu_bar.set_alpha(128)
         virtual_screen.blit(dtu_bar, (10, 90))
 
-        dt_bar = pygame.Surface(((delta_time / 100 * delta_time * 100000000), 20))
-        dt_bar.fill(red)
-        dt_bar.set_alpha(128)
-        virtual_screen.blit(dt_bar, (10, 110))
-
-        for c in chunks:
-            pygame.draw.rect(virtual_screen, (0, 0, 255),
-                             Rect(c.rect.x - camera.offset.x, c.rect.y - camera.offset.y, chunk_size_global, chunk_size_global), 1)
-
         virtual_screen.blit(debug_font.render(f"delta_time: render: {render_delta_time}",True, black), (render_delta_time / delta_time * 100 + 15, 70))
         virtual_screen.blit(debug_font.render(f"delta_time: update: {update_delta_time}",True, black), (update_delta_time / delta_time * 100 + 15, 90))
 
@@ -99,6 +103,7 @@ def rendering(virtual_screen, screen):
     virtual_screen.blit(debug_font.render(f"Build: {version}",True, green), (WINDOW_WIDTH - 230, WINDOW_HEIGHT-15))
 
     #coursor
+
     screen.blit(pygame.transform.scale(virtual_screen, current_window_size) , (0, 0))
     selected_cells.clear()
 
@@ -115,9 +120,9 @@ def update(keys):
     for ui_element in ui_elements:
         ui_element.update()
     for cell in ground_map_layer:
-        cell.update()
+        cell.update(player, camera)
     for cell in build_map_layer:
-        cell.update()
+        cell.update(player, camera)
     #for cell in auxiliary_map_layer:
     #    pass
     for item in items:
@@ -160,7 +165,7 @@ while not stop: # main
     update(keys)
 
     ###
-
+    #print(get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 1).items)
     ###
 
     rendering(virtual_screen_surface, scr)

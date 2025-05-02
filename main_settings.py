@@ -1,3 +1,6 @@
+import pygame.color
+from pygame import Surface
+
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 current_window_size = (WINDOW_WIDTH, WINDOW_HEIGHT)
@@ -18,6 +21,16 @@ green = (0, 255, 0)
 blue = (0, 0, 255)
 white = (255, 255, 255)
 black = (0, 0, 0)
+gray = (128, 128, 128)
+
+#debug surface
+input_surface = Surface((cell_size, cell_size))
+input_surface.fill(yellow)
+input_surface.set_alpha(128)
+
+debug_background_surface = Surface((400, 128))
+debug_background_surface.fill(gray)
+debug_background_surface.set_alpha(170)
 
 # conveyors
 conveyor_speed = 2
