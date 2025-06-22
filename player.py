@@ -8,7 +8,7 @@ class Player():
     def __init__(self, pos):
         super().__init__()
         self.rect = pygame.Rect(pos[0], pos[1], 10, 10)
-        self.velocity = 6
+        self.velocity = player_velocity
         self.directional = pygame.math.Vector2(0, 0)
 
         self.selected_structure = "empty"
@@ -29,48 +29,52 @@ class Player():
         self.remove_file_delay = self.remove_file_delay_start
         self.debug_mode = False
 
-    def update(self):
-        keys = pygame.key.get_pressed()
+    def update(self, keys, k):
         if keys[pygame.K_F3]:
             self.debug_mode = True
         else: self.debug_mode = False
-        self.movement()
+        self.movement(keys, k)
         self.pipette()
 
-    def movement(self):
-        keys = pygame.key.get_pressed()
+    def movement(self, keys, k):
         if self.can_move:
             if keys[pygame.K_w]:
                 self.directional.y = 1
-                self.rect.y -= self.velocity
+                self.rect.y -= self.velocity * k
                 if self.map_collide_check():
-                    self.rect.y += self.velocity
+                    self.rect.y += self.velocity * k
             if keys[pygame.K_s]:
                 self.directional.y = -1
-                self.rect.y += self.velocity
+                self.rect.y += self.velocity * k
                 if self.map_collide_check():
-                    self.rect.y -= self.velocity
+                    self.rect.y -= self.velocity * k
             if keys[pygame.K_a]:
                 self.directional.x = 1
-                self.rect.x -= self.velocity
+                self.rect.x -= self.velocity * k
                 if self.map_collide_check():
-                    self.rect.x += self.velocity
+                    self.rect.x += self.velocity * k
             if keys[pygame.K_d]:
                 self.directional.x = -1
-                self.rect.x += self.velocity
+                self.rect.x += self.velocity * k
                 if self.map_collide_check():
-                    self.rect.x -= self.velocity
+                    self.rect.x -= self.velocity * k
 
     def pipette(self):
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_q]:
-            from user_interface import ui_elements
-            for ui_el in ui_elements:
-                if (get_selected_cell() is not None and get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 2) is not None
-                        and ui_el.type == get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 2).type):
+        if keys[pygame.K_q] and get_selected_cell() is not None:
+            build_layer_cell = get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y,2)
+            if build_layer_cell is not None:
+                from user_interface import ui_elements
+                if build_layer_cell.type == "air":
                     if self.selected_structure != "empty":
                         self.selected_structure.put()
-                    ui_el.take()
+                    return
+                for ui_el in ui_elements:
+                    if ui_el.type == build_layer_cell.type:
+                        if self.selected_structure != "empty":
+                            self.selected_structure.put()
+                        ui_el.take()
+                        self.selected_structure.rotate_building(build_layer_cell.direction)
 
 
     def map_collide_check(self):

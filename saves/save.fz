@@ -231,6 +231,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 0
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 0
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 64
     - - empty
@@ -461,6 +471,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 64
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 64
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 128
     - - empty
@@ -687,6 +707,16 @@
       - 0
       - !!python/tuple
         - 2880
+        - 128
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2944
+        - 128
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
         - 128
     - - empty
       - 0
@@ -921,6 +951,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 192
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 192
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 256
     - - empty
@@ -1151,6 +1191,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 256
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 256
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 320
     - - empty
@@ -1381,6 +1431,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 320
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 320
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 384
     - - empty
@@ -1611,6 +1671,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 384
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 384
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 448
     - - empty
@@ -1841,6 +1911,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 448
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 448
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 512
     - - empty
@@ -2071,6 +2151,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 512
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 512
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 576
     - - empty
@@ -2301,6 +2391,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 576
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 576
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 640
     - - empty
@@ -2531,6 +2631,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 640
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 640
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 704
     - - empty
@@ -2761,6 +2871,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 704
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 704
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 768
     - - empty
@@ -2991,6 +3111,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 768
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 768
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 832
     - - empty
@@ -3221,6 +3351,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 832
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 832
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 896
     - - empty
@@ -3451,6 +3591,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 896
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 896
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 960
     - - empty
@@ -3677,6 +3827,16 @@
       - 0
       - !!python/tuple
         - 2880
+        - 960
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2944
+        - 960
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
         - 960
     - - empty
       - 0
@@ -3911,6 +4071,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1024
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1024
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1088
     - - empty
@@ -4141,6 +4311,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1088
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1088
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1152
     - - empty
@@ -4371,6 +4551,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1152
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1152
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1216
     - - empty
@@ -4601,6 +4791,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1216
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1216
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1280
     - - empty
@@ -4831,6 +5031,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1280
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1280
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1344
     - - empty
@@ -5061,6 +5271,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1344
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1344
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1408
     - - empty
@@ -5291,6 +5511,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1408
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1408
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1472
     - - empty
@@ -5521,6 +5751,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1472
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1472
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1536
     - - empty
@@ -5751,6 +5991,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1536
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1536
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1600
     - - empty
@@ -5981,6 +6231,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1600
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1600
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1664
     - - empty
@@ -6211,6 +6471,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1664
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1664
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1728
     - - empty
@@ -6441,6 +6711,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1728
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1728
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1792
     - - empty
@@ -6671,6 +6951,16 @@
     - - empty
       - 0
       - !!python/tuple
+        - 2944
+        - 1792
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1792
+    - - empty
+      - 0
+      - !!python/tuple
         - 0
         - 1856
     - - empty
@@ -6898,176 +7188,426 @@
       - !!python/tuple
         - 2880
         - 1856
-  - - - air
+    - - empty
       - 0
+      - !!python/tuple
+        - 2944
+        - 1856
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1856
+    - - empty
+      - 0
+      - !!python/tuple
+        - 0
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 64
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 128
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 192
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 256
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 320
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 384
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 448
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 512
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 576
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 640
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 704
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 768
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 832
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 896
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 960
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1024
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1088
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1152
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1216
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1280
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1344
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1408
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1472
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1536
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1600
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1664
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1728
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1792
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1856
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1920
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 1984
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2048
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2112
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2176
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2240
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2304
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2368
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2432
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2496
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2560
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2624
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2688
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2752
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2816
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2880
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1920
+    - - empty
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1920
+  - - - conveyor
+      - 3
       - !!python/tuple
         - 0
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 64
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 128
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 192
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 256
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 320
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 384
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 448
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 512
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 576
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 640
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 704
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 768
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 832
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 896
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 960
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1024
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1088
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1152
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1216
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1280
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1344
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1408
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1472
         - 0
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1536
         - 0
@@ -7223,6 +7763,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 0
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 0
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 64
       - []
@@ -7294,684 +7848,707 @@
       - 0
       - !!python/tuple
         - 640
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
         - 64
       - []
       - null
     - - smelter-base
-      - 0
+      - 2
       - !!python/tuple
-        - 704
+        - 832
         - 64
       - - - ore-iron
-          - 0
-        - - ore-coal
-          - 0
-      - - steel
-        - 81
-        - - !!python/tuple
-            - ore-iron
-            - 3
-          - !!python/tuple
-            - ore-coal
-            - 2
-    - - air
-      - 0
-      - !!python/tuple
-        - 768
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 832
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 896
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 960
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 1024
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 1088
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 1152
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1344
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1408
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1536
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2176
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2240
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2304
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 2368
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2432
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2496
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2560
-        - 64
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2624
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 64
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 448
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 512
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 576
-        - 128
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 640
-        - 128
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 704
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 768
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 832
-        - 128
-      - []
-      - null
-    - - connector-output
-      - 0
-      - !!python/tuple
-        - 896
-        - 128
-      - []
-      - null
-    - - connector-output
-      - 0
-      - !!python/tuple
-        - 960
-        - 128
-      - []
-      - null
-    - - connector-output
-      - 0
-      - !!python/tuple
-        - 1024
-        - 128
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 1088
-        - 128
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 1152
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1344
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1408
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1536
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2176
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2240
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2304
-        - 128
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 2368
-        - 128
-      - []
-      - null
-    - - connector-output
-      - 0
-      - !!python/tuple
-        - 2432
-        - 128
-      - []
-      - null
-    - - connector-output
-      - 0
-      - !!python/tuple
-        - 2496
-        - 128
-      - []
-      - null
-    - - connector-output
-      - 0
-      - !!python/tuple
-        - 2560
-        - 128
-      - []
-      - null
-    - - connector-output
-      - 0
-      - !!python/tuple
-        - 2624
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 128
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 448
-        - 192
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 512
-        - 192
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 576
-        - 192
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 640
-        - 192
-      - - - ore-iron
-          - 0
+          - 30
       - - plate-iron
         - 64
         - - !!python/tuple
             - ore-iron
             - 1
-    - - smelter-base
+    - - connector-input
+      - 3
+      - !!python/tuple
+        - 896
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1088
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1152
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1216
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1344
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 64
+      - []
+      - null
+    - - conveyor
+      - 0
+      - !!python/tuple
+        - 1536
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 64
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 128
+      - []
+      - null
+    - - connector-output
+      - 0
+      - !!python/tuple
+        - 768
+        - 128
+      - []
+      - null
+    - - connector-output
+      - 2
+      - !!python/tuple
+        - 832
+        - 128
+      - []
+      - null
+    - - connector-output
+      - 0
+      - !!python/tuple
+        - 896
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1088
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1152
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1216
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1344
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 128
+      - []
+      - null
+    - - conveyor
+      - 0
+      - !!python/tuple
+        - 1536
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 128
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 192
+      - []
+      - null
+    - - air
       - 0
       - !!python/tuple
         - 704
         - 192
       - []
       - null
-    - - air
+    - - assembler
       - 0
       - !!python/tuple
         - 768
         - 192
-      - []
-      - null
-    - - air
-      - 0
+      - - - plate-iron
+          - 1
+      - - road-iron
+        - 42
+        - - !!python/tuple
+            - plate-iron
+            - 1
+    - - connector-input
+      - 3
       - !!python/tuple
         - 832
         - 192
@@ -7984,14 +8561,14 @@
         - 192
       - []
       - null
-    - - drill-electric
+    - - air
       - 0
       - !!python/tuple
         - 960
         - 192
       - []
       - null
-    - - drill-electric
+    - - air
       - 0
       - !!python/tuple
         - 1024
@@ -7999,21 +8576,21 @@
       - []
       - null
     - - drill-electric
-      - 0
+      - 1
       - !!python/tuple
         - 1088
         - 192
       - []
       - null
-    - - conveyor
-      - 2
+    - - connector-output
+      - 1
       - !!python/tuple
         - 1152
         - 192
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 2
       - !!python/tuple
         - 1216
         - 192
@@ -8047,7 +8624,7 @@
         - 192
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1536
@@ -8138,35 +8715,35 @@
         - 192
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2368
         - 192
       - []
       - null
-    - - drill-electric
+    - - air
       - 0
       - !!python/tuple
         - 2432
         - 192
       - []
       - null
-    - - drill-electric
+    - - air
       - 0
       - !!python/tuple
         - 2496
         - 192
       - []
       - null
-    - - drill-electric
+    - - air
       - 0
       - !!python/tuple
         - 2560
         - 192
       - []
       - null
-    - - drill-electric
+    - - air
       - 0
       - !!python/tuple
         - 2624
@@ -8198,6 +8775,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 192
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 192
       - []
       - null
@@ -8264,14 +8855,14 @@
         - 256
       - []
       - null
-    - - smelter-base
+    - - air
       - 0
       - !!python/tuple
         - 576
         - 256
       - []
       - null
-    - - smelter-base
+    - - air
       - 0
       - !!python/tuple
         - 640
@@ -8292,29 +8883,29 @@
         - 256
       - []
       - null
-    - - drill-electric
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 832
         - 256
       - []
       - null
-    - - drill-electric
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 896
         - 256
       - []
       - null
-    - - drill-electric
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 960
         - 256
       - []
       - null
-    - - drill-electric
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 1024
         - 256
@@ -8327,15 +8918,15 @@
         - 256
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 1152
         - 256
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 2
       - !!python/tuple
         - 1216
         - 256
@@ -8369,7 +8960,7 @@
         - 256
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1536
@@ -8439,339 +9030,353 @@
         - 256
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2176
         - 256
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 2240
-        - 256
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 2304
-        - 256
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 2368
-        - 256
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 2432
-        - 256
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 2496
-        - 256
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 2560
-        - 256
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 2624
-        - 256
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 256
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 256
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 256
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 256
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 448
-        - 320
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 512
-        - 320
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 576
-        - 320
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 640
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 704
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 768
-        - 320
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 832
-        - 320
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 896
-        - 320
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 960
-        - 320
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 1024
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1088
-        - 320
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 1152
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1344
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1408
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1536
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 320
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 320
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 2176
-        - 320
       - []
       - null
     - - air
       - 0
       - !!python/tuple
         - 2240
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 256
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 896
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1088
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1152
+        - 320
+      - []
+      - null
+    - - conveyor
+      - 2
+      - !!python/tuple
+        - 1216
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 320
+      - []
+      - null
+    - - conveyor
+      - 1
+      - !!python/tuple
+        - 1344
+        - 320
+      - []
+      - null
+    - - conveyor
+      - 1
+      - !!python/tuple
+        - 1408
+        - 320
+      - []
+      - null
+    - - conveyor
+      - 1
+      - !!python/tuple
+        - 1472
+        - 320
+      - []
+      - null
+    - - conveyor
+      - 0
+      - !!python/tuple
+        - 1536
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
         - 320
       - []
       - null
@@ -8782,36 +9387,36 @@
         - 320
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2368
         - 320
       - []
       - null
-    - - connector-output
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2432
         - 320
       - []
       - null
-    - - connector-output
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2496
         - 320
       - []
       - null
-    - - connector-output
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2560
         - 320
       - []
       - null
-    - - connector-output
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2624
         - 320
@@ -8842,6 +9447,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 320
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 320
       - []
       - null
@@ -8894,994 +9513,1041 @@
         - 384
       - []
       - null
-    - - smelter-base
+    - - air
       - 0
       - !!python/tuple
         - 448
         - 384
       - []
       - null
-    - - smelter-base
+    - - air
       - 0
       - !!python/tuple
         - 512
         - 384
       - []
       - null
-    - - smelter-base
+    - - air
       - 0
       - !!python/tuple
         - 576
         - 384
       - []
       - null
-    - - smelter-base
+    - - air
       - 0
       - !!python/tuple
         - 640
         - 384
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 704
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 768
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 832
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 896
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 960
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1024
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1088
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1152
         - 384
       - []
       - null
     - - conveyor
-      - 3
+      - 2
       - !!python/tuple
         - 1216
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1280
         - 384
       - []
       - null
     - - conveyor
-      - 3
+      - 0
       - !!python/tuple
         - 1344
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1408
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1472
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - connector-output
+      - 0
       - !!python/tuple
         - 1536
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1600
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1664
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1728
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1792
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1856
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1920
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1984
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 2048
         - 384
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 2112
         - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 384
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 896
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 448
+      - []
+      - null
+    - - drill-electric
+      - 1
+      - !!python/tuple
+        - 1088
+        - 448
+      - []
+      - null
+    - - connector-output
+      - 1
+      - !!python/tuple
+        - 1152
+        - 448
+      - []
+      - null
+    - - conveyor
+      - 1
+      - !!python/tuple
+        - 1216
+        - 448
+      - []
+      - null
+    - - conveyor
+      - 1
+      - !!python/tuple
+        - 1280
+        - 448
       - []
       - null
     - - spliter
-      - 3
-      - !!python/tuple
-        - 2176
-        - 384
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2240
-        - 384
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2304
-        - 384
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2368
-        - 384
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2432
-        - 384
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2496
-        - 384
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2560
-        - 384
-      - []
-      - null
-    - - conveyor
-      - 3
-      - !!python/tuple
-        - 2624
-        - 384
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 384
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 384
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 384
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 384
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 448
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 448
-        - 448
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 512
-        - 448
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 576
-        - 448
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 640
-        - 448
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 704
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 768
-        - 448
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 832
-        - 448
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 896
-        - 448
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 960
-        - 448
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 1024
-        - 448
-      - []
-      - null
-    - - drill-electric
-      - 2
-      - !!python/tuple
-        - 1088
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1152
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 448
-      - []
-      - null
-    - - air
-      - 0
+      - 1
       - !!python/tuple
         - 1344
         - 448
       - []
       - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1408
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1536
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 448
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 2176
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2240
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2304
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2368
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2432
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2496
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2560
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2624
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 448
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 448
-        - 512
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 512
-        - 512
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 576
-        - 512
-      - []
-      - null
-    - - smelter-base
-      - 0
-      - !!python/tuple
-        - 640
-        - 512
-      - []
-      - null
     - - conveyor
       - 1
       - !!python/tuple
-        - 704
-        - 512
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 768
-        - 512
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 832
-        - 512
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 896
-        - 512
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 960
-        - 512
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 1024
-        - 512
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 1088
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1152
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1344
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
         - 1408
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 512
+        - 448
       - []
       - null
     - - connector-input
-      - 0
+      - 1
       - !!python/tuple
-        - 1536
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 512
-      - []
-      - null
-    - - conveyor
-      - 2
-      - !!python/tuple
-        - 2176
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2240
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2304
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2368
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2432
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2496
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2560
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2624
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 512
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
+        - 1472
         - 448
-        - 576
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 512
-        - 576
       - []
       - null
     - - smelter-base
       - 0
       - !!python/tuple
+        - 1536
+        - 448
+      - - - ore-copper
+          - 76
+      - - plate-copper
+        - 64
+        - - !!python/tuple
+            - ore-copper
+            - 1
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 448
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 896
+        - 512
+      - []
+      - null
+    - - drill-electric
+      - 2
+      - !!python/tuple
+        - 960
+        - 512
+      - []
+      - null
+    - - drill-electric
+      - 1
+      - !!python/tuple
+        - 1024
+        - 512
+      - []
+      - null
+    - - connector-output
+      - 1
+      - !!python/tuple
+        - 1088
+        - 512
+      - []
+      - null
+    - - conveyor
+      - 0
+      - !!python/tuple
+        - 1152
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1216
+        - 512
+      - []
+      - null
+    - - conveyor
+      - 0
+      - !!python/tuple
+        - 1280
+        - 512
+      - []
+      - null
+    - - conveyor
+      - 2
+      - !!python/tuple
+        - 1344
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1536
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 512
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 576
         - 576
       - []
       - null
-    - - smelter-base
+    - - air
       - 0
       - !!python/tuple
         - 640
@@ -9902,42 +10568,42 @@
         - 576
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
         - 576
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 896
         - 576
       - []
       - null
-    - - conveyor
-      - 3
+    - - connector-output
+      - 2
       - !!python/tuple
         - 960
         - 576
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1024
         - 576
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1088
         - 576
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1152
@@ -9951,57 +10617,57 @@
         - 576
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1280
         - 576
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1344
         - 576
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 1408
         - 576
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1472
         - 576
       - []
       - null
-    - - spliter
+    - - air
       - 0
       - !!python/tuple
         - 1536
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 1600
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 1664
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 1728
         - 576
@@ -10049,8 +10715,8 @@
         - 576
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2176
         - 576
@@ -10077,43 +10743,43 @@
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2432
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2496
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2560
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2624
         - 576
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2688
         - 576
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 576
@@ -10130,6 +10796,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 576
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 576
       - []
       - null
@@ -10224,7 +10904,7 @@
         - 640
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
@@ -10238,28 +10918,28 @@
         - 640
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 1
       - !!python/tuple
         - 960
         - 640
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 1
       - !!python/tuple
         - 1024
         - 640
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 1
       - !!python/tuple
         - 1088
         - 640
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1152
@@ -10287,8 +10967,8 @@
         - 640
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 1408
         - 640
@@ -10301,7 +10981,7 @@
         - 640
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 1536
@@ -10371,8 +11051,8 @@
         - 640
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2176
         - 640
@@ -10399,7 +11079,7 @@
         - 640
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2432
@@ -10413,7 +11093,7 @@
         - 640
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2560
@@ -10434,8 +11114,8 @@
         - 640
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 640
@@ -10452,6 +11132,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 640
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 640
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 640
       - []
       - null
@@ -10546,7 +11240,7 @@
         - 704
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
@@ -10567,7 +11261,7 @@
         - 704
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1024
@@ -10609,8 +11303,8 @@
         - 704
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 1408
         - 704
@@ -10623,7 +11317,7 @@
         - 704
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 1536
@@ -10693,8 +11387,8 @@
         - 704
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2176
         - 704
@@ -10721,7 +11415,7 @@
         - 704
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2432
@@ -10735,7 +11429,7 @@
         - 704
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2560
@@ -10756,8 +11450,8 @@
         - 704
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 704
@@ -10774,6 +11468,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 704
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 704
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 704
       - []
       - null
@@ -10868,7 +11576,7 @@
         - 768
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
@@ -10889,7 +11597,7 @@
         - 768
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1024
@@ -10945,7 +11653,7 @@
         - 768
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 1536
@@ -11001,63 +11709,63 @@
         - 768
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2048
         - 768
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 2112
         - 768
       - []
       - null
-    - - spliter
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2176
         - 768
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2240
         - 768
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2304
         - 768
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2368
         - 768
       - []
       - null
-    - - spliter
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2432
         - 768
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2496
         - 768
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2560
@@ -11078,8 +11786,8 @@
         - 768
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 768
@@ -11096,6 +11804,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 768
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 768
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 768
       - []
       - null
@@ -11190,7 +11912,7 @@
         - 832
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
@@ -11211,7 +11933,7 @@
         - 832
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1024
@@ -11323,8 +12045,8 @@
         - 832
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2048
         - 832
@@ -11337,8 +12059,8 @@
         - 832
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2176
         - 832
@@ -11351,7 +12073,7 @@
         - 832
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2304
@@ -11365,8 +12087,8 @@
         - 832
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2432
         - 832
@@ -11379,45 +12101,59 @@
         - 832
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2560
         - 832
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2624
         - 832
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 2688
         - 832
       - []
       - null
-    - - spliter
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 832
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2816
         - 832
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2880
+        - 832
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 832
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 832
       - []
       - null
@@ -11512,7 +12248,7 @@
         - 896
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
@@ -11520,21 +12256,21 @@
       - []
       - null
     - - conveyor
-      - 3
+      - 1
       - !!python/tuple
         - 896
         - 896
       - []
       - null
     - - conveyor
-      - 3
+      - 1
       - !!python/tuple
         - 960
         - 896
       - []
       - null
     - - conveyor
-      - 3
+      - 0
       - !!python/tuple
         - 1024
         - 896
@@ -11554,8 +12290,8 @@
         - 896
       - []
       - null
-    - - air
-      - 0
+    - - conveyor
+      - 3
       - !!python/tuple
         - 1216
         - 896
@@ -11645,35 +12381,35 @@
         - 896
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2048
         - 896
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2112
         - 896
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2176
         - 896
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2240
         - 896
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2304
@@ -11687,29 +12423,29 @@
         - 896
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2432
         - 896
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2496
         - 896
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 2560
         - 896
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2624
         - 896
@@ -11722,8 +12458,8 @@
         - 896
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 896
@@ -11736,10 +12472,24 @@
         - 896
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2880
+        - 896
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 896
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 896
       - []
       - null
@@ -11834,14 +12584,14 @@
         - 960
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
         - 960
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 896
@@ -11869,14 +12619,14 @@
         - 960
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 1152
         - 960
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1216
@@ -12030,38 +12780,52 @@
         - 960
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2624
         - 960
       - []
       - null
-    - - conveyor
-      - 1
+    - - air
+      - 0
       - !!python/tuple
         - 2688
         - 960
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 960
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 2816
         - 960
       - []
       - null
-    - - conveyor
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 2880
+        - 960
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 960
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 960
       - []
       - null
@@ -12156,14 +12920,14 @@
         - 1024
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
         - 1024
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 896
@@ -12191,14 +12955,14 @@
         - 1024
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 1152
         - 1024
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 1216
@@ -12366,8 +13130,8 @@
         - 1024
       - []
       - null
-    - - conveyor
-      - 2
+    - - air
+      - 0
       - !!python/tuple
         - 2752
         - 1024
@@ -12384,6 +13148,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 1024
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1024
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 1024
       - []
       - null
@@ -12478,988 +13256,1030 @@
         - 1088
       - []
       - null
-    - - conveyor
+    - - air
       - 0
       - !!python/tuple
         - 832
         - 1088
       - []
       - null
-    - - air
+    - - conveyor
       - 0
       - !!python/tuple
         - 896
         - 1088
       - []
       - null
-    - - air
-      - 0
+    - - connector-output
+      - 3
       - !!python/tuple
         - 960
         - 1088
       - []
       - null
     - - drill-electric
-      - 2
+      - 3
       - !!python/tuple
         - 1024
         - 1088
       - []
       - null
     - - drill-electric
-      - 2
-      - !!python/tuple
-        - 1088
-        - 1088
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 1152
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1344
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1408
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1536
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2176
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2240
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2304
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2368
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2432
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2496
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2560
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2624
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 1088
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 448
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 512
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 576
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 640
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 704
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 768
-        - 1152
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 832
-        - 1152
-      - []
-      - null
-    - - connector-output
-      - 3
-      - !!python/tuple
-        - 896
-        - 1152
-      - []
-      - null
-    - - drill-electric
-      - 3
-      - !!python/tuple
-        - 960
-        - 1152
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 1024
-        - 1152
-      - []
-      - null
-    - - connector-output
-      - 2
-      - !!python/tuple
-        - 1088
-        - 1152
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 1152
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1344
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1408
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1536
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2176
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2240
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2304
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2368
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2432
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2496
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2560
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2624
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 1152
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 448
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 512
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 576
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 640
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 704
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 768
-        - 1216
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 832
-        - 1216
-      - []
-      - null
-    - - connector-output
-      - 3
-      - !!python/tuple
-        - 896
-        - 1216
-      - []
-      - null
-    - - drill-electric
-      - 3
-      - !!python/tuple
-        - 960
-        - 1216
-      - []
-      - null
-    - - conveyor
-      - 1
-      - !!python/tuple
-        - 1024
-        - 1216
-      - []
-      - null
-    - - conveyor
       - 1
       - !!python/tuple
         - 1088
-        - 1216
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 1152
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1216
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1280
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1344
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1408
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1472
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1536
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1600
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1664
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1728
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1792
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1856
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1920
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 1984
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2048
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2112
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2176
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2240
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2304
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2368
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2432
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2496
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2560
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2624
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2688
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2752
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2816
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 2880
-        - 1216
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 0
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 64
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 128
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 192
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 256
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 320
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 384
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 448
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 512
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 576
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 640
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 704
-        - 1280
-      - []
-      - null
-    - - air
-      - 0
-      - !!python/tuple
-        - 768
-        - 1280
-      - []
-      - null
-    - - conveyor
-      - 0
-      - !!python/tuple
-        - 832
-        - 1280
+        - 1088
       - []
       - null
     - - connector-output
-      - 3
+      - 1
+      - !!python/tuple
+        - 1152
+        - 1088
+      - []
+      - null
+    - - conveyor
+      - 0
+      - !!python/tuple
+        - 1216
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1344
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1536
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1088
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 896
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1088
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1152
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1216
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1344
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1536
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1152
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 896
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1088
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1152
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1216
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1344
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1536
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1216
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
       - !!python/tuple
         - 896
         - 1280
       - []
       - null
-    - - drill-electric
-      - 3
+    - - air
+      - 0
       - !!python/tuple
         - 960
         - 1280
@@ -13672,6 +14492,20 @@
       - 0
       - !!python/tuple
         - 2880
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1280
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
         - 1280
       - []
       - null
@@ -14000,6 +14834,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1344
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1344
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1408
       - []
@@ -14322,6 +15170,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1408
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1408
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1472
       - []
@@ -14644,6 +15506,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1472
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1472
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1536
       - []
@@ -14966,6 +15842,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1536
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1536
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1600
       - []
@@ -15288,6 +16178,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1600
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1600
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1664
       - []
@@ -15610,6 +16514,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1664
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1664
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1728
       - []
@@ -15932,6 +16850,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1728
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1728
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1792
       - []
@@ -16254,6 +17186,20 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1792
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1792
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1856
       - []
@@ -16571,6 +17517,356 @@
       - !!python/tuple
         - 2880
         - 1856
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1856
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1856
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 896
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1088
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1152
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1216
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1344
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1536
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1920
+      - []
+      - null
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1920
       - []
       - null
   - - - air
@@ -16806,6 +18102,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 0
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 0
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 64
     - - air
@@ -17036,6 +18342,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 64
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 64
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 128
     - - air
@@ -17266,6 +18582,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 128
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 128
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 192
     - - air
@@ -17496,6 +18822,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 192
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 192
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 256
     - - air
@@ -17726,6 +19062,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 256
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 256
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 320
     - - air
@@ -17956,6 +19302,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 320
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 320
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 384
     - - air
@@ -18186,6 +19542,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 384
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 384
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 448
     - - air
@@ -18416,6 +19782,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 448
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 448
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 512
     - - air
@@ -18646,6 +20022,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 512
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 512
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 576
     - - air
@@ -18876,6 +20262,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 576
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 576
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 640
     - - air
@@ -19106,6 +20502,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 640
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 640
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 704
     - - air
@@ -19336,6 +20742,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 704
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 704
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 768
     - - air
@@ -19566,6 +20982,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 768
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 768
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 832
     - - air
@@ -19796,6 +21222,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 832
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 832
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 896
     - - air
@@ -20026,6 +21462,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 896
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 896
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 960
     - - air
@@ -20256,6 +21702,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 960
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 960
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1024
     - - air
@@ -20486,6 +21942,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1024
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1024
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1088
     - - air
@@ -20716,6 +22182,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1088
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1088
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1152
     - - air
@@ -20946,6 +22422,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1152
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1152
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1216
     - - air
@@ -21176,6 +22662,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1216
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1216
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1280
     - - air
@@ -21406,6 +22902,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1280
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1280
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1344
     - - air
@@ -21636,6 +23142,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1344
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1344
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1408
     - - air
@@ -21866,6 +23382,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1408
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1408
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1472
     - - air
@@ -22096,6 +23622,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1472
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1472
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1536
     - - air
@@ -22326,6 +23862,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1536
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1536
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1600
     - - air
@@ -22556,6 +24102,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1600
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1600
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1664
     - - air
@@ -22786,6 +24342,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1664
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1664
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1728
     - - air
@@ -23016,6 +24582,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1728
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1728
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1792
     - - air
@@ -23246,6 +24822,16 @@
     - - air
       - 0
       - !!python/tuple
+        - 2944
+        - 1792
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1792
+    - - air
+      - 0
+      - !!python/tuple
         - 0
         - 1856
     - - air
@@ -23473,12 +25059,262 @@
       - !!python/tuple
         - 2880
         - 1856
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1856
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1856
+    - - air
+      - 0
+      - !!python/tuple
+        - 0
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 64
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 128
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 192
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 256
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 320
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 384
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 448
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 512
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 576
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 640
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 704
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 768
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 832
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 896
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 960
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1024
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1088
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1152
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1216
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1280
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1344
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1408
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1472
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1536
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1600
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1664
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1728
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1792
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1856
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1920
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 1984
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2048
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2112
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2176
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2240
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2304
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2368
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2432
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2496
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2560
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2624
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2688
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2752
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2816
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2880
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 2944
+        - 1920
+    - - air
+      - 0
+      - !!python/tuple
+        - 3008
+        - 1920
 - - - !!python/tuple
-      - 2074
-      - 418
+      - 838
+      - 262
     - !!python/tuple
-      - 1434.0
-      - 58.0
+      - 198.0
+      - -98.0
     - []
 - - - - 0
       - 0
@@ -23526,50 +25362,6 @@
       - 0
       - 0
       - 0
-    - - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
       - 0
       - 0
     - - 0
@@ -23586,6 +25378,54 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
       - 1
       - 0
       - 0
@@ -23613,6 +25453,8 @@
       - 0
       - 1
       - 1
+      - 0
+      - 0
       - 0
       - 0
       - 0
@@ -23664,6 +25506,8 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
     - - 0
       - 0
       - 0
@@ -23710,6 +25554,8 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
     - - 0
       - 0
       - 0
@@ -23756,6 +25602,8 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
     - - 0
       - 0
       - 0
@@ -23802,6 +25650,8 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
     - - 0
       - 0
       - 0
@@ -23848,6 +25698,8 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
     - - 0
       - 0
       - 0
@@ -23894,99 +25746,11 @@
       - 0
       - 0
       - 0
-    - - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
       - 0
       - 0
     - - 0
       - 0
       - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - - 0
       - 0
       - 0
       - 0
@@ -24078,99 +25842,11 @@
       - 0
       - 0
       - 0
-    - - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
       - 0
       - 0
     - - 0
       - 0
       - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - - 0
       - 0
       - 0
       - 0
@@ -24232,8 +25908,6 @@
       - 0
       - 0
       - 0
-      - 3
-      - 3
       - 0
       - 0
       - 0
@@ -24252,7 +25926,155 @@
       - 0
       - 0
       - 0
-      - 2
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0
@@ -24308,6 +26130,56 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 3
+      - 3
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 2
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
     - - 0
       - 0
       - 0
@@ -24354,50 +26226,6 @@
       - 0
       - 0
       - 0
-    - - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 3
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 2
-      - 2
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
       - 0
       - 0
     - - 0
@@ -24435,6 +26263,54 @@
       - 0
       - 0
       - 0
+      - 2
+      - 2
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 3
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 2
       - 0
@@ -24446,99 +26322,11 @@
       - 0
       - 0
       - 0
-    - - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
       - 0
       - 0
     - - 0
       - 0
       - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - - 0
       - 0
       - 0
       - 0
@@ -24630,99 +26418,11 @@
       - 0
       - 0
       - 0
-    - - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
       - 0
       - 0
     - - 0
       - 0
       - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - - 0
       - 0
       - 0
       - 0
@@ -24814,7 +26514,251 @@
       - 0
       - 0
       - 0
+      - 0
+      - 0
     - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0

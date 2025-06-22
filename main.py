@@ -22,7 +22,7 @@ from player import player, camera
 from user_interface import ui_elements, base_hud_init, clear_pointers, gui_images
 
 stop = False
-version = "Release 1.2: optimization update"
+version = "Release 1.2"
 
 #time calc
 start_dt = 0
@@ -79,9 +79,9 @@ def rendering(virtual_screen, screen):
         #data
         virtual_screen.blit(debug_background_surface, (0, 0))
 
-        if fps >= 59: virtual_screen.blit(debug_font.render(f"fps: {fps}", True, green), (10, 10))
-        if 50 < fps < 59: virtual_screen.blit(debug_font.render(f"fps: {fps}", True, yellow), (10, 10))
-        elif fps <= 50: virtual_screen.blit(debug_font.render(f"fps: {fps}", True, red), (10, 10))
+        if fps >= 59: virtual_screen.blit(debug_font.render(f"fps: {int(fps)}, k: {delta_time_k(fps)}", True, green), (10, 10))
+        if 50 < fps < 59: virtual_screen.blit(debug_font.render(f"fps: {int(fps)}, k: {delta_time_k(fps)}", True, yellow), (10, 10))
+        elif fps <= 50: virtual_screen.blit(debug_font.render(f"fps: {int(fps)}, k: {delta_time_k(fps)}", True, red), (10, 10))
         virtual_screen.blit(debug_font.render(f"items: {len(items)}, map_cells: {len(ground_map_layer + build_map_layer + auxiliary_map_layer)}, draw_queue: {len(draw_queue + ui_elements + opened_windows)}", True, black), (10, 30))
         virtual_screen.blit(debug_font.render(f"delta_time: all: {delta_time}",True, black), (10, 50))
 
@@ -112,21 +112,22 @@ def rendering(virtual_screen, screen):
     render_delta_time = end_render_dt - start_render_dt
 
 def update(keys):
+
     global start_update_dt, end_update_dt, update_delta_time
     start_update_dt = time.time()
 
-    player.update()
+    k = delta_time_k(fps)
+
+    player.update(keys, k)
     camera.center_camera(player)
     for ui_element in ui_elements:
         ui_element.update()
-    for cell in ground_map_layer:
-        cell.update(player, camera)
+
     for cell in build_map_layer:
-        cell.update(player, camera)
-    #for cell in auxiliary_map_layer:
-    #    pass
+        cell.update(player, camera, k)
+
     for item in items:
-        item.update()
+        item.update(k)
     for window in opened_windows:
         window.update()
 
@@ -165,7 +166,6 @@ while not stop: # main
     update(keys)
 
     ###
-    #print(get_cell(get_selected_cell().rect.x, get_selected_cell().rect.y, 1).items)
     ###
 
     rendering(virtual_screen_surface, scr)

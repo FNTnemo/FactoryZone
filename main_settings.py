@@ -1,4 +1,3 @@
-import pygame.color
 from pygame import Surface
 
 WINDOW_WIDTH = 1280
@@ -12,7 +11,20 @@ cell_size = 64
 chunk_size = 4
 chunk_size_global = chunk_size * cell_size
 
+# constants
 tps = 60
+
+def sec2tick(seconds):
+    return seconds * tps
+
+drill_speed = sec2tick(2)
+player_velocity = 6
+conveyor_speed = 2
+
+def delta_time_k(fps):
+    if fps != 0: return tps / fps
+    else: return 0
+
 
 #colors
 yellow = (255, 255, 0)
@@ -33,7 +45,7 @@ debug_background_surface.fill(gray)
 debug_background_surface.set_alpha(170)
 
 # conveyors
-conveyor_speed = 2
+
 
 #buildings
 max_item_stack = 512

@@ -1,6 +1,6 @@
 from chunk import Chunk
 from main_settings import cell_size, cellular_interaction, storage_item_stack, max_item_stack, window_k, chunk_size, \
-    chunk_size_global, input_surface
+    chunk_size_global, input_surface, drill_speed
 
 import pygame
 
@@ -90,7 +90,7 @@ cell_images = {"empty": [pygame.image.load("images/cells/empty_cell.png").conver
                "copper-ore": [pygame.image.load("images/cells/ores/copper-ore.png").convert_alpha()],
                "coal-ore": [pygame.image.load("images/cells/ores/coal-ore.png").convert_alpha()],
                "green-pointer": [pygame.image.load("images/hud/auxiliary/green-pointer.png").convert_alpha(),
-                                 pygame.transform.rotate(pygame.image.load("images/hud/auxiliary/green-pointer.png"), -90),
+                                 pygame.transform.rotate(pygame.image.load("images/hud/auxiliary/green-pointer.png").convert_alpha(), -90),
                                  pygame.transform.flip(pygame.image.load("images/hud/auxiliary/green-pointer.png").convert_alpha(), False, True),
                                  pygame.transform.rotate(pygame.image.load("images/hud/auxiliary/green-pointer.png").convert_alpha(), 90)],
                "orange-pointer": [pygame.image.load("images/hud/auxiliary/orange-pointer.png").convert_alpha(),
@@ -186,14 +186,14 @@ class Cell(pygame.sprite.Sprite):
 
         # drill
         if self.typec == "drill":
-            self.drill_delay_start = 45
+            self.drill_delay_start = drill_speed
             self.drill_delay = self.drill_delay_start
 
         # connector
         self.connected_cell = None
         #animation
 
-    def update(self, player, camera):
+    def update(self, player, camera, k):
         from windows import opened_windows
         mouse_keys = pygame.mouse.get_pressed()
         keyboard_keys = pygame.key.get_pressed()
@@ -202,13 +202,13 @@ class Cell(pygame.sprite.Sprite):
             if not mouse_keys[0]:
                 player.build_flag = True
             self.check_select(pygame.Rect(self.rect.x - camera.offset.x, self.rect.y - camera.offset.y, cell_size, cell_size))
-            if self.can_build and self.selected:
-                #build
+            if get_cell(self.rect.x, self.rect.y, 1).can_build and self.selected:
+                #builds
                 if player.selected_structure != "empty":
                     if player.build_delay >= 0:
                         player.build_delay -= 1
                     cell_under = None
-                    if mouse_keys[0] and self.layer == 1 and player.build_delay <= 0 and player.build_flag:
+                    if mouse_keys[0] and player.build_delay <= 0 and player.build_flag:
                         self.build(player.selected_structure.type, player.selected_structure.direction)
                         if get_cell(self.rect.x, self.rect.y, 2) is not None:
                             self.cell_exist = True
@@ -291,7 +291,7 @@ class Cell(pygame.sprite.Sprite):
                         self.craft(self.selected_recipe[0])
                         self.crafting_delay = self.crafting_delay_start
                     else:
-                        self.crafting_delay -= 1
+                        self.crafting_delay -= 1 * k
                         self.is_process_of_craft = True
                 else: self.is_process_of_craft = False
             else: self.is_process_of_craft = False

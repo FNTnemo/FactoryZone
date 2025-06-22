@@ -3,7 +3,7 @@ from random import random
 import pygame.sprite
 
 from map import cell_size, get_cell
-from main_settings import conveyor_speed, cellular_interaction
+from main_settings import conveyor_speed, cellular_interaction, sec2tick
 
 items = []
 #type, image
@@ -20,12 +20,12 @@ item_types = {"ore-iron": ["ore-iron", pygame.image.load("images/items/ores/iron
 # (item, count)
 # recipes["building"][recipe id][0] <- 0 - type str; 1 - crafting time; 2 - ingredients
 all_recipes = {
-    "smelter": (["plate-iron", 64, [("ore-iron", 1)]],
-                ["plate-copper", 64, [("ore-copper", 1)]],
-                ["steel", 81, [("ore-iron", 3), ("ore-coal", 2)]]),
-    "assembler": (["road-copper", 64, [("plate-copper", 1)]],
-                  ["road-iron", 42, [("plate-iron", 1)]],
-                  ["chip", 256, [("plate-iron", 1), ("plate-copper", 1), ("road-copper", 3)]])
+    "smelter": (["plate-iron", sec2tick(1), [("ore-iron", 1)]],
+                ["plate-copper", sec2tick(1), [("ore-copper", 1)]],
+                ["steel", sec2tick(2), [("ore-iron", 3), ("ore-coal", 2)]]),
+    "assembler": (["road-copper", sec2tick(0.5), [("plate-copper", 1)]],
+                  ["road-iron", sec2tick(0.5), [("plate-iron", 1)]],
+                  ["chip", sec2tick(6), [("plate-iron", 1), ("plate-copper", 1), ("road-copper", 3)]])
            }
 
 def get_recipe(building, recipei):
@@ -48,8 +48,8 @@ class Item(pygame.sprite.Sprite):
 
         self.owner_cell = get_cell(self.rect.x, self.rect.y, 1)
 
-    def update(self):
-        self.movement()
+    def update(self, k):
+        self.movement(k)
         cell = get_cell(self.rect.center[0], self.rect.center[1], 1)
 
         if self.owner_cell != cell:
@@ -62,7 +62,7 @@ class Item(pygame.sprite.Sprite):
 
 
 
-    def movement(self):
+    def movement(self, k):
         self.on_conveyor, self.conveyor = self.on_conveyor_check()
         if self.on_conveyor:
             self.direction = self.conveyor.conveyor_direction
@@ -71,22 +71,22 @@ class Item(pygame.sprite.Sprite):
 
             if len(self.conveyor_queue) != 0:
                 if self.conveyor_queue[0].direction == 0:
-                    self.rect.y -= conveyor_speed
+                    self.rect.y -= conveyor_speed * k
                     if self.rect.midbottom[1] == self.conveyor_queue[0].rect.midtop[1]:
                         self.conveyor_queue.remove(self.conveyor_queue[0])
 
                 elif self.conveyor_queue[0].direction == 1:
-                    self.rect.x += conveyor_speed
+                    self.rect.x += conveyor_speed * k
                     if self.rect.midleft[0] == self.conveyor_queue[0].rect.midright[0]:
                         self.conveyor_queue.remove(self.conveyor_queue[0])
 
                 elif self.conveyor_queue[0].direction == 2:
-                    self.rect.y += conveyor_speed
+                    self.rect.y += conveyor_speed * k
                     if self.rect.midtop[1] == self.conveyor_queue[0].rect.midbottom[1]:
                         self.conveyor_queue.remove(self.conveyor_queue[0])
 
                 elif self.conveyor_queue[0].direction == 3:
-                    self.rect.x -= conveyor_speed
+                    self.rect.x -= conveyor_speed * k
                     if self.rect.midright[0] == self.conveyor_queue[0].rect.midleft[0]:
                         self.conveyor_queue.remove(self.conveyor_queue[0])
         else: self.despawn()
